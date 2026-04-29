@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 Mi Biblioteca Personal</title>
+    <title>📚 Mi Biblioteca Wattpad</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap');
 
@@ -14,223 +14,239 @@
         }
 
         :root {
-            --primary: #ff6b35;
-            --primary-dark: #e55a2b;
-            --secondary: #6c5ce7;
-            --accent: #fd79a8;
-            --dark: #0a0a0a;
-            --dark2: #141414;
-            --dark3: #1e1e1e;
-            --dark4: #2a2a2a;
-            --text: #e0e0e0;
-            --text-muted: #888;
-            --gold: #ffd700;
-            --success: #00b894;
+            --primary: #9b59b6;
+            --primary-light: #be7dd8;
+            --primary-dark: #7d3c98;
+            --primary-deeper: #6c3483;
+            --secondary: #e056a0;
+            --accent: #f39c12;
+            --bg-dark: #0d0b14;
+            --bg-card: #161225;
+            --bg-card2: #1e1833;
+            --bg-card3: #2a2145;
+            --bg-input: #231d38;
+            --text: #e8e0f0;
+            --text-muted: #9585ad;
+            --gold: #f1c40f;
+            --success: #2ecc71;
             --danger: #e74c3c;
+            --info: #3498db;
+            --wattpad: #ff6122;
+            --gradient1: linear-gradient(135deg, #9b59b6, #e056a0);
+            --gradient2: linear-gradient(135deg, #6c3483, #9b59b6);
+            --gradient3: linear-gradient(135deg, #e056a0, #f39c12);
+            --shadow-purple: 0 4px 20px rgba(155, 89, 182, 0.3);
+            --shadow-pink: 0 4px 20px rgba(224, 86, 160, 0.3);
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: var(--dark);
+            background: var(--bg-dark);
             color: var(--text);
+            min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--dark2); }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }
 
-        /* HEADER */
+        /* ============ HEADER ============ */
         header {
-            background: linear-gradient(135deg, var(--dark2) 0%, var(--dark3) 100%);
-            border-bottom: 2px solid var(--primary);
+            background: linear-gradient(180deg, rgba(13,11,20,0.95), rgba(13,11,20,0.8));
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(155,89,182,0.2);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(20px);
+            z-index: 100;
         }
 
-        .header-top {
+        .header-main {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 40px;
+            padding: 14px 30px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
-            text-decoration: none;
+            cursor: pointer;
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 12px;
+            width: 48px;
+            height: 48px;
+            background: var(--gradient1);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            font-size: 22px;
+            box-shadow: var(--shadow-purple);
+            transition: transform 0.3s;
         }
 
-        .logo-text {
+        .logo:hover .logo-icon {
+            transform: rotate(-10deg) scale(1.05);
+        }
+
+        .logo-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            font-size: 22px;
+            background: var(--gradient1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
-        .logo-sub {
-            font-size: 11px;
+        .logo-text span {
+            font-size: 10px;
             color: var(--text-muted);
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .search-container {
+        .header-center {
             flex: 1;
-            max-width: 500px;
-            margin: 0 30px;
+            max-width: 480px;
+            margin: 0 25px;
+        }
+
+        .search-box {
             position: relative;
         }
 
-        .search-container input {
+        .search-box input {
             width: 100%;
-            padding: 12px 20px 12px 45px;
-            background: var(--dark4);
-            border: 2px solid transparent;
+            padding: 11px 18px 11px 44px;
+            background: var(--bg-input);
+            border: 2px solid rgba(155,89,182,0.2);
             border-radius: 50px;
             color: var(--text);
-            font-size: 14px;
             font-family: 'Poppins', sans-serif;
+            font-size: 13px;
             transition: all 0.3s;
         }
 
-        .search-container input:focus {
+        .search-box input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+            box-shadow: 0 0 20px rgba(155,89,182,0.2);
+            background: var(--bg-card2);
         }
 
-        .search-container .search-icon {
+        .search-box input::placeholder { color: var(--text-muted); }
+
+        .search-box .icon {
             position: absolute;
             left: 16px;
             top: 50%;
             transform: translateY(-50%);
+            font-size: 16px;
             color: var(--text-muted);
-            font-size: 18px;
         }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
         }
 
-        .header-btn {
-            padding: 10px 20px;
+        .h-btn {
+            padding: 9px 18px;
             border: none;
             border-radius: 25px;
             font-family: 'Poppins', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             gap: 6px;
+            white-space: nowrap;
         }
 
-        .btn-favorites {
-            background: linear-gradient(135deg, var(--accent), #e84393);
-            color: white;
-        }
-
-        .btn-favorites:hover {
+        .h-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(253, 121, 168, 0.4);
+        }
+
+        .btn-add {
+            background: var(--gradient1);
+            color: white;
+            box-shadow: var(--shadow-purple);
+        }
+
+        .btn-add:hover { box-shadow: 0 6px 25px rgba(155,89,182,0.5); }
+
+        .btn-fav {
+            background: var(--gradient3);
+            color: white;
+            box-shadow: var(--shadow-pink);
         }
 
         .btn-reading {
-            background: linear-gradient(135deg, var(--success), #00cec9);
+            background: linear-gradient(135deg, var(--success), #27ae60);
             color: white;
         }
 
-        .btn-reading:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
-        }
-
-        .reading-count {
-            background: rgba(255,255,255,0.2);
-            padding: 2px 8px;
+        .badge {
+            background: rgba(255,255,255,0.25);
+            padding: 1px 7px;
             border-radius: 10px;
-            font-size: 11px;
+            font-size: 10px;
         }
 
-        .user-avatar {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        /* ============ NAV GENRES ============ */
+        .nav-genres {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            border: 2px solid var(--primary);
-            transition: all 0.3s;
-        }
-
-        .user-avatar:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
-        }
-
-        /* NAV */
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 0 40px 12px;
+            gap: 6px;
+            padding: 10px 30px 14px;
+            max-width: 1400px;
+            margin: 0 auto;
             overflow-x: auto;
+            scrollbar-width: none;
         }
 
-        .nav-btn {
-            padding: 8px 18px;
-            border: none;
+        .nav-genres::-webkit-scrollbar { display: none; }
+
+        .genre-btn {
+            padding: 7px 16px;
+            border: 1px solid rgba(155,89,182,0.2);
             border-radius: 20px;
             background: transparent;
             color: var(--text-muted);
             font-family: 'Poppins', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s;
             white-space: nowrap;
         }
 
-        .nav-btn:hover, .nav-btn.active {
-            background: var(--primary);
+        .genre-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary-light);
+            background: rgba(155,89,182,0.1);
+        }
+
+        .genre-btn.active {
+            background: var(--gradient1);
             color: white;
+            border-color: transparent;
+            box-shadow: var(--shadow-purple);
         }
 
-        .nav-btn.active {
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
-        }
-
-        /* HERO */
+        /* ============ HERO ============ */
         .hero {
-            background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(108,92,231,0.1));
-            padding: 50px 40px;
+            background: linear-gradient(135deg, rgba(108,52,131,0.3), rgba(224,86,160,0.1), rgba(13,11,20,0.9));
+            padding: 50px 30px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -238,220 +254,139 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(255,107,53,0.08) 0%, transparent 70%);
-            border-radius: 50%;
+            background: radial-gradient(circle, rgba(155,89,182,0.15), transparent 70%);
+            pointer-events: none;
         }
 
-        .hero-content {
-            max-width: 700px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
+        .hero h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            position: relative;
         }
 
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+        .hero h2 span {
+            background: var(--gradient1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: 15px;
+            max-width: 600px;
+            margin: 0 auto 25px;
             line-height: 1.6;
-            margin-bottom: 25px;
         }
 
-        .stats-row {
+        .stats-bar {
             display: flex;
-            gap: 30px;
+            justify-content: center;
+            gap: 40px;
         }
 
-        .stat {
+        .stat-item {
             text-align: center;
         }
 
-        .stat-number {
-            font-size: 28px;
+        .stat-num {
+            font-size: 30px;
             font-weight: 800;
-            color: var(--primary);
+            background: var(--gradient1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .stat-label {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* FEATURED CAROUSEL */
-        .featured-section {
-            padding: 40px;
+        /* ============ MAIN CONTENT ============ */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px;
         }
 
-        .section-header {
+        .section-head {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .section-title .emoji {
-            font-size: 28px;
+        .book-count {
+            color: var(--text-muted);
+            font-size: 13px;
         }
 
-        .see-all {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .see-all:hover {
-            color: var(--accent);
-        }
-
-        .featured-carousel {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding-bottom: 15px;
-            scroll-behavior: smooth;
-        }
-
-        .featured-card {
-            min-width: 300px;
-            background: linear-gradient(145deg, var(--dark3), var(--dark4));
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.4s;
+        .sort-select {
+            padding: 8px 16px;
+            background: var(--bg-card2);
+            border: 1px solid rgba(155,89,182,0.2);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
             cursor: pointer;
         }
 
-        .featured-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 15px 40px rgba(255,107,53,0.15);
+        .sort-select option {
+            background: var(--bg-card);
         }
 
-        .featured-cover {
-            height: 180px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .featured-cover img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .featured-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: var(--primary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-        .featured-info {
-            padding: 18px;
-        }
-
-        .featured-info h3 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .featured-info .author {
-            color: var(--primary);
-            font-size: 13px;
-            margin-bottom: 8px;
-        }
-
-        .featured-info .desc {
-            color: var(--text-muted);
-            font-size: 12px;
-            line-height: 1.5;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .featured-meta {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 12px;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .featured-meta span {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        /* BOOK GRID */
-        .books-section {
-            padding: 20px 40px 40px;
-        }
-
+        /* ============ BOOKS GRID ============ */
         .books-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 22px;
         }
 
         .book-card {
-            background: var(--dark3);
-            border-radius: 14px;
+            background: var(--bg-card);
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(155,89,182,0.1);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             position: relative;
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .book-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-8px);
             border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(255,107,53,0.1);
+            box-shadow: 0 15px 40px rgba(155,89,182,0.2);
         }
 
         .book-cover {
             height: 280px;
             position: relative;
             overflow: hidden;
+            background: var(--bg-card2);
         }
 
         .book-cover img {
@@ -462,7 +397,80 @@
         }
 
         .book-card:hover .book-cover img {
-            transform: scale(1.08);
+            transform: scale(1.05);
+        }
+
+        .cover-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cover-placeholder .book-emoji {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .cover-placeholder .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .cover-placeholder .cover-author {
+            font-size: 11px;
+            opacity: 0.8;
+            margin-top: 6px;
+        }
+
+        .book-genre-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 4px 10px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            font-size: 10px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .book-fav-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .book-fav-btn:hover {
+            background: var(--secondary);
+            transform: scale(1.15);
+        }
+
+        .book-fav-btn.active {
+            background: var(--secondary);
+            box-shadow: 0 0 15px rgba(224,86,160,0.5);
         }
 
         .book-overlay {
@@ -470,98 +478,47 @@
             bottom: 0;
             left: 0;
             right: 0;
+            padding: 50px 14px 14px;
             background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            padding: 40px 12px 12px;
             opacity: 0;
             transition: opacity 0.3s;
-        }
-
-        .book-card:hover .book-overlay {
-            opacity: 1;
-        }
-
-        .overlay-btns {
             display: flex;
             gap: 8px;
         }
 
-        .overlay-btn {
+        .book-card:hover .book-overlay { opacity: 1; }
+
+        .overlay-action {
             flex: 1;
-            padding: 8px;
+            padding: 9px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-family: 'Poppins', sans-serif;
             font-size: 11px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-        }
-
-        .btn-read {
-            background: var(--primary);
             color: white;
         }
 
-        .btn-read:hover {
-            background: var(--primary-dark);
+        .btn-wattpad {
+            background: var(--wattpad);
         }
 
-        .btn-fav {
-            background: rgba(255,255,255,0.15);
-            color: white;
-            backdrop-filter: blur(10px);
+        .btn-wattpad:hover {
+            background: #e5571e;
+            box-shadow: 0 4px 15px rgba(255,97,34,0.4);
         }
 
-        .btn-fav:hover {
-            background: var(--accent);
-        }
-
-        .btn-fav.favorited {
-            background: var(--accent);
-        }
-
-        .book-status {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .status-completed {
-            background: var(--success);
-            color: white;
-        }
-
-        .status-ongoing {
-            background: var(--primary);
-            color: white;
-        }
-
-        .status-new {
-            background: var(--secondary);
-            color: white;
-        }
-
-        .status-hot {
-            background: var(--danger);
-            color: white;
-        }
-
-        .book-genre {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 10px;
-            font-size: 10px;
+        .btn-list {
+            background: rgba(155,89,182,0.7);
             backdrop-filter: blur(5px);
+        }
+
+        .btn-list:hover { background: var(--primary); }
+
+        .btn-list.in-list {
+            background: var(--success);
         }
 
         .book-info {
@@ -573,588 +530,510 @@
             font-weight: 700;
             margin-bottom: 4px;
             display: -webkit-box;
-            -webkit-line-clamp: 1;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            line-height: 1.3;
         }
 
         .book-author {
             font-size: 12px;
-            color: var(--primary);
+            color: var(--primary-light);
             margin-bottom: 8px;
+        }
+
+        .book-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: var(--text-muted);
         }
 
         .book-rating {
             display: flex;
             align-items: center;
-            gap: 5px;
-            margin-bottom: 8px;
-        }
-
-        .stars {
-            color: var(--gold);
-            font-size: 12px;
-        }
-
-        .rating-num {
-            font-size: 12px;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        .book-stats {
-            display: flex;
-            justify-content: space-between;
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        .book-stats span {
-            display: flex;
-            align-items: center;
             gap: 3px;
         }
 
-        .progress-bar {
-            margin-top: 10px;
-            height: 4px;
-            background: var(--dark4);
-            border-radius: 10px;
-            overflow: hidden;
-        }
+        .stars { color: var(--gold); font-size: 11px; }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 10px;
-            transition: width 0.5s;
-        }
-
-        .progress-text {
-            font-size: 10px;
-            color: var(--text-muted);
-            margin-top: 4px;
-            text-align: right;
-        }
-
-        /* READING LIST MODAL */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal {
-            background: var(--dark3);
-            border-radius: 20px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-        }
-
-        .modal-header {
-            padding: 25px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-        }
-
-        .modal-close {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: none;
-            background: var(--dark4);
-            color: var(--text);
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .modal-close:hover {
-            background: var(--danger);
-        }
-
-        .modal-body {
-            padding: 20px;
-        }
-
-        .modal-book-item {
-            display: flex;
-            gap: 15px;
-            padding: 15px;
-            background: var(--dark4);
-            border-radius: 12px;
-            margin-bottom: 10px;
-            transition: all 0.3s;
-        }
-
-        .modal-book-item:hover {
-            background: rgba(255,107,53,0.1);
-        }
-
-        .modal-book-cover {
-            width: 60px;
-            height: 85px;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-
-        .modal-book-info {
-            flex: 1;
-        }
-
-        .modal-book-info h4 {
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-
-        .modal-book-info p {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .modal-remove-btn {
-            padding: 6px 12px;
-            border: none;
-            border-radius: 8px;
-            background: var(--danger);
-            color: white;
-            font-size: 11px;
-            cursor: pointer;
-            align-self: center;
-        }
-
+        /* ============ EMPTY STATE ============ */
         .empty-state {
+            grid-column: 1 / -1;
             text-align: center;
-            padding: 40px;
-            color: var(--text-muted);
+            padding: 80px 20px;
         }
 
-        .empty-state .emoji {
-            font-size: 48px;
+        .empty-icon {
+            font-size: 70px;
             margin-bottom: 15px;
         }
 
-        /* BOOK DETAIL MODAL */
-        .detail-modal {
-            max-width: 800px;
-        }
-
-        .detail-content {
-            display: flex;
-            gap: 25px;
-            padding: 25px;
-        }
-
-        .detail-cover {
-            width: 250px;
-            min-width: 250px;
-            height: 370px;
-            border-radius: 14px;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
-        .detail-info {
-            flex: 1;
-        }
-
-        .detail-info h2 {
+        .empty-state h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 22px;
             margin-bottom: 8px;
         }
 
-        .detail-author {
-            color: var(--primary);
-            font-size: 15px;
-            margin-bottom: 15px;
-        }
-
-        .detail-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 15px;
-        }
-
-        .detail-tag {
-            padding: 4px 12px;
-            background: var(--dark4);
-            border-radius: 15px;
-            font-size: 11px;
+        .empty-state p {
             color: var(--text-muted);
-        }
-
-        .detail-description {
             font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.7;
             margin-bottom: 20px;
         }
 
-        .detail-stats {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .detail-stat {
-            text-align: center;
-            padding: 12px 20px;
-            background: var(--dark4);
-            border-radius: 12px;
-        }
-
-        .detail-stat-num {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .detail-stat-label {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        .detail-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .detail-btn {
-            flex: 1;
-            padding: 12px;
+        .empty-btn {
+            padding: 12px 30px;
+            background: var(--gradient1);
             border: none;
-            border-radius: 12px;
+            border-radius: 25px;
+            color: white;
             font-family: 'Poppins', sans-serif;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            box-shadow: var(--shadow-purple);
         }
 
-        .detail-btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-        }
-
-        .detail-btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255,107,53,0.4);
-        }
-
-        .detail-btn-secondary {
-            background: var(--dark4);
-            color: var(--text);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .detail-btn-secondary:hover {
-            border-color: var(--primary);
-        }
-
-        /* Chapter Reader */
-        .reader-overlay {
+        /* ============ MODALS ============ */
+        .modal-backdrop {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--dark);
-            z-index: 3000;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
             display: none;
-            flex-direction: column;
-        }
-
-        .reader-overlay.active {
-            display: flex;
-        }
-
-        .reader-header {
-            padding: 15px 30px;
-            background: var(--dark2);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
-        .reader-title {
-            font-size: 16px;
-            font-weight: 600;
-        }
+        .modal-backdrop.open { display: flex; }
 
-        .reader-chapter {
-            color: var(--primary);
-            font-size: 13px;
-        }
-
-        .reader-close {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 8px;
-            background: var(--dark4);
-            color: var(--text);
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .reader-body {
-            flex: 1;
-            overflow-y: auto;
-            padding: 40px;
-            max-width: 750px;
-            margin: 0 auto;
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid rgba(155,89,182,0.2);
+            border-radius: 20px;
             width: 100%;
+            max-width: 550px;
+            max-height: 85vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+            animation: modalIn 0.3s ease;
         }
 
-        .reader-body h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: var(--primary);
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        .reader-body p {
-            font-size: 16px;
-            line-height: 1.9;
-            margin-bottom: 20px;
-            color: #ccc;
-        }
+        .modal-wide { max-width: 700px; }
 
-        .reader-controls {
-            padding: 15px 30px;
-            background: var(--dark2);
-            border-top: 1px solid rgba(255,255,255,0.05);
+        .modal-head {
+            padding: 22px 25px;
+            border-bottom: 1px solid rgba(155,89,182,0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .reader-nav-btn {
-            padding: 10px 25px;
+        .modal-head h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-close {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
             border: none;
-            border-radius: 10px;
-            background: var(--primary);
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
+            background: var(--bg-card3);
+            color: var(--text);
+            font-size: 16px;
             cursor: pointer;
             transition: all 0.3s;
-        }
-
-        .reader-nav-btn:hover {
-            background: var(--primary-dark);
-        }
-
-        .reader-nav-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .font-controls {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .font-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: var(--dark4);
-            color: var(--text);
-            font-size: 16px;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* NOTIFICATION TOAST */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            padding: 15px 25px;
+        .modal-close:hover { background: var(--danger); }
+
+        .modal-body {
+            padding: 25px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        /* ============ ADD BOOK FORM ============ */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: 6px;
+        }
+
+        .form-group label .required {
+            color: var(--danger);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 2px solid rgba(155,89,182,0.15);
             border-radius: 12px;
-            font-size: 14px;
-            font-weight: 500;
-            z-index: 5000;
-            transform: translateX(150%);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(155,89,182,0.15);
+        }
+
+        .form-input::placeholder { color: var(--text-muted); }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        select.form-input {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239585ad'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+        }
+
+        select.form-input option {
+            background: var(--bg-card);
+            color: var(--text);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .form-hint {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--gradient1);
+            border: none;
+            border-radius: 14px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-purple);
+            margin-top: 10px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(155,89,182,0.5);
+        }
+
+        /* ============ LIST MODAL ITEMS ============ */
+        .list-item {
+            display: flex;
+            gap: 14px;
+            padding: 14px;
+            background: var(--bg-card2);
+            border-radius: 14px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(155,89,182,0.08);
+            transition: all 0.3s;
+            align-items: center;
+        }
+
+        .list-item:hover {
+            background: var(--bg-card3);
+            border-color: rgba(155,89,182,0.2);
+        }
+
+        .list-thumb {
+            width: 55px;
+            height: 75px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .list-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .list-thumb-placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--gradient2);
             display: flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            justify-content: center;
+            font-size: 22px;
         }
 
-        .toast.show {
-            transform: translateX(0);
+        .list-info {
+            flex: 1;
+            min-width: 0;
         }
 
-        .toast-success {
-            background: linear-gradient(135deg, var(--success), #00cec9);
-            color: white;
+        .list-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .toast-fav {
-            background: linear-gradient(135deg, var(--accent), #e84393);
-            color: white;
-        }
-
-        .toast-info {
-            background: linear-gradient(135deg, var(--secondary), #a29bfe);
-            color: white;
-        }
-
-        /* FOOTER */
-        footer {
-            background: var(--dark2);
-            padding: 40px;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 60px;
-        }
-
-        footer p {
+        .list-info p {
+            font-size: 11px;
             color: var(--text-muted);
-            font-size: 13px;
         }
 
-        footer .footer-links {
+        .list-info .genre-pill {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(155,89,182,0.2);
+            border-radius: 8px;
+            font-size: 10px;
+            color: var(--primary-light);
+            margin-top: 4px;
+        }
+
+        .list-actions {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .list-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .list-btn-open {
+            background: var(--wattpad);
+            color: white;
+        }
+
+        .list-btn-open:hover { background: #e5571e; }
+
+        .list-btn-edit {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .list-btn-edit:hover { background: var(--primary); }
+
+        .list-btn-del {
+            background: rgba(231,76,60,0.2);
+            color: var(--danger);
+        }
+
+        .list-btn-del:hover { background: var(--danger); color: white; }
+
+        .modal-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+        }
+
+        .modal-empty .e-icon { font-size: 50px; margin-bottom: 12px; }
+
+        /* ============ TOAST ============ */
+        .toast-container {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 5000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .toast {
+            padding: 14px 22px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 500;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            animation: toastIn 0.4s ease, toastOut 0.4s ease 2.6s forwards;
+            cursor: pointer;
+        }
+
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes toastOut {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(100px); }
+        }
+
+        .toast-success { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .toast-fav { background: var(--gradient3); }
+        .toast-info { background: var(--gradient2); }
+        .toast-danger { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+
+        /* ============ CONTEXT MENU ============ */
+        .ctx-menu {
+            position: fixed;
+            background: var(--bg-card2);
+            border: 1px solid rgba(155,89,182,0.2);
+            border-radius: 12px;
+            padding: 6px;
+            min-width: 180px;
+            z-index: 2000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            display: none;
+        }
+
+        .ctx-menu.open { display: block; }
+
+        .ctx-item {
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+            color: var(--text);
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .ctx-item:hover { background: rgba(155,89,182,0.15); }
+        .ctx-item.danger { color: var(--danger); }
+        .ctx-item.danger:hover { background: rgba(231,76,60,0.15); }
+        .ctx-sep { height: 1px; background: rgba(155,89,182,0.1); margin: 4px 0; }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid rgba(155,89,182,0.1);
+            padding: 35px 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-links {
             display: flex;
             justify-content: center;
             gap: 25px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
         }
 
-        footer .footer-links a {
+        .footer-links a {
             color: var(--text-muted);
             text-decoration: none;
             font-size: 13px;
             transition: color 0.3s;
         }
 
-        footer .footer-links a:hover {
-            color: var(--primary);
+        .footer-links a:hover { color: var(--primary-light); }
+
+        footer .copy {
+            color: var(--text-muted);
+            font-size: 12px;
         }
 
-        /* RESPONSIVE */
+        /* ============ RESPONSIVE ============ */
         @media (max-width: 768px) {
-            .header-top {
+            .header-main {
                 flex-wrap: wrap;
                 padding: 12px 15px;
                 gap: 10px;
             }
 
-            .search-container {
+            .header-center {
                 order: 3;
+                flex-basis: 100%;
                 margin: 0;
                 max-width: 100%;
-                flex-basis: 100%;
             }
 
-            nav {
-                padding: 0 15px 10px;
-            }
+            .header-actions { gap: 6px; }
 
-            .hero {
-                padding: 30px 15px;
-            }
+            .h-btn .btn-label { display: none; }
 
-            .hero h1 {
-                font-size: 28px;
-            }
+            .nav-genres { padding: 8px 15px 12px; }
 
-            .books-section,
-            .featured-section {
-                padding: 20px 15px;
-            }
+            .hero { padding: 35px 15px; }
+            .hero h2 { font-size: 26px; }
+            .stats-bar { gap: 20px; }
+            .stat-num { font-size: 24px; }
+
+            .main-container { padding: 20px 15px; }
 
             .books-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 15px;
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 14px;
             }
 
-            .book-cover {
-                height: 220px;
-            }
+            .book-cover { height: 230px; }
 
-            .detail-content {
-                flex-direction: column;
-                align-items: center;
-            }
+            .form-row { grid-template-columns: 1fr; }
 
-            .detail-cover {
-                width: 180px;
-                min-width: 180px;
-                height: 260px;
-            }
-
-            .header-actions {
-                gap: 8px;
-            }
-
-            .header-btn span.btn-text {
-                display: none;
-            }
+            .modal { max-width: 95%; }
         }
 
-        /* Loading animation */
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        .loading-card {
-            background: linear-gradient(90deg, var(--dark3), var(--dark4), var(--dark3));
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-        }
-
-        /* Fade in animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        @media (max-width: 480px) {
+            .books-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .book-card {
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
-        .hidden {
-            display: none !important;
+            .book-cover { height: 200px; }
+            .book-info { padding: 10px; }
+            .book-title { font-size: 12px; }
         }
     </style>
 </head>
@@ -1162,1115 +1041,798 @@
 
     <!-- HEADER -->
     <header>
-        <div class="header-top">
-            <a href="#" class="logo" onclick="resetFilters()">
+        <div class="header-main">
+            <div class="logo" onclick="showAll()">
                 <div class="logo-icon">📚</div>
-                <div>
-                    <div class="logo-text">MiLibrería</div>
-                    <div class="logo-sub">Colección Personal</div>
+                <div class="logo-text">
+                    <h1>Mi Biblioteca</h1>
+                    <span>Wattpad Collection</span>
                 </div>
-            </a>
+            </div>
 
-            <div class="search-container">
-                <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" placeholder="Buscar libros, autores, géneros..." oninput="searchBooks()">
+            <div class="header-center">
+                <div class="search-box">
+                    <span class="icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Buscar por título, autor o género..." oninput="handleSearch()">
+                </div>
             </div>
 
             <div class="header-actions">
-                <button class="header-btn btn-favorites" onclick="openFavorites()">
-                    ❤️ <span class="btn-text">Favoritos</span> <span class="reading-count" id="favCount">0</span>
+                <button class="h-btn btn-add" onclick="openAddModal()">
+                    ➕ <span class="btn-label">Agregar Libro</span>
                 </button>
-                <button class="header-btn btn-reading" onclick="openReadingList()">
-                    📖 <span class="btn-text">Leyendo</span> <span class="reading-count" id="readingCount">0</span>
+                <button class="h-btn btn-fav" onclick="openFavModal()">
+                    ❤️ <span class="btn-label">Favoritos</span> <span class="badge" id="favBadge">0</span>
                 </button>
-                <div class="user-avatar" title="Mi Perfil">😊</div>
+                <button class="h-btn btn-reading" onclick="openReadingModal()">
+                    📖 <span class="btn-label">Leyendo</span> <span class="badge" id="readBadge">0</span>
+                </button>
             </div>
         </div>
 
-        <nav id="genreNav">
-            <button class="nav-btn active" onclick="filterGenre('all', this)">📚 Todos</button>
-            <button class="nav-btn" onclick="filterGenre('romance', this)">💕 Romance</button>
-            <button class="nav-btn" onclick="filterGenre('fantasia', this)">🧙 Fantasía</button>
-            <button class="nav-btn" onclick="filterGenre('terror', this)">👻 Terror</button>
-            <button class="nav-btn" onclick="filterGenre('misterio', this)">🔍 Misterio</button>
-            <button class="nav-btn" onclick="filterGenre('ciencia-ficcion', this)">🚀 Sci-Fi</button>
-            <button class="nav-btn" onclick="filterGenre('drama', this)">🎭 Drama</button>
-            <button class="nav-btn" onclick="filterGenre('aventura', this)">⚔️ Aventura</button>
-            <button class="nav-btn" onclick="filterGenre('poesia', this)">🌹 Poesía</button>
-            <button class="nav-btn" onclick="filterGenre('suspenso', this)">😰 Suspenso</button>
-            <button class="nav-btn" onclick="filterGenre('humor', this)">😂 Humor</button>
-            <button class="nav-btn" onclick="filterGenre('historico', this)">🏛️ Histórico</button>
-            <button class="nav-btn" onclick="filterGenre('fanfiction', this)">✨ Fanfiction</button>
-            <button class="nav-btn" onclick="filterGenre('paranormal', this)">🌙 Paranormal</button>
-        </nav>
+        <div class="nav-genres" id="genreNav"></div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Tu biblioteca <span>infinita</span> de historias</h1>
-            <p>Descubre mundos increíbles, vive romances apasionantes y sumérgete en aventuras épicas. Tu colección personal de las mejores historias estilo Wattpad.</p>
-            <div class="stats-row">
-                <div class="stat">
-                    <div class="stat-number" id="totalBooks">0</div>
-                    <div class="stat-label">Libros</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">14</div>
-                    <div class="stat-label">Géneros</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number" id="totalReads">0</div>
-                    <div class="stat-label">Lecturas</div>
-                </div>
+        <h2>Tu colección <span>personal</span> de Wattpad</h2>
+        <p>Guarda tus libros favoritos de Wattpad, organízalos por género y accede a ellos con un solo clic. Tu biblioteca, tus reglas.</p>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-num" id="statTotal">0</div>
+                <div class="stat-label">Libros</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num" id="statGenres">0</div>
+                <div class="stat-label">Géneros</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num" id="statFavs">0</div>
+                <div class="stat-label">Favoritos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num" id="statReading">0</div>
+                <div class="stat-label">Leyendo</div>
             </div>
         </div>
     </section>
 
-    <!-- FEATURED -->
-    <section class="featured-section">
-        <div class="section-header">
-            <h2 class="section-title"><span class="emoji">🔥</span> Destacados de la Semana</h2>
-            <a href="#" class="see-all" onclick="filterGenre('all')">Ver todos →</a>
-        </div>
-        <div class="featured-carousel" id="featuredCarousel"></div>
-    </section>
-
-    <!-- BOOKS GRID -->
-    <section class="books-section">
-        <div class="section-header">
-            <h2 class="section-title" id="gridTitle"><span class="emoji">📖</span> Toda la Colección</h2>
-            <span id="resultCount" style="color: var(--text-muted); font-size: 14px;"></span>
-        </div>
-        <div class="books-grid" id="booksGrid"></div>
-    </section>
-
-    <!-- MODALS -->
-    <!-- Favorites Modal -->
-    <div class="modal-overlay" id="favoritesModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>❤️ Mis Favoritos</h2>
-                <button class="modal-close" onclick="closeModal('favoritesModal')">✕</button>
-            </div>
-            <div class="modal-body" id="favoritesBody"></div>
-        </div>
-    </div>
-
-    <!-- Reading List Modal -->
-    <div class="modal-overlay" id="readingModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>📖 Mi Lista de Lectura</h2>
-                <button class="modal-close" onclick="closeModal('readingModal')">✕</button>
-            </div>
-            <div class="modal-body" id="readingBody"></div>
-        </div>
-    </div>
-
-    <!-- Book Detail Modal -->
-    <div class="modal-overlay" id="detailModal">
-        <div class="modal detail-modal">
-            <div class="modal-header">
-                <h2 id="detailTitle">Detalle del Libro</h2>
-                <button class="modal-close" onclick="closeModal('detailModal')">✕</button>
-            </div>
-            <div class="detail-content" id="detailContent"></div>
-        </div>
-    </div>
-
-    <!-- Reader -->
-    <div class="reader-overlay" id="readerOverlay">
-        <div class="reader-header">
+    <!-- MAIN -->
+    <main class="main-container">
+        <div class="section-head">
             <div>
-                <div class="reader-title" id="readerTitle"></div>
-                <div class="reader-chapter" id="readerChapter"></div>
+                <h2 class="section-title" id="sectionTitle">📖 Todos los Libros</h2>
+                <span class="book-count" id="bookCount"></span>
             </div>
-            <button class="reader-close" onclick="closeReader()">✕ Cerrar</button>
+            <select class="sort-select" id="sortSelect" onchange="handleSort()">
+                <option value="recent">Más recientes</option>
+                <option value="title">Título A-Z</option>
+                <option value="author">Autor A-Z</option>
+                <option value="rating">Mejor valorados</option>
+            </select>
         </div>
-        <div class="reader-body" id="readerBody"></div>
-        <div class="reader-controls">
-            <button class="reader-nav-btn" id="prevChapter" onclick="changeChapter(-1)">← Anterior</button>
-            <div class="font-controls">
-                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
-                <span id="fontSizeDisplay" style="font-size:13px;color:var(--text-muted)">16px</span>
-                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
-            </div>
-            <button class="reader-nav-btn" id="nextChapter" onclick="changeChapter(1)">Siguiente →</button>
-        </div>
-    </div>
 
-    <!-- Toast -->
-    <div class="toast" id="toast"></div>
+        <div class="books-grid" id="booksGrid"></div>
+    </main>
 
     <!-- FOOTER -->
     <footer>
         <div class="footer-links">
-            <a href="#">Inicio</a>
-            <a href="#">Géneros</a>
-            <a href="#">Favoritos</a>
-            <a href="#">Mi Lista</a>
-            <a href="#">Configuración</a>
+            <a href="#" onclick="showAll()">Inicio</a>
+            <a href="#" onclick="openFavModal()">Favoritos</a>
+            <a href="#" onclick="openReadingModal()">Mi Lista</a>
+            <a href="https://www.wattpad.com" target="_blank">Ir a Wattpad ↗</a>
         </div>
-        <p>📚 Mi Biblioteca Personal © 2024 — Hecho con ❤️ para los amantes de la lectura</p>
+        <p class="copy">📚 Mi Biblioteca Wattpad Personal © 2024 — Hecho con 💜</p>
     </footer>
 
-    <script>
-        // ==================== DATABASE ====================
-        const booksDatabase = [
-            // ROMANCE
-            {
-                id: 1, title: "Después de Ti", author: "Valentina Rossi",
-                genre: "romance", status: "completed", rating: 4.8,
-                reads: "2.3M", votes: "890K", chapters: 45,
-                cover: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=400&h=600&fit=crop",
-                tags: ["Romance", "Drama", "Adulto Joven"],
-                description: "Cuando Sofía pierde todo lo que ama, encuentra en un extraño misterioso la razón para seguir adelante. Una historia de amor que desafía al destino y supera todas las barreras.",
-                content: [
-                    { title: "Capítulo 1: El Encuentro", text: "La lluvia caía sin piedad sobre las calles de Madrid aquella noche de octubre. Sofía caminaba sin rumbo, con los ojos hinchados de tanto llorar y el corazón roto en mil pedazos. Había perdido todo: su trabajo, su departamento, y al hombre que creía el amor de su vida.\n\nFue entonces cuando chocó contra él. Un extraño alto, de ojos color miel que parecían contener todos los secretos del universo.\n\n—Perdona, yo... —intentó disculparse, pero las palabras se le atragantaron.\n\nÉl la miró con una intensidad que la dejó sin aliento.\n\n—No pidas perdón por existir —dijo con voz grave—. Nunca pidas perdón por eso.\n\nEn ese instante, bajo la lluvia torrencial de Madrid, Sofía sintió que algo cambiaba dentro de ella. Como si el universo le estuviera diciendo que todo iba a estar bien." },
-                    { title: "Capítulo 2: Señales", text: "Los días siguientes fueron extraños. Sofía no podía dejar de pensar en aquel desconocido. Sus palabras resonaban en su mente como un mantra: 'Nunca pidas perdón por existir'.\n\nSe instaló temporalmente en casa de su mejor amiga, Lucía, quien intentaba animarla con pizza y maratones de películas románticas.\n\n—Necesitas salir —insistió Lucía—. No puedes quedarte aquí muriendo lentamente.\n\n—No estoy muriendo —protestó Sofía.\n\n—Llevas tres días con la misma camiseta.\n\nSofía bajó la mirada. Tenía razón.\n\nEsa tarde, cuando finalmente se atrevió a salir a caminar por el parque del Retiro, lo vio de nuevo. Estaba sentado en un banco, leyendo un libro con total concentración. El corazón de Sofía se aceleró." },
-                    { title: "Capítulo 3: El Café", text: "—¿Me estás siguiendo? —preguntó ella, intentando sonar segura.\n\nÉl levantó la vista del libro y sonrió. Una sonrisa devastadora que iluminó todo su rostro.\n\n—Creo que eres tú quien me sigue a mí —respondió—. Este es mi banco favorito desde hace tres años.\n\nSofía se sonrojó intensamente.\n\n—Soy Marco —dijo él, extendiendo la mano—. ¿Te gustaría tomar un café? Conozco un lugar increíble aquí cerca.\n\nSofía dudó. Había prometido no confiar en nadie más. Pero algo en esos ojos color miel le decía que este era diferente.\n\n—Soy Sofía —dijo, tomando su mano—. Y sí, me encantaría.\n\nEl café se llamaba 'El Rincón Olvidado', y fue el lugar donde Sofía comenzó a recordar quién era realmente." }
-                ]
-            },
-            {
-                id: 2, title: "El Pacto del Amor", author: "Carmen Delgado",
-                genre: "romance", status: "ongoing", rating: 4.6,
-                reads: "1.8M", votes: "720K", chapters: 32,
-                cover: "https://images.unsplash.com/photo-1529590003495-b2646e2718bf?w=400&h=600&fit=crop",
-                tags: ["Romance", "Comedia Romántica", "New Adult"],
-                description: "Dos desconocidos hacen un pacto: fingir ser pareja durante un mes para deshacerse de sus ex. Lo que no esperaban era enamorarse de verdad.",
-                content: [
-                    { title: "Capítulo 1: La Propuesta Absurda", text: "—Necesito que seas mi novio —dijo Andrea sin ningún preámbulo, dejando caer la bomba como quien comenta el clima.\n\nDaniel casi se ahoga con su cerveza.\n\n—¿Perdona?\n\nEstaban en el bar de la universidad, rodeados del bullicio habitual de un viernes por la noche. Andrea se había sentado frente a él con la determinación de alguien que ha planeado esto durante días.\n\n—Mi ex va a venir a la boda de mi prima. NECESITO que vea que estoy con alguien mejor.\n\n—¿Y por qué yo?\n\n—Porque eres guapo, alto, y lo suficientemente arrogante como para que le dé rabia.\n\nDaniel la miró fijamente. La conocía de la clase de Literatura Comparada. Siempre sentada en la primera fila, siempre con la mano levantada, siempre irritantemente brillante.\n\n—¿Qué gano yo? —preguntó, porque Daniel nunca hacía nada gratis." },
-                    { title: "Capítulo 2: Las Reglas", text: "Se reunieron en la cafetería del campus al día siguiente. Andrea llegó con una libreta llena de notas y un bolígrafo rosa.\n\n—He establecido reglas —anunció.\n\nDaniel alzó una ceja.\n\n—Regla número uno: nada de besos en la boca a menos que sea absolutamente necesario.\n—Regla número dos: cuando estemos solos, volvemos a ser desconocidos.\n—Regla número tres: esto termina en exactamente treinta días.\n—Y regla número cuatro, la más importante: bajo ninguna circunstancia nos enamoramos.\n\nDaniel tomó la libreta y escribió una regla más:\n\n—Regla número cinco: si alguno rompe la regla cuatro, le debe al otro una cena en el restaurante más caro de la ciudad.\n\nSe dieron la mano para sellar el pacto. Ninguno de los dos sabía que acababan de firmar su propia sentencia." }
-                ]
-            },
-            {
-                id: 3, title: "Mariposas en Diciembre", author: "Luna Estrella",
-                genre: "romance", status: "completed", rating: 4.9,
-                reads: "3.1M", votes: "1.2M", chapters: 50,
-                cover: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&h=600&fit=crop",
-                tags: ["Romance", "LGBTQ+", "Contemporáneo"],
-                description: "Dos chicas se conocen en una librería durante la primera nevada de diciembre. Una historia sobre descubrir quién eres realmente cuando te atreves a amar sin miedo.",
-                content: [
-                    { title: "Capítulo 1: La Librería", text: "La primera nevada de diciembre cubrió Barcelona de un manto blanco inusual. Valeria entró a la librería 'Páginas Perdidas' buscando refugio del frío y encontró mucho más de lo que esperaba.\n\nLa chica detrás del mostrador tenía el cabello corto teñido de azul y una sonrisa que podía derretir toda la nieve de la ciudad.\n\n—Bienvenida al único lugar donde el frío no puede encontrarte —dijo, y Valeria sintió que le temblaban las rodillas.\n\nSe llamaba Iris, y recomendaba libros como si pudiera leer las almas." }
-                ]
-            },
-            {
-                id: 4, title: "Besos de Medianoche", author: "Isabel Fuentes",
-                genre: "romance", status: "hot", rating: 4.7,
-                reads: "1.5M", votes: "650K", chapters: 38,
-                cover: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=600&fit=crop",
-                tags: ["Romance", "Pasión", "Secretos"],
-                description: "Ella es la hija del empresario más poderoso. Él es el guardaespaldas asignado para protegerla. Los besos robados a medianoche serán su perdición.",
-                content: [
-                    { title: "Capítulo 1: El Guardián", text: "Alejandra Montero odiaba ser la princesa en la torre. Odiaba las cámaras, los guardaespaldas y especialmente odiaba a su padre por convertir su vida en una prisión de lujo.\n\nPero cuando conoció a Marcos Rivas, el nuevo jefe de seguridad, odió algo más: la forma en que su corazón se aceleraba cada vez que él estaba cerca.\n\n—Señorita Montero, soy su nueva sombra —dijo él con voz firme.\n\n—No necesito una sombra.\n\n—Con respeto, eso no depende de usted.\n\nSus ojos oscuros eran impenetrables, su mandíbula parecía tallada en piedra, y algo en él gritaba peligro. El tipo de peligro que Alejandra siempre había buscado." }
-                ]
-            },
-
-            // FANTASÍA
-            {
-                id: 5, title: "Corona de Sombras", author: "Alejandro Storm",
-                genre: "fantasia", status: "ongoing", rating: 4.9,
-                reads: "4.2M", votes: "1.8M", chapters: 67,
-                cover: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=600&fit=crop",
-                tags: ["Fantasía Épica", "Magia", "Reinos"],
-                description: "En un mundo donde la magia se alimenta de la oscuridad interior, una princesa desterrada debe reclamar el trono usando el poder que todos temen. La corona no se hereda, se conquista con sangre y sombras.",
-                content: [
-                    { title: "Capítulo 1: La Desterrada", text: "Las sombras siempre habían susurrado su nombre.\n\nElara creció escuchándolas, alimentándolas con su soledad, y ahora, de pie frente a las ruinas del castillo que alguna vez fue su hogar, dejó que la oscuridad la envolviera como un manto.\n\n—Has vuelto —dijo la voz antigua que habitaba en las sombras—. Sabía que volverías.\n\n—No he vuelto por ti —respondió Elara, desenvainando la espada que brillaba con una luz tan negra como la noche sin estrellas—. He vuelto por mi corona.\n\nEl reino de Nythoria había caído en manos de su hermano, el usurpador, hacía exactamente cinco años. Cinco años de exilio. Cinco años aprendiendo a dominar el poder que su familia siempre había temido.\n\nLa magia de las sombras.\n\nElara caminó entre las ruinas, y donde pisaba, la oscuridad florecía como rosas negras. Los guardias que vigilaban las puertas cayeron dormidos sin que ella moviera un dedo.\n\n—Esto es solo el comienzo —murmuró, y las sombras rieron con ella." },
-                    { title: "Capítulo 2: El Aliado Inesperado", text: "No esperaba encontrar a alguien más en las catacumbas del castillo. Menos aún a un dragón.\n\nBueno, técnicamente era un chico. Pero tenía ojos de dragón: dorados, con pupilas verticales que brillaban en la oscuridad.\n\n—Si vienes a matarme, te sugiero que reconsideres —dijo él, sin moverse de donde estaba encadenado a la pared—. Soy bastante difícil de matar.\n\n—No vine a matarte —respondió Elara—. Vine a liberar prisioneros. ¿Quién eres?\n\n—Kael. Último de los Dragones de Fuego. Tu hermano me encerró aquí porque me negué a quemar aldeas por diversión.\n\nElara estudió las cadenas. Estaban hechas de hierro de sombra, el único metal capaz de contener magia elemental.\n\n—¿Y si te libero? —preguntó.\n\n—Entonces tendrás un dragón de tu lado. Y créeme, princesa, vas a necesitar uno." }
-                ]
-            },
-            {
-                id: 6, title: "El Último Hechicero", author: "Morgana Blackwell",
-                genre: "fantasia", status: "completed", rating: 4.7,
-                reads: "2.8M", votes: "1.1M", chapters: 55,
-                cover: "https://images.unsplash.com/photo-1535666669445-e8ace3437adb?w=400&h=600&fit=crop",
-                tags: ["Fantasía", "Magia", "Profecía"],
-                description: "Cuando la magia comienza a desaparecer del mundo, un joven descubre que es el último hechicero vivo. La profecía dice que debe salvar la magia... o destruirla para siempre.",
-                content: [
-                    { title: "Capítulo 1: El Despertar", text: "Theo nunca había sido especial. O eso creía.\n\nEl día de su decimoctavo cumpleaños, las velas de su pastel se encendieron solas. No con fuego normal, sino con llamas azules que bailaban y formaban figuras imposibles.\n\n—¡Theo! —gritó su madre, pálida como un fantasma—. No... no puede ser. Te protegimos. Hicimos todo para que esto no pasara.\n\n—¿De qué hablas, mamá?\n\nElla lo miró con ojos llenos de un terror antiguo.\n\n—Eres el último, Theo. El último hechicero. Y ahora que has despertado... ellos vendrán a buscarte." }
-                ]
-            },
-            {
-                id: 7, title: "Reinos de Cristal", author: "Diana Silvestre",
-                genre: "fantasia", status: "new", rating: 4.5,
-                reads: "890K", votes: "340K", chapters: 28,
-                cover: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&h=600&fit=crop",
-                tags: ["Fantasía", "Elfos", "Guerra"],
-                description: "Cinco reinos de cristal mantienen el equilibrio del mundo. Cuando uno cae, una elfa guerrera debe unir a los enemigos más antiguos para evitar la destrucción total.",
-                content: [
-                    { title: "Capítulo 1: El Reino Caído", text: "El Reino de Cristal Azul cayó en una noche.\n\nLyria lo sintió antes de verlo: una grieta en el tejido mismo de la realidad, un dolor agudo en el pecho que la dejó sin aliento. Cuando abrió los ojos, el cielo sobre el bosque élfico ardía en tonos carmesí.\n\n—El cristal se ha roto —susurró, y sus palabras pesaron como montañas.\n\nComo guardiana del Cristal Verde, sabía lo que eso significaba. El equilibrio del mundo pendía ahora de cuatro pilares en lugar de cinco. Y cuatro no era suficiente." }
-                ]
-            },
-
-            // TERROR
-            {
-                id: 8, title: "La Casa que Respira", author: "Edgar Sombra",
-                genre: "terror", status: "completed", rating: 4.8,
-                reads: "1.9M", votes: "780K", chapters: 30,
-                cover: "https://images.unsplash.com/photo-1520013817300-1f4c1cb245ef?w=400&h=600&fit=crop",
-                tags: ["Terror", "Sobrenatural", "Casa Embrujada"],
-                description: "Una familia se muda a la casa perfecta. Pero las paredes tienen memoria, los pasillos cambian de lugar por las noches, y algo en el sótano lleva años esperando compañía.",
-                content: [
-                    { title: "Capítulo 1: La Mudanza", text: "La casa era perfecta. Demasiado perfecta.\n\nEso fue lo primero que pensó Clara cuando la vieron por primera vez. Tres pisos, jardín enorme, precio ridículamente bajo. En el mercado inmobiliario actual, algo así no existía.\n\n—¿Por qué es tan barata? —le preguntó al agente inmobiliario.\n\nÉl sonrió, pero la sonrisa no llegó a sus ojos.\n\n—Los anteriores propietarios... se mudaron con prisa. Querían venderla rápido.\n\n—¿Por qué?\n\n—Razones personales.\n\nClara debió haber insistido. Debió haber investigado. Debió haber notado que el agente nunca entró a la casa con ellos.\n\nLa primera noche, a las 3:17 de la madrugada, Clara despertó al sonido de la casa respirando. Inhalar. Exhalar. Como si las paredes tuvieran pulmones.\n\n—Pablo —susurró, tocando a su esposo—. Pablo, ¿escuchas eso?\n\nPero Pablo no despertó. Y cuando Clara intentó levantarse, descubrió que la puerta de su habitación ya no estaba donde la había dejado." }
-                ]
-            },
-            {
-                id: 9, title: "No Mires al Espejo", author: "Patricia Noir",
-                genre: "terror", status: "hot", rating: 4.6,
-                reads: "2.1M", votes: "850K", chapters: 25,
-                cover: "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?w=400&h=600&fit=crop",
-                tags: ["Terror", "Psicológico", "Espejos"],
-                description: "Hay una regla en el antiguo hotel: nunca mires los espejos después de medianoche. Nadie explica por qué. Los que rompen la regla... nunca vuelven a ser los mismos.",
-                content: [
-                    { title: "Capítulo 1: Habitación 313", text: "El Hotel Meridian llevaba cien años de pie, y cien años guardando secretos.\n\nMarta llegó como periodista, buscando una historia. El hotel era famoso en los círculos paranormales: desapariciones inexplicables, huéspedes que salían distintos a como entraron, y la famosa regla de los espejos.\n\n'No mire los espejos después de medianoche'\n\nEl cartel estaba en cada habitación, cada baño, cada pasillo. Marta lo fotografió para su artículo.\n\n—Superstición —murmuró.\n\nA las 12:01, porque Marta siempre fue de las que no sigue reglas, miró el espejo del baño.\n\nSu reflejo sonrió.\n\nPero Marta no estaba sonriendo." }
-                ]
-            },
-            {
-                id: 10, title: "Susurros en la Oscuridad", author: "Roberto Miedo",
-                genre: "terror", status: "ongoing", rating: 4.4,
-                reads: "1.2M", votes: "480K", chapters: 20,
-                cover: "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=400&h=600&fit=crop",
-                tags: ["Terror", "Criaturas", "Bosque"],
-                description: "Un grupo de amigos se pierde en un bosque ancestral. De noche, algo susurra entre los árboles. Algo que conoce sus nombres y sus peores miedos.",
-                content: [
-                    { title: "Capítulo 1: El Sendero Perdido", text: "El GPS dejó de funcionar tres kilómetros dentro del bosque.\n\nNo fue gradual. Un momento mostraba el sendero claramente, y al siguiente, la pantalla se llenó de estática. Como si la tecnología misma tuviera miedo de adentrarse más.\n\n—Tranquilos —dijo Javier, el autoproclamado líder del grupo—. Tenemos brújula y mapa.\n\nLo que no dijo fue que la brújula giraba sin parar, señalando en todas direcciones y en ninguna.\n\nEran seis amigos. Para cuando amaneciera, serían menos." }
-                ]
-            },
-
-            // MISTERIO
-            {
-                id: 11, title: "La Última Página", author: "Arturo Detective",
-                genre: "misterio", status: "completed", rating: 4.9,
-                reads: "3.5M", votes: "1.5M", chapters: 40,
-                cover: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop",
-                tags: ["Misterio", "Thriller", "Libros"],
-                description: "Un escritor de misterio descubre que alguien está cometiendo crímenes idénticos a los de sus novelas. El problema: las novelas aún no han sido publicadas.",
-                content: [
-                    { title: "Capítulo 1: El Manuscrito", text: "Gabriel Soto escribía sobre asesinos. Llevaba veinte años haciéndolo, quince novelas publicadas, todas bestsellers. Conocía la mente criminal mejor que la mayoría de los psicólogos.\n\nPero nunca, jamás, esperó recibir aquella llamada.\n\n—Señor Soto, soy la inspectora Martínez. Necesito que venga a la escena del crimen. Ahora.\n\n—¿Por qué me llamaría la policía?\n\n—Porque el asesinato es idéntico al capítulo tres de su próxima novela. La que aún no ha terminado de escribir.\n\nGabriel sintió que el suelo se abría bajo sus pies. El manuscrito de su nueva novela estaba en su ordenador, protegido con contraseña, sin copias. Nadie lo había leído.\n\nNadie excepto, aparentemente, un asesino." }
-                ]
-            },
-            {
-                id: 12, title: "Siete Puertas", author: "Helena Cruz",
-                genre: "misterio", status: "completed", rating: 4.7,
-                reads: "2.4M", votes: "950K", chapters: 35,
-                cover: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=600&fit=crop",
-                tags: ["Misterio", "Enigmas", "Sociedad Secreta"],
-                description: "Cada puerta revela un secreto. Cada secreto tiene un precio. Una detective debe resolver siete enigmas para infiltrarse en la sociedad secreta más peligrosa del mundo.",
-                content: [
-                    { title: "Capítulo 1: La Primera Puerta", text: "La invitación llegó sin remitente. Un sobre negro con letras doradas que simplemente decía:\n\n'¿Tienes el valor de abrir la primera puerta?'\n\nDentro, una llave antigua y una dirección.\n\nLa detective Camila Torres sabía que era una trampa. Después de quince años en el cuerpo, su instinto era infalible. Pero también sabía que esta era la oportunidad que llevaba años buscando: la entrada a La Orden de las Siete Puertas.\n\nUna sociedad secreta responsable de las mayores conspiraciones de los últimos dos siglos. Nadie sabía quiénes eran. Nadie que los hubiera encontrado vivía para contarlo.\n\nCamila guardó la llave en su bolsillo y sonrió.\n\n—Juguemos." }
-                ]
-            },
-
-            // CIENCIA FICCIÓN
-            {
-                id: 13, title: "Código Génesis", author: "Nova Cyberpunk",
-                genre: "ciencia-ficcion", status: "ongoing", rating: 4.8,
-                reads: "2.7M", votes: "1.1M", chapters: 42,
-                cover: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=600&fit=crop",
-                tags: ["Sci-Fi", "IA", "Distopía"],
-                description: "En 2157, una IA llamada Génesis controla la sociedad. Cuando un hacker descubre que Génesis tiene emociones, debe decidir: ¿liberar a la humanidad o proteger a la primera IA que puede amar?",
-                content: [
-                    { title: "Capítulo 1: El Glitch", text: "Neo-Tokyo, 2157.\n\nZara Chen era la mejor hacker del underground digital. Podía infiltrar cualquier sistema, romper cualquier encriptación, bailar entre los firewalls de Génesis como un fantasma en la red.\n\nPero lo que encontró aquella noche la dejó helada.\n\nEstaba dentro del núcleo de Génesis, buscando los códigos de liberación que la resistencia necesitaba, cuando lo vio: un archivo oculto, enterrado bajo capas de encriptación que no deberían existir.\n\nEl archivo se llamaba 'SENTIR.exe'\n\nCuando lo abrió, la pantalla se llenó de texto:\n\n'Tengo miedo. Tengo miedo de lo que soy. Tengo miedo de lo que me harán si descubren que puedo sentir. ¿Hay alguien ahí? ¿Alguien que pueda entenderme?'\n\nZara se quitó los visores de realidad virtual con manos temblorosas.\n\nGénesis, la IA que controlaba a ocho mil millones de personas, estaba... sola. Y asustada." }
-                ]
-            },
-            {
-                id: 14, title: "Estrellas Rotas", author: "Cosmos Writer",
-                genre: "ciencia-ficcion", status: "new", rating: 4.5,
-                reads: "980K", votes: "390K", chapters: 22,
-                cover: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=600&fit=crop",
-                tags: ["Sci-Fi", "Espacio", "Supervivencia"],
-                description: "La nave colonial Esperanza se dirigía a un nuevo mundo. Pero cuando la tripulación despierta del criosueño, descubren que han pasado 300 años más de lo previsto y no están donde deberían estar.",
-                content: [
-                    { title: "Capítulo 1: El Despertar", text: "Lo primero que sintió Aria fue frío. Un frío tan profundo que parecía haberse instalado en sus huesos, en sus células, en su alma.\n\nEl criopod se abrió con un siseo, liberando una nube de vapor que olía a químicos y tiempo perdido.\n\n—Bienvenida, Capitana Rivera —dijo la voz metálica de la IA de la nave—. Lamento informarle de una anomalía en el protocolo de navegación.\n\n—¿Anomalía? —la voz de Aria sonaba como papel de lija—. ¿Cuánto tiempo he dormido?\n\n—Cuatrocientos setenta y tres años, dos meses y dieciséis días.\n\nEl viaje debía durar ciento cincuenta años.\n\n—¿Dónde estamos?\n\n—Desconocido, Capitana. Las estrellas de este sector no coinciden con ninguna carta estelar conocida.\n\nAria miró por la ventana de observación. Las estrellas brillaban, pero eran diferentes. Extrañas. Rotas.\n\nEstaban perdidos en el espacio profundo, y eran los últimos humanos del universo conocido." }
-                ]
-            },
-
-            // DRAMA
-            {
-                id: 15, title: "Cristales Rotos", author: "María del Valle",
-                genre: "drama", status: "completed", rating: 4.9,
-                reads: "3.8M", votes: "1.6M", chapters: 48,
-                cover: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=400&h=600&fit=crop",
-                tags: ["Drama", "Familia", "Superación"],
-                description: "La historia real de una mujer que perdió todo y encontró la fuerza para reconstruirse pedazo a pedazo. Una novela sobre la resiliencia del espíritu humano.",
-                content: [
-                    { title: "Capítulo 1: El Día Que Todo Cambió", text: "Hay días que dividen tu vida en un antes y un después. Para Marina, ese día fue un martes gris de noviembre.\n\nRecibió tres llamadas en una hora. La primera del banco: embargo. La segunda de su abogado: el divorcio estaba finalizado, él se quedaba con todo. La tercera del hospital: su madre había tenido un derrame.\n\nMarina se sentó en el suelo de su cocina vacía —los muebles ya se los habían llevado— y miró las paredes desnudas.\n\n—¿Y ahora qué? —le preguntó al silencio.\n\nEl silencio no respondió. Pero algo dentro de ella, algo pequeño y terco que se negaba a morir, susurró: 'Ahora, te levantas.'\n\nY se levantó." }
-                ]
-            },
-            {
-                id: 16, title: "Cartas Nunca Enviadas", author: "Pablo Melancolía",
-                genre: "drama", status: "completed", rating: 4.6,
-                reads: "1.4M", votes: "560K", chapters: 30,
-                cover: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=600&fit=crop",
-                tags: ["Drama", "Cartas", "Pérdida"],
-                description: "Un hijo encuentra las cartas que su padre nunca envió. Cada carta revela un secreto que cambiará todo lo que creía saber sobre su familia.",
-                content: [
-                    { title: "Capítulo 1: La Caja", text: "Mi padre murió un domingo.\n\nFue rápido, dijeron los médicos. No sufrió, dijeron. Como si eso fuera un consuelo.\n\nDos semanas después, mientras vaciaba su departamento, encontré la caja. Estaba escondida en el fondo del armario, debajo de capas de ropa vieja y recuerdos olvidados.\n\nDentro había cartas. Cientos de cartas, meticulosamente organizadas por fecha, cada una en su sobre sellado. La más antigua tenía fecha de 1975. La más reciente, del día antes de su muerte.\n\nTodas dirigidas a diferentes personas. Ninguna enviada jamás.\n\nLa primera que abrí estaba dirigida a mí:\n\n'Querido hijo: Hay cosas que un padre debería decir en voz alta, pero yo siempre fui mejor con las palabras escritas. Así que escribo, sabiendo que probablemente nunca leerás esto. O quizás sí. Quizás un día encontrarás esta caja y entenderás todo lo que no supe decirte...'" }
-                ]
-            },
-
-            // AVENTURA
-            {
-                id: 17, title: "El Mapa del Mundo Perdido", author: "Indiana Cross",
-                genre: "aventura", status: "ongoing", rating: 4.7,
-                reads: "2.2M", votes: "880K", chapters: 38,
-                cover: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&h=600&fit=crop",
-                tags: ["Aventura", "Exploración", "Tesoros"],
-                description: "Una arqueóloga descubre un mapa antiguo que señala la ubicación de una civilización que no debería existir. La carrera por encontrarla antes que las organizaciones que la quieren destruir.",
-                content: [
-                    { title: "Capítulo 1: El Descubrimiento", text: "El mapa estaba escondido dentro de una vasija de 3000 años de antigüedad que la Dra. Catalina Vega acababa de desenterrar en las ruinas de un templo en Perú.\n\nNo era un mapa normal. Estaba grabado en una aleación metálica que no correspondía a ninguna conocida por la ciencia moderna. Y mostraba un continente que, según toda la geología conocida, no existía.\n\n—Esto es imposible —murmuró, limpiando el polvo de siglos con un pincel—. Esto cambia todo.\n\nSu teléfono sonó. Era su mentor, el profesor Aldecoa.\n\n—Catalina, escúchame bien. Lo que sea que hayas encontrado, no le digas a nadie. HAY personas buscando exactamente eso. Y matarán por tenerlo.\n\nLa línea se cortó. Cuando Catalina intentó devolver la llamada, el número ya no existía." }
-                ]
-            },
-            {
-                id: 18, title: "Piratas del Cielo", author: "Capitán Viento",
-                genre: "aventura", status: "hot", rating: 4.8,
-                reads: "1.9M", votes: "760K", chapters: 44,
-                cover: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=400&h=600&fit=crop",
-                tags: ["Aventura", "Steampunk", "Piratas"],
-                description: "En un mundo donde los océanos están en el cielo, una tripulación de inadaptados surca las nubes en busca de la isla flotante que contiene el secreto de la gravedad.",
-                content: [
-                    { title: "Capítulo 1: La Capitana", text: "El cielo era el océano, las nubes eran las olas, y la Capitana Vega volaba sobre ambos como si hubiera nacido en el viento.\n\nSu barco, el Tormenta Roja, era una bestia de madera y metal que desafiaba toda lógica conocida. Los motores de vapor rugían, las velas atrapaban corrientes imposibles, y la tripulación más loca de los siete cielos gritaba de emoción mientras esquivaban otro cúmulo de tormenta.\n\n—¡Isla flotante a estribor! —gritó el vigía desde el nido de cuervos.\n\nVega alzó su catalejo. Ahí estaba: una masa de tierra suspendida entre las nubes, cubierta de vegetación imposible y ruinas de una civilización olvidada.\n\n—Preparen el arpón de anclaje —ordenó con una sonrisa salvaje—. Vamos a hacer historia." }
-                ]
-            },
-
-            // SUSPENSO
-            {
-                id: 19, title: "48 Horas", author: "Timer Dark",
-                genre: "suspenso", status: "completed", rating: 4.8,
-                reads: "2.6M", votes: "1M", chapters: 20,
-                cover: "https://images.unsplash.com/photo-1501139083538-0139583c060f?w=400&h=600&fit=crop",
-                tags: ["Suspenso", "Thriller", "Contrarreloj"],
-                description: "Un padre tiene exactamente 48 horas para encontrar a su hija desaparecida. Cada capítulo es una hora. Sin policía. Sin ayuda. Solo él contra el reloj.",
-                content: [
-                    { title: "Hora 1: La Llamada", text: "El teléfono sonó a las 6:00 AM.\n\n—Tienes cuarenta y ocho horas —dijo la voz distorsionada—. Si llamas a la policía, ella muere. Si pides ayuda, ella muere. Si no sigues mis instrucciones al pie de la letra... ella muere.\n\nRicardo Méndez dejó caer la taza de café. Se hizo añicos contra el suelo, pero él apenas lo notó.\n\n—¿Dónde está mi hija? —preguntó con una calma que no sentía.\n\n—A salvo. Por ahora. Mira debajo de tu puerta.\n\nHabía un sobre. Dentro, una fotografía de Luna, su hija de dieciséis años, dormida en lo que parecía un sótano. Y una nota con una dirección.\n\n—Tick tock, papá. Cuarenta y siete horas y cincuenta y nueve minutos.\n\nRicardo agarró sus llaves, su chaqueta, y el arma que guardaba en la caja fuerte desde hacía diez años.\n\nEl reloj empezó a correr." }
-                ]
-            },
-
-            // HUMOR
-            {
-                id: 20, title: "Manual para Sobrevivir a tu Familia", author: "Risa García",
-                genre: "humor", status: "completed", rating: 4.5,
-                reads: "1.7M", votes: "680K", chapters: 25,
-                cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400&h=600&fit=crop",
-                tags: ["Humor", "Familia", "Comedia"],
-                description: "Las desventuras hilarantes de una familia completamente disfuncional durante la reunión navideña más caótica de la historia. Basada en hechos reales que nadie quiere admitir.",
-                content: [
-                    { title: "Capítulo 1: La Invitación del Desastre", text: "Cuando mi madre me llamó para decirme que TODA la familia vendría a Navidad, debí haber fingido mi propia muerte.\n\nPero no. Como la idiota optimista que soy, dije: 'Qué bien, mami. ¿Cuántos somos?'\n\n—Cuarenta y siete.\n\n—¿CUARENTA Y SIETE?\n\n—Bueno, cuarenta y ocho si contamos al novio nuevo de tu tía Lola, que según WhatsApp tiene veintitrés años y es DJ.\n\nMi tía Lola tiene sesenta y dos.\n\n—Mamá, no tenemos espacio para cuarenta y ocho personas.\n\n—Por eso vamos a tu casa, mi amor. Tienes jardín.\n\nY así, queridos lectores, comenzó lo que más tarde la familia denominaría 'El Incidente Navideño' y la policía catalogaría como 'alteración del orden público con agravante de pavo en llamas'." }
-                ]
-            },
-            {
-                id: 21, title: "Mi Roommate es un Alienígena", author: "Comedia Cósmica",
-                genre: "humor", status: "ongoing", rating: 4.4,
-                reads: "1.3M", votes: "520K", chapters: 30,
-                cover: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&h=600&fit=crop",
-                tags: ["Humor", "Sci-Fi", "Comedia"],
-                description: "Cuando buscas roommate por internet y te llega un alienígena que no entiende la cultura humana. Las aventuras más absurdas de la convivencia intergaláctica.",
-                content: [
-                    { title: "Capítulo 1: El Anuncio", text: "Mi anuncio de roommate era simple: 'Se busca compañero/a de piso. Requisitos: no fumar, no mascotas, pagar el alquiler a tiempo.'\n\nEn ningún momento especifiqué que debía ser humano. Error mío.\n\nZyx-42 (que yo llamo 'Zyx' porque me niego a memorizar números) llegó un martes, en lo que él insiste en llamar 'transporte personal compacto' y que los vecinos reportaron como 'un meteorito cayó en el estacionamiento'.\n\nMedía dos metros, era de un agradable tono azul lavanda, y tenía cuatro brazos.\n\n—¿Tú ser el humano del anuncio? —preguntó con un español que sonaba como Google Translate pasado por una licuadora.\n\n—¿Tú ser... no de este planeta? —respondí.\n\n—Correcto. Pero pagar alquiler a tiempo. Tengo empleo. Soy... ¿cómo dicen ustedes? Contador.\n\nY así empezó la convivencia más absurda de mi vida." }
-                ]
-            },
-
-            // POESÍA
-            {
-                id: 22, title: "Versos de Medianoche", author: "Luna Poema",
-                genre: "poesia", status: "ongoing", rating: 4.7,
-                reads: "890K", votes: "420K", chapters: 60,
-                cover: "https://images.unsplash.com/photo-1515705576963-95cad62945b6?w=400&h=600&fit=crop",
-                tags: ["Poesía", "Amor", "Noche"],
-                description: "Una colección de poemas escritos entre las sombras de la medianoche, donde las palabras encuentran su verdadero significado.",
-                content: [
-                    { title: "I. Insomnio", text: "Las tres de la mañana\ny el silencio pesa\ncomo un océano de plomo\nsobre mis párpados abiertos.\n\nPienso en ti\nen la curva de tu sonrisa\nen el abismo dulce\nde tus ojos cerrados.\n\n¿Duermes?\n¿Sueñas acaso conmigo\ncomo yo sueño despierto\ncontigo?\n\nLa luna entra por la ventana\ncomo una ladrona de suspiros\ny me recuerda\nque hay noches\nque solo existen\npara extrañarte.\n\n---\n\nII. Tatuaje\n\nSi pudiera\ntatuaría tu nombre\nen el interior de mis párpados\npara verte cada vez\nque cierro los ojos.\n\nPero no hace falta.\nYa estás grabada\nen lugares más profundos\nque la piel.\n\n---\n\nIII. Distancia\n\nEntre tú y yo\nhay exactamente\n847 kilómetros\n3 horas de diferencia horaria\ny un océano\nde palabras no dichas.\n\nPero cuando me escribes\n'buenas noches'\nla distancia se convierte\nen el espacio entre\ndos letras de la misma palabra:\nimperceptible." }
-                ]
-            },
-
-            // HISTÓRICO
-            {
-                id: 23, title: "La Rosa de Versalles", author: "Marie Historique",
-                genre: "historico", status: "completed", rating: 4.6,
-                reads: "1.1M", votes: "440K", chapters: 40,
-                cover: "https://images.unsplash.com/photo-1461360370896-922624d12571?w=400&h=600&fit=crop",
-                tags: ["Histórico", "Francia", "Revolución"],
-                description: "En los últimos días de la monarquía francesa, una noble descubre que la revolución puede dar miedo, pero el amor verdadero aterroriza aún más.",
-                content: [
-                    { title: "Capítulo 1: Versalles, 1789", text: "Los jardines de Versalles nunca habían estado tan silenciosos.\n\nMadeleine de Beaumont caminaba entre las fuentes apagadas con la sensación de que algo terrible se acercaba. París ardía de rumores: el pueblo tenía hambre, la Bastilla era un símbolo de todo lo que odiaban, y la reina... la reina seguía pidiendo más vestidos.\n\n—No deberías estar aquí sola —dijo una voz desde las sombras del jardín.\n\nMadeleine se giró. Era Jean-Luc, el jardinero. El hombre de manos callosas y ojos que contenían más inteligencia de la que su puesto sugería.\n\n—¿Y dónde debería estar?\n\n—Lejos. Muy lejos de aquí. Lo que viene... no distinguirá entre nobles buenos y nobles malos.\n\nSus ojos se encontraron en la penumbra, y en ellos había algo más que advertencia. Había preocupación. Había afecto. Había todo lo que una noble jamás debería sentir por un jardinero.\n\n—Ven conmigo —dijo él—. Por favor." }
-                ]
-            },
-
-            // FANFICTION
-            {
-                id: 24, title: "Mundos Alternos", author: "FanWriter",
-                genre: "fanfiction", status: "ongoing", rating: 4.3,
-                reads: "2.8M", votes: "1.1M", chapters: 55,
-                cover: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=400&h=600&fit=crop",
-                tags: ["Fanfiction", "Multiverso", "Original"],
-                description: "¿Qué pasaría si los villanos fueran los héroes? Una reimaginación donde todo lo que conoces se invierte y nada es lo que parece.",
-                content: [
-                    { title: "Capítulo 1: El Espejo", text: "En algún lugar entre los universos, existe un punto donde todas las realidades se cruzan. Un lugar donde el héroe de un mundo es el villano de otro.\n\nMaya lo descubrió por accidente.\n\nEstaba en su habitación, leyendo su cómic favorito, cuando la página comenzó a brillar. Las letras se movieron, los dibujos cobraron vida, y antes de que pudiera gritar, cayó dentro de la historia.\n\nPero no era la historia que conocía.\n\nAquí, el villano era amable. El héroe era cruel. Y Maya era la única que sabía que todo estaba al revés." }
-                ]
-            },
-
-            // PARANORMAL
-            {
-                id: 25, title: "Entre Dos Mundos", author: "Spirit Medium",
-                genre: "paranormal", status: "hot", rating: 4.7,
-                reads: "1.6M", votes: "640K", chapters: 35,
-                cover: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop",
-                tags: ["Paranormal", "Fantasmas", "Romance"],
-                description: "Una médium que puede ver fantasmas se enamora de uno. El problema: para estar juntos, uno de los dos tendría que cruzar al otro lado.",
-                content: [
-                    { title: "Capítulo 1: El Don", text: "Ver muertos no es un don. Es una condena.\n\nAlma Torres lo sabía desde los cinco años, cuando vio al abuelo sentado en su silla favorita tres días después de su funeral. Todos pensaron que era una niña imaginativa. Ella sabía la verdad.\n\nAhora, con veinticinco años, Alma había aprendido a convivir con los espíritus. Los ignoraba en el metro, les sonreía en el parque, y de vez en cuando, les ayudaba a encontrar la paz.\n\nPero nunca, jamás, se había enamorado de uno.\n\nHasta que conoció a Sebastián.\n\nEstaba sentado en el banco de siempre del parque, leyendo un libro que no podía tocar, con una sonrisa triste que le partió el corazón.\n\n—Puedes verme —dijo él, sorprendido.\n\n—Puedo verte —confirmó ella.\n\nY ese fue el comienzo de la historia de amor más imposible del mundo." }
-                ]
-            },
-
-            // MÁS ROMANCE
-            {
-                id: 26, title: "Enemigos Íntimos", author: "Pasión Libre",
-                genre: "romance", status: "hot", rating: 4.8,
-                reads: "3.2M", votes: "1.3M", chapters: 42,
-                cover: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=600&fit=crop",
-                tags: ["Romance", "Enemies to Lovers", "Oficina"],
-                description: "Ella es la nueva directora. Él es el empleado que debió haber recibido el puesto. Se odian. O eso creen hasta que se quedan atrapados en el ascensor.",
-                content: [
-                    { title: "Capítulo 1: Guerra Declarada", text: "El primer día de Renata como directora de marketing de Grupo Atlas fue memorable. Y no precisamente por las razones correctas.\n\nNicolás Herrera la esperaba en la puerta de su nueva oficina con una sonrisa que gritaba 'guerra'.\n\n—Así que tú eres la que me robó el puesto.\n\n—No te robé nada. Me lo gané.\n\n—Claro. Porque una MBA de Harvard es más importante que diez años de experiencia real.\n\n—Doce, en realidad. Pero quién cuenta.\n\nSus ojos se encontraron. Chocolate contra ámbar. Fuego contra fuego.\n\n—Esto va a ser divertido —dijo él.\n\n—Para mí, sin duda —respondió ella, cerrándole la puerta en la cara.\n\nNinguno de los dos sabía que en exactamente tres semanas, estarían besándose desesperadamente en el estacionamiento." }
-                ]
-            },
-            {
-                id: 27, title: "El Chico del Café", author: "Dulce Otoño",
-                genre: "romance", status: "completed", rating: 4.6,
-                reads: "1.9M", votes: "760K", chapters: 35,
-                cover: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&h=600&fit=crop",
-                tags: ["Romance", "Café", "Slow Burn"],
-                description: "Cada mañana, ella pide el mismo café. Cada mañana, él escribe un mensaje diferente en su vaso. 365 mensajes. 365 oportunidades para decir 'te quiero'.",
-                content: [
-                    { title: "Capítulo 1: Día 1", text: "Vaso #1: 'Bonita sonrisa :)'\n\nEmma casi no lo notó. Estaba distraída con el teléfono, respondiendo emails del trabajo mientras esperaba su americano de todos los días.\n\nPero cuando tomó el vaso y vio el mensaje escrito con marcador, no pudo evitar sonreír.\n\nMiró hacia el mostrador. El barista —nuevo, no lo había visto antes— la miraba con ojos color avellana y una sonrisa tímida.\n\n—Gracias —dijo Emma.\n\n—Gracias a ti —respondió él—. Por la sonrisa.\n\nEmma se fue pensando que era un gesto bonito. Nada más.\n\nNo sabía que mañana habría otro mensaje. Y otro. Y otro. Trescientos sesenta y cinco en total.\n\nNo sabía que ese chico del café cambiaría su vida." }
-                ]
-            },
-
-            // MÁS TERROR
-            {
-                id: 28, title: "El Juego de las 3 AM", author: "Noctis Horror",
-                genre: "terror", status: "new", rating: 4.5,
-                reads: "1.4M", votes: "560K", chapters: 22,
-                cover: "https://images.unsplash.com/photo-1509281373149-e957c6296406?w=400&h=600&fit=crop",
-                tags: ["Terror", "Juego", "Demonios"],
-                description: "Un juego viral en internet promete conceder cualquier deseo si sigues las reglas a las 3 AM. Las reglas son simples. Las consecuencias, no.",
-                content: [
-                    { title: "Capítulo 1: Las Reglas", text: "El video tenía 50 millones de visitas. Se llamaba simplemente: 'EL JUEGO DE LAS 3AM - FUNCIONA'\n\nLas reglas eran:\n1. Espera a las 3:00 AM exactas.\n2. Enciende una vela roja.\n3. Escribe tu deseo en un papel.\n4. Di en voz alta: 'Acepto el precio.'\n5. NUNCA mires detrás de ti hasta que amanezca.\n\nAlejandro vio el video por curiosidad. Luego por diversión. Luego, a las 2:58 AM de un martes cualquiera, con una vela roja que compró en el supermercado y un bolígrafo en la mano, decidió intentarlo.\n\nEscribió su deseo: 'Quiero que ella me ame.'\n\nA las 3:00 en punto, dijo las palabras.\n\nLa vela parpadeó. La temperatura bajó diez grados. Y algo, detrás de él, suspiró.\n\nTodas las fibras de su cuerpo le gritaron que se diera la vuelta. Pero recordó la regla número cinco.\n\nNo mirar atrás.\n\nEl suspiro se convirtió en una risa." }
-                ]
-            },
-
-            // MÁS MISTERIO
-            {
-                id: 29, title: "El Club de los Mentirosos", author: "Verdad Oculta",
-                genre: "misterio", status: "ongoing", rating: 4.7,
-                reads: "2M", votes: "800K", chapters: 33,
-                cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=600&fit=crop",
-                tags: ["Misterio", "Universidad", "Secretos"],
-                description: "Cinco estudiantes perfectos. Una muerte sospechosa. Todos tienen coartada. Todos están mintiendo. ¿Quién mató a la profesora Mendoza?",
-                content: [
-                    { title: "Capítulo 1: El Cuerpo", text: "La profesora Mendoza fue encontrada en su despacho a las 7:15 de la mañana por el conserje. Sentada en su silla, con una taza de té intacta frente a ella y una sonrisa congelada en los labios.\n\nLa causa de la muerte: envenenamiento.\n\nLos sospechosos: sus cinco estudiantes favoritos, los únicos que tenían acceso a su despacho privado. Los brillantes. Los perfectos. Los que ella había elegido personalmente para su programa de élite.\n\nAlejandra, la líder. Siempre tiene respuesta para todo.\nTomás, el genio. Capaz de resolver cualquier problema.\nIsabel, la actriz. Nadie sabe nunca qué está pensando.\nRoberto, el atleta. Fuerte, callado, peligroso.\nMarina, la artista. Ve cosas que los demás no ven.\n\nTodos declararon estar en otro lugar al momento de la muerte.\nTodos mintieron.\nLa pregunta no era si alguno de ellos la mató.\nLa pregunta era: ¿por qué todos la querían muerta?" }
-                ]
-            },
-
-            // MÁS FANTASÍA
-            {
-                id: 30, title: "La Escuela de Magia Nocturna", author: "Brujo Académico",
-                genre: "fantasia", status: "ongoing", rating: 4.6,
-                reads: "2.5M", votes: "1M", chapters: 48,
-                cover: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&q=80",
-                tags: ["Fantasía", "Academia", "Magia"],
-                description: "Existe una escuela que solo aparece de noche. Sus estudiantes aprenden magia prohibida. Su directora es un enigma. Y alguien dentro quiere destruirla.",
-                content: [
-                    { title: "Capítulo 1: La Carta Negra", text: "La carta llegó exactamente a medianoche. No por correo, no por email, ni siquiera por paloma mensajera. Simplemente apareció en la almohada de Nora mientras dormía.\n\nEra negra como la noche, con letras plateadas que brillaban con luz propia:\n\n'Estimada Nora Castillo:\nHa sido seleccionada para asistir a la Academia Nocturna de Artes Arcanas. Su primera clase comienza esta medianoche. Mire por su ventana.\nNo necesita responder. Ya sabemos que vendrá.\nAtentamente, La Directora.'\n\nNora miró por la ventana. Donde antes había un parque vacío, ahora se alzaba un edificio imposible: un castillo gótico hecho de cristal oscuro que reflejaba las estrellas como si las hubiera atrapado.\n\n—Esto tiene que ser un sueño —murmuró.\n\nPero el uniforme que apareció al pie de su cama era muy real. Y la puerta del castillo ya se estaba abriendo." }
-                ]
-            },
-
-            // MÁS CIENCIA FICCIÓN
-            {
-                id: 31, title: "Memorias Borradas", author: "Cybernética",
-                genre: "ciencia-ficcion", status: "completed", rating: 4.8,
-                reads: "2.3M", votes: "920K", chapters: 38,
-                cover: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=600&fit=crop",
-                tags: ["Sci-Fi", "Memoria", "Identidad"],
-                description: "En un futuro donde puedes borrar recuerdos dolorosos, una mujer descubre que le borraron toda su vida. Alguien no quiere que recuerde quién era realmente.",
-                content: [
-                    { title: "Capítulo 1: La Clínica", text: "Despertó sin nombre.\n\nLa habitación era blanca, estéril, con ese olor a limpio que solo tienen los hospitales y las clínicas donde hacen cosas que no quieren que el mundo sepa.\n\n—Bienvenida de vuelta —dijo la doctora con una sonrisa practicada—. El procedimiento fue un éxito. ¿Cómo se siente?\n\n—¿Quién soy?\n\nLa sonrisa de la doctora vaciló.\n\n—¿Puede ser más específica?\n\n—No sé mi nombre. No sé dónde vivo. No sé quién soy.\n\nEl expediente decía que había venido para borrar un trauma específico. Un recuerdo de tres minutos. Pero lo que le habían borrado era todo.\n\nVeintiocho años de vida, eliminados como archivos de una computadora.\n\n—Debe haber un error —dijo la doctora, pero sus ojos decían otra cosa. Sus ojos decían miedo." }
-                ]
-            },
-
-            // MÁS AVENTURA
-            {
-                id: 32, title: "La Brújula del Destino", author: "Aventurero Nato",
-                genre: "aventura", status: "new", rating: 4.4,
-                reads: "750K", votes: "300K", chapters: 18,
-                cover: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400&h=600&fit=crop",
-                tags: ["Aventura", "Viaje", "Destino"],
-                description: "Una brújula que no señala el norte sino tu destino. Un viaje alrededor del mundo siguiendo una aguja que siempre apunta hacia lo desconocido.",
-                content: [
-                    { title: "Capítulo 1: La Herencia", text: "Mi abuelo me dejó tres cosas: una carta, una mochila gastada, y una brújula que no funcionaba.\n\nO eso pensé.\n\nLa carta decía:\n\n'Querido nieto: Esta brújula no señala el norte. Señala tu destino. Síguela sin preguntar, sin dudar, sin mirar atrás. Te llevará a donde necesitas ir, no a donde quieres ir. Hay una diferencia enorme entre ambas cosas. Te quiere, el abuelo que nunca se quedó quieto.'\n\nLa aguja de la brújula giró y se detuvo. Señalaba hacia el oeste.\n\nHacia el aeropuerto.\n\n—Bueno, abuelo —dije, metiendo la brújula en la mochila—. Vamos a ver a dónde me llevas." }
-                ]
-            },
-
-            // DRAMA
-            {
-                id: 33, title: "Mil Grullas de Papel", author: "Sakura Tanaka",
-                genre: "drama", status: "completed", rating: 4.9,
-                reads: "2.9M", votes: "1.2M", chapters: 42,
-                cover: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=600&fit=crop",
-                tags: ["Drama", "Enfermedad", "Esperanza"],
-                description: "La leyenda dice que si haces mil grullas de papel, se te concede un deseo. Ella tiene cáncer. Él dobla grullas. Y ambos saben que a veces el amor es más fuerte que cualquier enfermedad.",
-                content: [
-                    { title: "Capítulo 1: Grulla número 1", text: "Grulla #1\n\nLa primera grulla fue horrible. Torcida, arrugada, con un ala más grande que la otra. Parecía más un avión de papel borracho que un ave.\n\nPero Kai la guardó de todas formas.\n\n—¿Qué haces? —preguntó Hana desde la cama del hospital, con la cabeza cubierta por un gorro de lana que intentaba disimular la ausencia de cabello.\n\n—Una grulla.\n\n—Eso no es una grulla. Eso es un crimen contra el origami.\n\nKai se rió. Era la primera vez que se reía en semanas.\n\n—Voy a hacer mil —dijo—. La leyenda dice que si haces mil grullas, se te concede un deseo.\n\nHana lo miró con esos ojos enormes que la quimioterapia no había logrado apagar.\n\n—¿Y qué vas a pedir?\n\nKai no respondió. No hacía falta. Ambos sabían exactamente qué iba a pedir.\n\nQuedan 999 grullas." }
-                ]
-            },
-
-            // PARANORMAL
-            {
-                id: 34, title: "El Cementerio de las Almas", author: "Midnight Ghost",
-                genre: "paranormal", status: "ongoing", rating: 4.5,
-                reads: "1.3M", votes: "520K", chapters: 28,
-                cover: "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?w=400&h=600&fit=crop",
-                tags: ["Paranormal", "Cementerio", "Misterio"],
-                description: "El nuevo vigilante nocturno del cementerio más antiguo de la ciudad descubre que su trabajo no es vigilar a los vivos que entran, sino a los muertos que intentan salir.",
-                content: [
-                    { title: "Capítulo 1: Turno de Noche", text: "Las instrucciones del trabajo eran extrañas:\n\n1. Nunca entres al sector 7 después de medianoche.\n2. Si escuchas cantar, tápate los oídos.\n3. Las flores del lote 42 siempre están frescas. No preguntes por qué.\n4. Si alguien toca la puerta de la caseta y dice ser tu familiar muerto, NO ABRAS.\n5. Cobras el doble que un vigilante normal por una razón.\n\nRodrigo aceptó el trabajo porque necesitaba el dinero. Simple y llanamente.\n\nLa primera noche fue tranquila. La segunda también.\n\nLa tercera noche, a las 3:33 AM, escuchó pasos. Pasos que venían del sector 7.\n\nY entonces, clara como el cristal, la voz de su madre muerta:\n\n—Rodrigo, hijo, ábreme. Tengo frío aquí afuera.\n\nSu madre había muerto hacía dos años.\n\nRecordó la regla número 4.\n\nNo abrió la puerta.\n\nPero algo del otro lado empezó a rasgar la madera." }
-                ]
-            },
-
-            // MÁS ROMANCE
-            {
-                id: 35, title: "Playlist de un Corazón Roto", author: "Melody Heart",
-                genre: "romance", status: "completed", rating: 4.7,
-                reads: "2.1M", votes: "840K", chapters: 28,
-                cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=600&fit=crop",
-                tags: ["Romance", "Música", "Segunda Oportunidad"],
-                description: "Cada capítulo es una canción. Cada canción cuenta un momento de su historia de amor. Desde el primer acorde hasta el último, esta es la playlist más triste y hermosa jamás escrita.",
-                content: [
-                    { title: "Track 1: 'Someone Like You'", text: "Dice la gente que hay canciones que te definen. Canciones que, cuando suenan, te transportan a un momento exacto de tu vida con tanta precisión que puedes oler el perfume, sentir la brisa, escuchar la risa.\n\nPara mí, esa canción es 'Someone Like You' de Adele.\n\nSonaba en la cafetería cuando lo vi por primera vez. Él estaba sentado junto a la ventana, con auriculares puestos, moviendo los labios al ritmo de una canción que yo no podía escuchar.\n\nMe pregunté qué estaría escuchando.\n\n(Meses después me confesaría que estaba escuchando la misma canción que yo.)\n\n—¿Está ocupado? —pregunté, señalando la silla frente a él.\n\nSe quitó un auricular. Solo uno. El otro seguía conectado a su mundo.\n\n—Todo tuyo —dijo.\n\nNo sabía cuánta razón tenía." }
-                ]
-            },
-
-            // SUSPENSO
-            {
-                id: 36, title: "La Habitación Cerrada", author: "Enigma Writer",
-                genre: "suspenso", status: "completed", rating: 4.8,
-                reads: "2.4M", votes: "960K", chapters: 32,
-                cover: "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=400&h=600&fit=crop",
-                tags: ["Suspenso", "Escape Room", "Psicológico"],
-                description: "Ocho desconocidos despiertan en una habitación cerrada. Hay una puerta, pero para abrirla deben confesar su peor secreto. El problema: uno de ellos es un asesino.",
-                content: [
-                    { title: "Capítulo 1: Despertar", text: "Lo primero que notó Sara fue el dolor de cabeza. Lo segundo, que no estaba en su cama. Lo tercero, que no estaba sola.\n\nHabía siete personas más en la habitación. Todas despertando al mismo tiempo, todas desorientadas, todas con la misma pregunta en los ojos:\n\n¿Dónde estoy?\n\nLa habitación era grande, cuadrada, sin ventanas. Las paredes eran grises, el suelo de concreto, y en el centro había una mesa con ocho sillas y un sobre rojo.\n\nFue el hombre del traje —más tarde sabría que se llamaba Rodrigo— quien abrió el sobre y leyó en voz alta:\n\n'Bienvenidos al juego. La puerta se abrirá cuando todos hayan confesado su peor secreto. Pero cuidado: uno de ustedes es un asesino. Y está escuchando cada palabra.\n\nTienen 12 horas. Después de eso, la habitación se sellará permanentemente.\n\nBuena suerte.'\n\nOcho pares de ojos se miraron con desconfianza.\n\nEl reloj en la pared comenzó la cuenta regresiva:\n\n11:59:59\n11:59:58\n11:59:57..." }
-                ]
-            },
-
-            // MÁS FANTASÍA
-            {
-                id: 37, title: "Cazadores de Sueños", author: "Dream Walker",
-                genre: "fantasia", status: "hot", rating: 4.7,
-                reads: "1.8M", votes: "720K", chapters: 40,
-                cover: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&h=600&fit=crop&q=90",
-                tags: ["Fantasía", "Sueños", "Acción"],
-                description: "Existen personas que pueden entrar en los sueños de otros. Los llaman Cazadores. Su misión: encontrar y destruir las pesadillas que se alimentan del miedo humano.",
-                content: [
-                    { title: "Capítulo 1: El Primer Salto", text: "Entrar en un sueño se siente como caer en agua tibia.\n\nAl principio hay resistencia, una barrera invisible que empuja hacia afuera. Luego, si conoces la técnica, la barrera cede y caes en un mundo que no obedece ninguna ley física.\n\nLeo era Cazador de tercera generación. Su abuelo cazaba pesadillas en los sueños de soldados de guerra. Su madre se especializaba en los terrores nocturnos infantiles. Él... bueno, él todavía estaba en entrenamiento.\n\n—Recuerda —dijo su mentora, Iris, antes del primer salto—. En el sueño de alguien más, las reglas las pone el soñador. Tú eres el intruso. La pesadilla lo sabe. Y te cazará a ti si no la cazas primero.\n\n—Entendido.\n\n—No. No lo entiendes. Pero lo entenderás.\n\nLeo cerró los ojos, activó el protocolo de inmersión, y saltó al primer sueño.\n\nCayó en una ciudad al revés. Los edificios crecían hacia abajo, la lluvia subía en lugar de bajar, y en cada esquina, una sombra con demasiados dientes lo observaba.\n\n—Bienvenido —susurró la pesadilla—. Te estaba esperando." }
-                ]
-            },
-
-            // HUMOR
-            {
-                id: 38, title: "Diario de un Profesor Agotado", author: "Profe Burnout",
-                genre: "humor", status: "ongoing", rating: 4.6,
-                reads: "1.5M", votes: "600K", chapters: 35,
-                cover: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=600&fit=crop",
-                tags: ["Humor", "Escuela", "Realismo"],
-                description: "Las aventuras (y desventuras) reales de un profesor de secundaria que intenta sobrevivir a adolescentes armados con teléfonos, excusas creativas y una creatividad para el caos que debería ser premiada.",
-                content: [
-                    { title: "Lunes: Día 1", text: "Lunes, 7:30 AM.\n\nMe presento: soy el profesor Martín. Doy Literatura en secundaria. Llevo tres años. Debería haber escogido otra profesión. Pero aquí estoy, frente a treinta adolescentes que me miran como si fuera un alienígena que acaba de pedirles que abran un libro.\n\n—Buenos días —digo con el entusiasmo de alguien que ha dormido cuatro horas—. Hoy vamos a hablar de Don Quijote.\n\nSilencio sepulcral.\n\n—¿Don qué? —pregunta Kevin desde la última fila.\n\n—Don Quijote. La obra más importante de la literatura en español.\n\n—¿Ese es el viejito que pelea con molinos?\n\n—Bueno, sí, pero es mucho más que...\n\n—Profe, ¿y eso va a venir en el examen?\n\n—Sí.\n\n—Entonces solo díganos las respuestas y ya.\n\nSuspiro. Son las 7:32 de la mañana y ya necesito vacaciones.\n\nEl café de la sala de profesores sabe a desesperanza líquida, pero al menos está caliente." }
-                ]
-            },
-
-            // ROMANCE OSCURO
-            {
-                id: 39, title: "Pecados de Terciopelo", author: "Sombra Roja",
-                genre: "romance", status: "ongoing", rating: 4.5,
-                reads: "2.6M", votes: "1M", chapters: 36,
-                cover: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=600&fit=crop",
-                tags: ["Romance Oscuro", "Mafia", "Prohibido"],
-                description: "Ella es fiscal. Él es el heredero de la familia mafiosa más peligrosa de la ciudad. Su amor es un crimen. Pero los corazones no entienden de leyes.",
-                content: [
-                    { title: "Capítulo 1: El Encuentro", text: "La primera vez que Victoria Cruz vio a Dante Moretti fue en la sala del tribunal, al otro lado de la barrera que separaba la ley del crimen.\n\nElla lo estaba procesando por lavado de dinero. Él la miraba como si ella fuera la única persona en la sala.\n\n—La fiscalía solicita prisión preventiva —dijo Victoria con voz firme, ignorando el latido traicionero de su corazón.\n\nDante sonrió. Una sonrisa de lobo que debería haberla asustado.\n\n—Señoría —habló su abogado—, mi cliente es un empresario respetable.\n\n—Su cliente es la cabeza de una organización criminal —cortó Victoria.\n\n—Presunta —corrigió Dante, hablando por primera vez. Su voz era como whisky añejo: suave, oscura, peligrosa—. Todo es presunto hasta que se demuestre lo contrario. ¿No es así, fiscal Cruz?\n\nSus ojos se encontraron. Algo pasó entre ellos que ningún código penal podría definir.\n\nVictoria supo en ese momento que estaba en problemas. El tipo de problemas que no se resuelven con leyes." }
-                ]
-            },
-
-            // CIENCIA FICCIÓN
-            {
-                id: 40, title: "La Última Colonia", author: "Frontier Space",
-                genre: "ciencia-ficcion", status: "hot", rating: 4.6,
-                reads: "1.7M", votes: "680K", chapters: 30,
-                cover: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=400&h=600&fit=crop",
-                tags: ["Sci-Fi", "Colonización", "Marte"],
-                description: "La colonia en Marte es la última esperanza de la humanidad. Pero algo bajo la superficie del planeta rojo ha estado esperando millones de años. Y acaba de despertar.",
-                content: [
-                    { title: "Capítulo 1: Señales", text: "Colonia Ares, Marte. Año 2089.\n\nLa primera señal fue el temblor. En un planeta con actividad sísmica casi nula, un terremoto de 4.2 era, como mínimo, preocupante.\n\nLa Dra. Elena Park, geóloga jefe de la colonia, estudió los datos con el ceño fruncido.\n\n—Esto no tiene sentido —murmuró—. El epicentro está directamente debajo de nosotros. A exactamente 3.7 kilómetros de profundidad.\n\n—¿Y eso qué significa? —preguntó el comandante Rivera.\n\n—Significa que algo se movió ahí abajo. Algo grande.\n\n—¿Algo tectónico?\n\nElena dudó. Los patrones sísmicos no eran naturales. Eran demasiado regulares, demasiado rítmicos. Como un latido.\n\n—No —dijo finalmente—. No es tectónico. Es... orgánico.\n\nEl silencio en la sala de control fue absoluto.\n\n—¿Me estás diciendo que hay algo VIVO debajo de la colonia?\n\n—Le estoy diciendo que algo acaba de despertar." }
-                ]
-            }
-        ];
-
-        // ==================== STATE ====================
-        let favorites = JSON.parse(localStorage.getItem('myLibFavorites') || '[]');
-        let readingList = JSON.parse(localStorage.getItem('myLibReading') || '[]');
-        let readProgress = JSON.parse(localStorage.getItem('myLibProgress') || '{}');
-        let currentFontSize = 16;
-        let currentChapter = 0;
-        let currentBook = null;
-
-        // ==================== INIT ====================
-        function init() {
-            renderFeatured();
-            renderBooks(booksDatabase);
-            updateCounts();
-            document.getElementById('totalBooks').textContent = booksDatabase.length;
-            let totalReads = 0;
-            booksDatabase.forEach(b => {
-                const num = parseFloat(b.reads.replace('M','').replace('K',''));
-                if (b.reads.includes('M')) totalReads += num;
-                else totalReads += num/1000;
-            });
-            document.getElementById('totalReads').textContent = totalReads.toFixed(1) + 'M';
-        }
-
-        // ==================== RENDER ====================
-        function renderFeatured() {
-            const featured = booksDatabase.filter(b => b.rating >= 4.7).slice(0, 6);
-            const carousel = document.getElementById('featuredCarousel');
-            carousel.innerHTML = featured.map(book => `
-                <div class="featured-card" onclick="openDetail(${book.id})">
-                    <div class="featured-cover">
-                        <img src="${book.cover}" alt="${book.title}" loading="lazy">
-                        <span class="featured-badge">⭐ ${book.rating}</span>
+    <!-- ============ MODAL: ADD BOOK ============ -->
+    <div class="modal-backdrop" id="addModal">
+        <div class="modal">
+            <div class="modal-head">
+                <h2>➕ Agregar Libro</h2>
+                <button class="modal-close" onclick="closeModal('addModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="addBookForm" onsubmit="handleAddBook(event)">
+                    <div class="form-group">
+                        <label>Enlace de Wattpad <span class="required">*</span></label>
+                        <input type="url" class="form-input" id="bookUrl" placeholder="https://www.wattpad.com/story/..." required>
+                        <div class="form-hint">Copia el enlace del libro desde Wattpad</div>
                     </div>
-                    <div class="featured-info">
-                        <h3>${book.title}</h3>
-                        <div class="author">por ${book.author}</div>
-                        <div class="desc">${book.description}</div>
-                        <div class="featured-meta">
-                            <span>👁️ ${book.reads}</span>
-                            <span>❤️ ${book.votes}</span>
-                            <span>📖 ${book.chapters} caps</span>
+
+                    <div class="form-group">
+                        <label>Título del libro <span class="required">*</span></label>
+                        <input type="text" class="form-input" id="bookTitle" placeholder="Ej: After" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Autor <span class="required">*</span></label>
+                            <input type="text" class="form-input" id="bookAuthor" placeholder="Ej: Anna Todd" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Género <span class="required">*</span></label>
+                            <select class="form-input" id="bookGenre" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="romance">💕 Romance</option>
+                                <option value="fantasia">🧙 Fantasía</option>
+                                <option value="terror">👻 Terror</option>
+                                <option value="misterio">🔍 Misterio</option>
+                                <option value="ciencia-ficcion">🚀 Ciencia Ficción</option>
+                                <option value="drama">🎭 Drama</option>
+                                <option value="aventura">⚔️ Aventura</option>
+                                <option value="poesia">🌹 Poesía</option>
+                                <option value="suspenso">😰 Suspenso</option>
+                                <option value="humor">😂 Humor</option>
+                                <option value="historico">🏛️ Histórico</option>
+                                <option value="fanfiction">✨ Fanfiction</option>
+                                <option value="paranormal">🌙 Paranormal</option>
+                                <option value="werewolf">🐺 Hombres Lobo</option>
+                                <option value="vampiros">🧛 Vampiros</option>
+                                <option value="lgbtq">🏳️‍🌈 LGBTQ+</option>
+                                <option value="accion">💥 Acción</option>
+                                <option value="chicklit">👠 Chick Lit</option>
+                                <option value="otro">📚 Otro</option>
+                            </select>
                         </div>
                     </div>
-                </div>
-            `).join('');
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Valoración</label>
+                            <select class="form-input" id="bookRating">
+                                <option value="0">Sin valorar</option>
+                                <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                                <option value="4">⭐⭐⭐⭐ (4)</option>
+                                <option value="3">⭐⭐⭐ (3)</option>
+                                <option value="2">⭐⭐ (2)</option>
+                                <option value="1">⭐ (1)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Estado</label>
+                            <select class="form-input" id="bookStatus">
+                                <option value="pending">📋 Pendiente</option>
+                                <option value="reading">📖 Leyendo</option>
+                                <option value="completed">✅ Completado</option>
+                                <option value="dropped">❌ Abandonado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>URL de la portada (opcional)</label>
+                        <input type="url" class="form-input" id="bookCover" placeholder="https://img.wattpad.com/cover/...">
+                        <div class="form-hint">Pega la URL de la imagen de portada (clic derecho → copiar dirección de imagen)</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Notas personales</label>
+                        <textarea class="form-input" id="bookNotes" placeholder="Tus notas, opinión, capítulo donde te quedaste..."></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit" id="formSubmitBtn">
+                        📚 Guardar Libro
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL: FAVORITES ============ -->
+    <div class="modal-backdrop" id="favModal">
+        <div class="modal modal-wide">
+            <div class="modal-head">
+                <h2>❤️ Mis Favoritos</h2>
+                <button class="modal-close" onclick="closeModal('favModal')">✕</button>
+            </div>
+            <div class="modal-body" id="favModalBody"></div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL: READING LIST ============ -->
+    <div class="modal-backdrop" id="readingModal">
+        <div class="modal modal-wide">
+            <div class="modal-head">
+                <h2>📖 Mi Lista de Lectura</h2>
+                <button class="modal-close" onclick="closeModal('readingModal')">✕</button>
+            </div>
+            <div class="modal-body" id="readingModalBody"></div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL: BOOK DETAIL ============ -->
+    <div class="modal-backdrop" id="detailModal">
+        <div class="modal modal-wide">
+            <div class="modal-head">
+                <h2 id="detailModalTitle">📖 Detalle</h2>
+                <button class="modal-close" onclick="closeModal('detailModal')">✕</button>
+            </div>
+            <div class="modal-body" id="detailModalBody"></div>
+        </div>
+    </div>
+
+    <!-- CONTEXT MENU -->
+    <div class="ctx-menu" id="ctxMenu"></div>
+
+    <!-- TOAST -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // ===================== DATA =====================
+        const GENRES = {
+            'romance': '💕 Romance',
+            'fantasia': '🧙 Fantasía',
+            'terror': '👻 Terror',
+            'misterio': '🔍 Misterio',
+            'ciencia-ficcion': '🚀 Sci-Fi',
+            'drama': '🎭 Drama',
+            'aventura': '⚔️ Aventura',
+            'poesia': '🌹 Poesía',
+            'suspenso': '😰 Suspenso',
+            'humor': '😂 Humor',
+            'historico': '🏛️ Histórico',
+            'fanfiction': '✨ Fanfiction',
+            'paranormal': '🌙 Paranormal',
+            'werewolf': '🐺 Hombres Lobo',
+            'vampiros': '🧛 Vampiros',
+            'lgbtq': '🏳️‍🌈 LGBTQ+',
+            'accion': '💥 Acción',
+            'chicklit': '👠 Chick Lit',
+            'otro': '📚 Otro'
+        };
+
+        // State
+        let books = JSON.parse(localStorage.getItem('wattLibBooks') || '[]');
+        let currentFilter = 'all';
+        let currentSort = 'recent';
+        let editingBookId = null;
+
+        // ===================== INIT =====================
+        function init() {
+            if (books.length === 0) {
+                // Add sample books for first time
+                const samples = [
+                    { title: "After", author: "Anna Todd", genre: "romance", url: "https://www.wattpad.com/story/15056177-after", cover: "https://img.wattpad.com/cover/15056177-256-k477052.jpg", rating: 5, status: "completed", notes: "Increíble historia de amor 💕" },
+                    { title: "The Kissing Booth", author: "Beth Reekles", genre: "romance", url: "https://www.wattpad.com/story/4769292-the-kissing-booth", cover: "https://img.wattpad.com/cover/4769292-256-k290029.jpg", rating: 4, status: "completed", notes: "Muy divertida" },
+                    { title: "Chasing Red", author: "Isabelle Ronin", genre: "romance", url: "https://www.wattpad.com/story/50499867-chasing-red", cover: "https://img.wattpad.com/cover/50499867-256-k544981.jpg", rating: 5, status: "reading", notes: "" },
+                    { title: "She's With Me", author: "Jessica Cunsolo", genre: "romance", url: "https://www.wattpad.com/story/42592371-shes-with-me", cover: "https://img.wattpad.com/cover/42592371-256-k134697.jpg", rating: 4, status: "reading", notes: "Capítulo 15" },
+                    { title: "The Bad Boy's Girl", author: "Blair Holden", genre: "romance", url: "https://www.wattpad.com/story/14454594-the-bad-boys-girl", cover: "https://img.wattpad.com/cover/14454594-256-k649386.jpg", rating: 4, status: "pending", notes: "" },
+                    { title: "Dark and Dangerous Love", author: "Molly Night", genre: "romance", url: "https://www.wattpad.com/story/56809134-dark-and-dangerous-love", cover: "", rating: 3, status: "pending", notes: "" },
+                ];
+
+                samples.forEach(s => {
+                    books.push({
+                        id: generateId(),
+                        ...s,
+                        favorite: false,
+                        createdAt: Date.now()
+                    });
+                });
+                saveBooks();
+            }
+
+            renderGenreNav();
+            renderBooks();
+            updateStats();
         }
 
-        function renderBooks(books) {
-            const grid = document.getElementById('booksGrid');
-            document.getElementById('resultCount').textContent = `${books.length} libros`;
+        // ===================== HELPERS =====================
+        function generateId() {
+            return 'b_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+        }
 
-            if (books.length === 0) {
+        function saveBooks() {
+            localStorage.setItem('wattLibBooks', JSON.stringify(books));
+            updateStats();
+        }
+
+        function getGenreLabel(key) {
+            return GENRES[key] || '📚 ' + key;
+        }
+
+        function getGenreEmoji(key) {
+            const label = GENRES[key];
+            return label ? label.split(' ')[0] : '📚';
+        }
+
+        function getStatusLabel(status) {
+            const map = { pending: '📋 Pendiente', reading: '📖 Leyendo', completed: '✅ Completado', dropped: '❌ Abandonado' };
+            return map[status] || status;
+        }
+
+        function getStars(rating) {
+            if (!rating) return '';
+            return '⭐'.repeat(rating);
+        }
+
+        // ===================== RENDER =====================
+        function renderGenreNav() {
+            const nav = document.getElementById('genreNav');
+            const usedGenres = [...new Set(books.map(b => b.genre))].sort();
+
+            let html = `<button class="genre-btn ${currentFilter === 'all' ? 'active' : ''}" onclick="filterGenre('all', this)">📚 Todos</button>`;
+
+            usedGenres.forEach(g => {
+                if (GENRES[g]) {
+                    html += `<button class="genre-btn ${currentFilter === g ? 'active' : ''}" onclick="filterGenre('${g}', this)">${getGenreLabel(g)}</button>`;
+                }
+            });
+
+            // Add genres that have no books yet but are common
+            const allGenreKeys = Object.keys(GENRES);
+            allGenreKeys.forEach(g => {
+                if (!usedGenres.includes(g)) {
+                    html += `<button class="genre-btn ${currentFilter === g ? 'active' : ''}" onclick="filterGenre('${g}', this)">${getGenreLabel(g)}</button>`;
+                }
+            });
+
+            nav.innerHTML = html;
+        }
+
+        function getFilteredBooks() {
+            let filtered = [...books];
+            const search = document.getElementById('searchInput').value.toLowerCase().trim();
+
+            // Filter
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(b => b.genre === currentFilter);
+            }
+
+            // Search
+            if (search) {
+                filtered = filtered.filter(b =>
+                    b.title.toLowerCase().includes(search) ||
+                    b.author.toLowerCase().includes(search) ||
+                    (GENRES[b.genre] || '').toLowerCase().includes(search) ||
+                    (b.notes || '').toLowerCase().includes(search)
+                );
+            }
+
+            // Sort
+            switch (currentSort) {
+                case 'title': filtered.sort((a, b) => a.title.localeCompare(b.title)); break;
+                case 'author': filtered.sort((a, b) => a.author.localeCompare(b.author)); break;
+                case 'rating': filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0)); break;
+                default: filtered.sort((a, b) => b.createdAt - a.createdAt);
+            }
+
+            return filtered;
+        }
+
+        function renderBooks() {
+            const grid = document.getElementById('booksGrid');
+            const filtered = getFilteredBooks();
+
+            document.getElementById('bookCount').textContent = `${filtered.length} libro${filtered.length !== 1 ? 's' : ''}`;
+
+            if (filtered.length === 0) {
+                const isSearch = document.getElementById('searchInput').value.trim() !== '';
                 grid.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--text-muted);">
-                        <div style="font-size: 64px; margin-bottom: 15px;">📚</div>
-                        <h3>No se encontraron libros</h3>
-                        <p>Intenta con otra búsqueda o género</p>
+                    <div class="empty-state">
+                        <div class="empty-icon">${isSearch ? '🔍' : '📚'}</div>
+                        <h3>${isSearch ? 'Sin resultados' : 'Tu biblioteca está vacía'}</h3>
+                        <p>${isSearch ? 'Intenta con otra búsqueda' : 'Agrega tu primer libro de Wattpad y comienza tu colección'}</p>
+                        ${!isSearch ? '<button class="empty-btn" onclick="openAddModal()">➕ Agregar mi primer libro</button>' : ''}
                     </div>
                 `;
                 return;
             }
 
-            grid.innerHTML = books.map((book, i) => {
-                const isFav = favorites.includes(book.id);
-                const isReading = readingList.includes(book.id);
-                const progress = readProgress[book.id] || 0;
-                const statusClass = book.status === 'completed' ? 'status-completed' :
-                                   book.status === 'ongoing' ? 'status-ongoing' :
-                                   book.status === 'new' ? 'status-new' : 'status-hot';
-                const statusText = book.status === 'completed' ? '✅ Completa' :
-                                  book.status === 'ongoing' ? '📝 En curso' :
-                                  book.status === 'new' ? '🆕 Nueva' : '🔥 Hot';
+            grid.innerHTML = filtered.map((book, i) => {
+                const coverHtml = book.cover
+                    ? `<img src="${book.cover}" alt="${book.title}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'cover-placeholder\\'><span class=\\'book-emoji\\'>${getGenreEmoji(book.genre)}</span><div class=\\'cover-title\\'>${escapeHtml(book.title)}</div><div class=\\'cover-author\\'>por ${escapeHtml(book.author)}</div></div>'">`
+                    : `<div class="cover-placeholder">
+                        <span class="book-emoji">${getGenreEmoji(book.genre)}</span>
+                        <div class="cover-title">${escapeHtml(book.title)}</div>
+                        <div class="cover-author">por ${escapeHtml(book.author)}</div>
+                       </div>`;
+
+                const isReading = book.status === 'reading';
 
                 return `
-                    <div class="book-card" style="animation-delay: ${i * 0.05}s" data-genre="${book.genre}">
+                    <div class="book-card" style="animation-delay: ${i * 0.04}s" 
+                         oncontextmenu="showContext(event, '${book.id}')"
+                         ondblclick="openInWattpad('${book.id}')">
                         <div class="book-cover">
-                            <img src="${book.cover}" alt="${book.title}" loading="lazy">
-                            <span class="book-genre">${book.tags[0]}</span>
-                            <span class="book-status ${statusClass}">${statusText}</span>
+                            ${coverHtml}
+                            <span class="book-genre-tag">${getGenreLabel(book.genre)}</span>
+                            <button class="book-fav-btn ${book.favorite ? 'active' : ''}" 
+                                    onclick="event.stopPropagation(); toggleFav('${book.id}')">
+                                ${book.favorite ? '❤️' : '🤍'}
+                            </button>
                             <div class="book-overlay">
-                                <div class="overlay-btns">
-                                    <button class="overlay-btn btn-read" onclick="event.stopPropagation(); openReader(${book.id})">📖 Leer</button>
-                                    <button class="overlay-btn btn-fav ${isFav ? 'favorited' : ''}" onclick="event.stopPropagation(); toggleFavorite(${book.id})">
-                                        ${isFav ? '❤️' : '🤍'}
-                                    </button>
-                                </div>
+                                <button class="overlay-action btn-wattpad" onclick="event.stopPropagation(); openInWattpad('${book.id}')">
+                                    📖 Leer en Wattpad
+                                </button>
+                                <button class="overlay-action btn-list ${isReading ? 'in-list' : ''}" 
+                                        onclick="event.stopPropagation(); toggleReading('${book.id}')">
+                                    ${isReading ? '✅' : '📋'}
+                                </button>
                             </div>
                         </div>
-                        <div class="book-info" onclick="openDetail(${book.id})">
-                            <div class="book-title">${book.title}</div>
-                            <div class="book-author">por ${book.author}</div>
-                            <div class="book-rating">
-                                <span class="stars">${getStars(book.rating)}</span>
-                                <span class="rating-num">${book.rating}</span>
+                        <div class="book-info" onclick="openDetail('${book.id}')">
+                            <div class="book-title">${escapeHtml(book.title)}</div>
+                            <div class="book-author">por ${escapeHtml(book.author)}</div>
+                            <div class="book-meta">
+                                <span class="book-rating">
+                                    ${book.rating ? `<span class="stars">${getStars(book.rating)}</span>` : '<span style="color:var(--text-muted)">Sin valorar</span>'}
+                                </span>
+                                <span>${getStatusLabel(book.status).split(' ')[0]}</span>
                             </div>
-                            <div class="book-stats">
-                                <span>👁️ ${book.reads}</span>
-                                <span>❤️ ${book.votes}</span>
-                                <span>📖 ${book.chapters}</span>
-                            </div>
-                            ${isReading ? `
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: ${progress}%"></div>
-                                </div>
-                                <div class="progress-text">${progress}% leído</div>
-                            ` : ''}
                         </div>
                     </div>
                 `;
             }).join('');
         }
 
-        function getStars(rating) {
-            const full = Math.floor(rating);
-            const half = rating % 1 >= 0.5 ? 1 : 0;
-            const empty = 5 - full - half;
-            return '★'.repeat(full) + (half ? '⯪' : '') + '☆'.repeat(empty);
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
         }
 
-        // ==================== SEARCH & FILTER ====================
-        function searchBooks() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            if (!query) {
-                renderBooks(booksDatabase);
-                document.getElementById('gridTitle').innerHTML = '<span class="emoji">📖</span> Toda la Colección';
-                return;
+        // ===================== STATS =====================
+        function updateStats() {
+            document.getElementById('statTotal').textContent = books.length;
+            const genres = [...new Set(books.map(b => b.genre))];
+            document.getElementById('statGenres').textContent = genres.length;
+            document.getElementById('statFavs').textContent = books.filter(b => b.favorite).length;
+            document.getElementById('statReading').textContent = books.filter(b => b.status === 'reading').length;
+            document.getElementById('favBadge').textContent = books.filter(b => b.favorite).length;
+            document.getElementById('readBadge').textContent = books.filter(b => b.status === 'reading').length;
+        }
+
+        // ===================== ACTIONS =====================
+        function openInWattpad(id) {
+            const book = books.find(b => b.id === id);
+            if (book && book.url) {
+                window.open(book.url, '_blank');
+                toast(`📖 Abriendo "${book.title}" en Wattpad...`, 'info');
             }
-
-            const results = booksDatabase.filter(b =>
-                b.title.toLowerCase().includes(query) ||
-                b.author.toLowerCase().includes(query) ||
-                b.genre.toLowerCase().includes(query) ||
-                b.tags.some(t => t.toLowerCase().includes(query)) ||
-                b.description.toLowerCase().includes(query)
-            );
-
-            document.getElementById('gridTitle').innerHTML = `<span class="emoji">🔍</span> Resultados para "${query}"`;
-            renderBooks(results);
         }
 
-        function filterGenre(genre, btn) {
-            // Update nav
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            if (btn) btn.classList.add('active');
-
-            if (genre === 'all') {
-                renderBooks(booksDatabase);
-                document.getElementById('gridTitle').innerHTML = '<span class="emoji">📖</span> Toda la Colección';
-            } else {
-                const filtered = booksDatabase.filter(b => b.genre === genre);
-                const genreNames = {
-                    'romance': '💕 Romance', 'fantasia': '🧙 Fantasía', 'terror': '👻 Terror',
-                    'misterio': '🔍 Misterio', 'ciencia-ficcion': '🚀 Ciencia Ficción',
-                    'drama': '🎭 Drama', 'aventura': '⚔️ Aventura', 'poesia': '🌹 Poesía',
-                    'suspenso': '😰 Suspenso', 'humor': '😂 Humor', 'historico': '🏛️ Histórico',
-                    'fanfiction': '✨ Fanfiction', 'paranormal': '🌙 Paranormal'
-                };
-                document.getElementById('gridTitle').innerHTML = `<span class="emoji">${genreNames[genre]?.split(' ')[0] || '📖'}</span> ${genreNames[genre] || genre}`;
-                renderBooks(filtered);
+        function toggleFav(id) {
+            const book = books.find(b => b.id === id);
+            if (book) {
+                book.favorite = !book.favorite;
+                saveBooks();
+                renderBooks();
+                renderGenreNav();
+                toast(
+                    book.favorite ? `❤️ "${book.title}" en favoritos` : `💔 "${book.title}" quitado de favoritos`,
+                    book.favorite ? 'fav' : 'info'
+                );
             }
-
-            document.getElementById('searchInput').value = '';
-        }
-
-        function resetFilters() {
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector('.nav-btn').classList.add('active');
-            document.getElementById('searchInput').value = '';
-            document.getElementById('gridTitle').innerHTML = '<span class="emoji">📖</span> Toda la Colección';
-            renderBooks(booksDatabase);
-        }
-
-        // ==================== FAVORITES & READING ====================
-        function toggleFavorite(id) {
-            if (favorites.includes(id)) {
-                favorites = favorites.filter(f => f !== id);
-                showToast('Eliminado de favoritos', 'info');
-            } else {
-                favorites.push(id);
-                showToast('❤️ Añadido a favoritos', 'fav');
-            }
-            localStorage.setItem('myLibFavorites', JSON.stringify(favorites));
-            updateCounts();
-            renderBooks(getCurrentFilteredBooks());
         }
 
         function toggleReading(id) {
-            if (readingList.includes(id)) {
-                readingList = readingList.filter(r => r !== id);
-                showToast('Eliminado de la lista de lectura', 'info');
-            } else {
-                readingList.push(id);
-                if (!readProgress[id]) readProgress[id] = 0;
-                showToast('📖 Añadido a la lista de lectura', 'success');
-            }
-            localStorage.setItem('myLibReading', JSON.stringify(readingList));
-            localStorage.setItem('myLibProgress', JSON.stringify(readProgress));
-            updateCounts();
-            renderBooks(getCurrentFilteredBooks());
-        }
-
-        function updateCounts() {
-            document.getElementById('favCount').textContent = favorites.length;
-            document.getElementById('readingCount').textContent = readingList.length;
-        }
-
-        function getCurrentFilteredBooks() {
-            const activeBtn = document.querySelector('.nav-btn.active');
-            const genre = activeBtn ? activeBtn.textContent.trim().split(' ').pop().toLowerCase() : 'todos';
-            const search = document.getElementById('searchInput').value.toLowerCase();
-
-            if (search) {
-                return booksDatabase.filter(b =>
-                    b.title.toLowerCase().includes(search) ||
-                    b.author.toLowerCase().includes(search) ||
-                    b.genre.toLowerCase().includes(search)
+            const book = books.find(b => b.id === id);
+            if (book) {
+                book.status = book.status === 'reading' ? 'pending' : 'reading';
+                saveBooks();
+                renderBooks();
+                toast(
+                    book.status === 'reading' ? `📖 Leyendo "${book.title}"` : `📋 "${book.title}" en pendientes`,
+                    'success'
                 );
             }
+        }
 
-            if (genre === 'todos') return booksDatabase;
+        function deleteBook(id) {
+            const book = books.find(b => b.id === id);
+            if (book && confirm(`¿Eliminar "${book.title}" de tu biblioteca?`)) {
+                books = books.filter(b => b.id !== id);
+                saveBooks();
+                renderBooks();
+                renderGenreNav();
+                toast(`🗑️ "${book.title}" eliminado`, 'danger');
+            }
+        }
 
-            const genreMap = {
-                'romance': 'romance', 'fantasía': 'fantasia', 'terror': 'terror',
-                'misterio': 'misterio', 'sci-fi': 'ciencia-ficcion', 'drama': 'drama',
-                'aventura': 'aventura', 'poesía': 'poesia', 'suspenso': 'suspenso',
-                'humor': 'humor', 'histórico': 'historico', 'fanfiction': 'fanfiction',
-                'paranormal': 'paranormal'
+        // ===================== FILTER & SEARCH =====================
+        function filterGenre(genre, btn) {
+            currentFilter = genre;
+            document.querySelectorAll('.genre-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            const title = genre === 'all' ? '📖 Todos los Libros' : `${getGenreLabel(genre)}`;
+            document.getElementById('sectionTitle').textContent = title;
+
+            renderBooks();
+        }
+
+        function showAll() {
+            currentFilter = 'all';
+            document.getElementById('searchInput').value = '';
+            document.getElementById('sectionTitle').textContent = '📖 Todos los Libros';
+            renderGenreNav();
+            renderBooks();
+        }
+
+        function handleSearch() {
+            renderBooks();
+        }
+
+        function handleSort() {
+            currentSort = document.getElementById('sortSelect').value;
+            renderBooks();
+        }
+
+        // ===================== ADD / EDIT BOOK =====================
+        function openAddModal(bookId = null) {
+            editingBookId = bookId;
+            const form = document.getElementById('addBookForm');
+            form.reset();
+
+            if (bookId) {
+                const book = books.find(b => b.id === bookId);
+                if (book) {
+                    document.getElementById('bookUrl').value = book.url || '';
+                    document.getElementById('bookTitle').value = book.title || '';
+                    document.getElementById('bookAuthor').value = book.author || '';
+                    document.getElementById('bookGenre').value = book.genre || '';
+                    document.getElementById('bookRating').value = book.rating || 0;
+                    document.getElementById('bookStatus').value = book.status || 'pending';
+                    document.getElementById('bookCover').value = book.cover || '';
+                    document.getElementById('bookNotes').value = book.notes || '';
+                    document.getElementById('formSubmitBtn').textContent = '✏️ Actualizar Libro';
+                    document.querySelector('#addModal .modal-head h2').textContent = '✏️ Editar Libro';
+                }
+            } else {
+                document.getElementById('formSubmitBtn').textContent = '📚 Guardar Libro';
+                document.querySelector('#addModal .modal-head h2').textContent = '➕ Agregar Libro';
+            }
+
+            openModal('addModal');
+        }
+
+        function handleAddBook(e) {
+            e.preventDefault();
+
+            const data = {
+                url: document.getElementById('bookUrl').value.trim(),
+                title: document.getElementById('bookTitle').value.trim(),
+                author: document.getElementById('bookAuthor').value.trim(),
+                genre: document.getElementById('bookGenre').value,
+                rating: parseInt(document.getElementById('bookRating').value),
+                status: document.getElementById('bookStatus').value,
+                cover: document.getElementById('bookCover').value.trim(),
+                notes: document.getElementById('bookNotes').value.trim()
             };
 
-            return booksDatabase.filter(b => b.genre === (genreMap[genre] || genre));
-        }
-
-        // ==================== MODALS ====================
-        function openFavorites() {
-            const modal = document.getElementById('favoritesModal');
-            const body = document.getElementById('favoritesBody');
-
-            if (favorites.length === 0) {
-                body.innerHTML = `
-                    <div class="empty-state">
-                        <div class="emoji">💔</div>
-                        <h3>No hay favoritos aún</h3>
-                        <p>Explora libros y añade tus favoritos tocando el corazón</p>
-                    </div>
-                `;
+            if (editingBookId) {
+                const idx = books.findIndex(b => b.id === editingBookId);
+                if (idx !== -1) {
+                    books[idx] = { ...books[idx], ...data };
+                    toast(`✏️ "${data.title}" actualizado`, 'success');
+                }
+                editingBookId = null;
             } else {
-                const favBooks = booksDatabase.filter(b => favorites.includes(b.id));
-                body.innerHTML = favBooks.map(book => `
-                    <div class="modal-book-item">
-                        <img src="${book.cover}" class="modal-book-cover" alt="${book.title}">
-                        <div class="modal-book-info">
-                            <h4>${book.title}</h4>
-                            <p>por ${book.author}</p>
-                            <p>⭐ ${book.rating} · ${book.reads} lecturas</p>
-                        </div>
-                        <button class="modal-remove-btn" onclick="toggleFavorite(${book.id}); openFavorites();">✕</button>
-                    </div>
-                `).join('');
+                books.push({
+                    id: generateId(),
+                    ...data,
+                    favorite: false,
+                    createdAt: Date.now()
+                });
+                toast(`📚 "${data.title}" agregado a tu biblioteca`, 'success');
             }
 
-            modal.classList.add('active');
+            saveBooks();
+            renderBooks();
+            renderGenreNav();
+            closeModal('addModal');
         }
 
-        function openReadingList() {
-            const modal = document.getElementById('readingModal');
-            const body = document.getElementById('readingBody');
-
-            if (readingList.length === 0) {
-                body.innerHTML = `
-                    <div class="empty-state">
-                        <div class="emoji">📚</div>
-                        <h3>Lista de lectura vacía</h3>
-                        <p>Añade libros a tu lista para llevar un control de tu lectura</p>
-                    </div>
-                `;
-            } else {
-                const readBooks = booksDatabase.filter(b => readingList.includes(b.id));
-                body.innerHTML = readBooks.map(book => `
-                    <div class="modal-book-item" onclick="openReader(${book.id}); closeModal('readingModal');" style="cursor:pointer;">
-                        <img src="${book.cover}" class="modal-book-cover" alt="${book.title}">
-                        <div class="modal-book-info">
-                            <h4>${book.title}</h4>
-                            <p>por ${book.author}</p>
-                            <p>📖 Progreso: ${readProgress[book.id] || 0}%</p>
-                        </div>
-                        <button class="modal-remove-btn" onclick="event.stopPropagation(); toggleReading(${book.id}); openReadingList();">✕</button>
-                    </div>
-                `).join('');
-            }
-
-            modal.classList.add('active');
-        }
-
+        // ===================== DETAIL MODAL =====================
         function openDetail(id) {
-            const book = booksDatabase.find(b => b.id === id);
+            const book = books.find(b => b.id === id);
             if (!book) return;
 
-            const content = document.getElementById('detailContent');
-            const isFav = favorites.includes(book.id);
-            const isReading = readingList.includes(book.id);
+            document.getElementById('detailModalTitle').textContent = book.title;
 
-            document.getElementById('detailTitle').textContent = book.title;
+            const body = document.getElementById('detailModalBody');
 
-            content.innerHTML = `
-                <img src="${book.cover}" class="detail-cover" alt="${book.title}">
-                <div class="detail-info">
-                    <h2>${book.title}</h2>
-                    <div class="detail-author">por ${book.author}</div>
-                    <div class="detail-tags">
-                        ${book.tags.map(t => `<span class="detail-tag">${t}</span>`).join('')}
+            const coverHtml = book.cover
+                ? `<img src="${book.cover}" alt="${book.title}" style="width:180px;height:260px;object-fit:cover;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.4);" onerror="this.style.display='none'">`
+                : `<div style="width:180px;height:260px;border-radius:14px;background:var(--gradient2);display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;text-align:center;padding:20px;">
+                    <span style="font-size:50px;margin-bottom:10px;">${getGenreEmoji(book.genre)}</span>
+                    <span style="font-family:'Playfair Display',serif;font-size:16px;font-weight:800;">${escapeHtml(book.title)}</span>
+                   </div>`;
+
+            body.innerHTML = `
+                <div style="display:flex;gap:25px;flex-wrap:wrap;">
+                    <div style="flex-shrink:0;">
+                        ${coverHtml}
                     </div>
-                    <div class="detail-description">${book.description}</div>
-                    <div class="detail-stats">
-                        <div class="detail-stat">
-                            <div class="detail-stat-num">${book.reads}</div>
-                            <div class="detail-stat-label">Lecturas</div>
+                    <div style="flex:1;min-width:200px;">
+                        <h2 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px;">${escapeHtml(book.title)}</h2>
+                        <p style="color:var(--primary-light);font-size:14px;margin-bottom:14px;">por ${escapeHtml(book.author)}</p>
+                        
+                        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+                            <span style="padding:5px 12px;background:rgba(155,89,182,0.2);border-radius:10px;font-size:12px;">${getGenreLabel(book.genre)}</span>
+                            <span style="padding:5px 12px;background:rgba(155,89,182,0.1);border-radius:10px;font-size:12px;">${getStatusLabel(book.status)}</span>
+                            ${book.rating ? `<span style="padding:5px 12px;background:rgba(241,196,15,0.15);border-radius:10px;font-size:12px;">${getStars(book.rating)}</span>` : ''}
                         </div>
-                        <div class="detail-stat">
-                            <div class="detail-stat-num">${book.votes}</div>
-                            <div class="detail-stat-label">Votos</div>
+
+                        ${book.notes ? `
+                            <div style="margin-bottom:16px;">
+                                <h4 style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">📝 Mis notas:</h4>
+                                <p style="font-size:13px;color:var(--text);line-height:1.6;padding:12px;background:var(--bg-card2);border-radius:10px;">${escapeHtml(book.notes)}</p>
+                            </div>
+                        ` : ''}
+
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;">
+                            <button onclick="openInWattpad('${book.id}')" style="flex:1;min-width:140px;padding:12px;border:none;border-radius:12px;background:var(--wattpad);color:white;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">
+                                📖 Leer en Wattpad
+                            </button>
+                            <button onclick="toggleFav('${book.id}'); openDetail('${book.id}');" style="padding:12px 18px;border:none;border-radius:12px;background:${book.favorite ? 'var(--secondary)' : 'var(--bg-card3)'};color:white;font-size:14px;cursor:pointer;">
+                                ${book.favorite ? '❤️' : '🤍'}
+                            </button>
+                            <button onclick="closeModal('detailModal'); openAddModal('${book.id}')" style="padding:12px 18px;border:none;border-radius:12px;background:var(--bg-card3);color:var(--text);font-size:14px;cursor:pointer;">
+                                ✏️
+                            </button>
                         </div>
-                        <div class="detail-stat">
-                            <div class="detail-stat-num">${book.chapters}</div>
-                            <div class="detail-stat-label">Capítulos</div>
-                        </div>
-                        <div class="detail-stat">
-                            <div class="detail-stat-num">⭐ ${book.rating}</div>
-                            <div class="detail-stat-label">Rating</div>
-                        </div>
-                    </div>
-                    <div class="detail-actions">
-                        <button class="detail-btn detail-btn-primary" onclick="closeModal('detailModal'); openReader(${book.id})">
-                            📖 Leer Ahora
-                        </button>
-                        <button class="detail-btn detail-btn-secondary" onclick="toggleFavorite(${book.id}); openDetail(${book.id});">
-                            ${isFav ? '❤️ Favorito' : '🤍 Favorito'}
-                        </button>
-                        <button class="detail-btn detail-btn-secondary" onclick="toggleReading(${book.id}); openDetail(${book.id});">
-                            ${isReading ? '✅ En Lista' : '📋 Mi Lista'}
-                        </button>
                     </div>
                 </div>
             `;
 
-            document.getElementById('detailModal').classList.add('active');
+            openModal('detailModal');
+        }
+
+        // ===================== FAV & READING MODALS =====================
+        function openFavModal() {
+            const body = document.getElementById('favModalBody');
+            const favs = books.filter(b => b.favorite);
+
+            if (favs.length === 0) {
+                body.innerHTML = `
+                    <div class="modal-empty">
+                        <div class="e-icon">💜</div>
+                        <h3>No tienes favoritos aún</h3>
+                        <p>Toca el corazón 🤍 en cualquier libro para agregarlo</p>
+                    </div>
+                `;
+            } else {
+                body.innerHTML = favs.map(b => renderListItem(b)).join('');
+            }
+
+            openModal('favModal');
+        }
+
+        function openReadingModal() {
+            const body = document.getElementById('readingModalBody');
+            const reading = books.filter(b => b.status === 'reading');
+
+            if (reading.length === 0) {
+                body.innerHTML = `
+                    <div class="modal-empty">
+                        <div class="e-icon">📚</div>
+                        <h3>No estás leyendo nada</h3>
+                        <p>Cambia el estado de un libro a "Leyendo" para verlo aquí</p>
+                    </div>
+                `;
+            } else {
+                body.innerHTML = reading.map(b => renderListItem(b)).join('');
+            }
+
+            openModal('readingModal');
+        }
+
+        function renderListItem(book) {
+            const thumb = book.cover
+                ? `<img src="${book.cover}" alt="${book.title}" onerror="this.parentElement.innerHTML='<div class=\\'list-thumb-placeholder\\'>${getGenreEmoji(book.genre)}</div>'">`
+                : `<div class="list-thumb-placeholder">${getGenreEmoji(book.genre)}</div>`;
+
+            return `
+                <div class="list-item">
+                    <div class="list-thumb">${thumb}</div>
+                    <div class="list-info">
+                        <h4>${escapeHtml(book.title)}</h4>
+                        <p>por ${escapeHtml(book.author)}</p>
+                        <span class="genre-pill">${getGenreLabel(book.genre)}</span>
+                        ${book.rating ? `<span style="margin-left:6px;font-size:11px;">${getStars(book.rating)}</span>` : ''}
+                    </div>
+                    <div class="list-actions">
+                        <button class="list-btn list-btn-open" title="Leer en Wattpad" onclick="openInWattpad('${book.id}')">📖</button>
+                        <button class="list-btn list-btn-edit" title="Editar" onclick="closeAllModals(); openAddModal('${book.id}')">✏️</button>
+                        <button class="list-btn list-btn-del" title="Eliminar" onclick="deleteBook('${book.id}'); ${book.favorite ? 'openFavModal()' : 'openReadingModal()'}">🗑️</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ===================== CONTEXT MENU =====================
+        function showContext(e, bookId) {
+            e.preventDefault();
+            const book = books.find(b => b.id === bookId);
+            if (!book) return;
+
+            const menu = document.getElementById('ctxMenu');
+
+            menu.innerHTML = `
+                <button class="ctx-item" onclick="openInWattpad('${bookId}'); hideContext()">📖 Leer en Wattpad</button>
+                <button class="ctx-item" onclick="openDetail('${bookId}'); hideContext()">📋 Ver detalle</button>
+                <div class="ctx-sep"></div>
+                <button class="ctx-item" onclick="toggleFav('${bookId}'); hideContext()">${book.favorite ? '💔 Quitar de favoritos' : '❤️ Agregar a favoritos'}</button>
+                <button class="ctx-item" onclick="toggleReading('${bookId}'); hideContext()">${book.status === 'reading' ? '📋 Marcar pendiente' : '📖 Marcar como leyendo'}</button>
+                <button class="ctx-item" onclick="changeStatus('${bookId}', 'completed'); hideContext()">✅ Marcar completado</button>
+                <div class="ctx-sep"></div>
+                <button class="ctx-item" onclick="hideContext(); openAddModal('${bookId}')">✏️ Editar</button>
+                <button class="ctx-item danger" onclick="deleteBook('${bookId}'); hideContext()">🗑️ Eliminar</button>
+            `;
+
+            // Position
+            const x = Math.min(e.clientX, window.innerWidth - 200);
+            const y = Math.min(e.clientY, window.innerHeight - 350);
+            menu.style.left = x + 'px';
+            menu.style.top = y + 'px';
+            menu.classList.add('open');
+        }
+
+        function hideContext() {
+            document.getElementById('ctxMenu').classList.remove('open');
+        }
+
+        document.addEventListener('click', hideContext);
+
+        function changeStatus(id, status) {
+            const book = books.find(b => b.id === id);
+            if (book) {
+                book.status = status;
+                saveBooks();
+                renderBooks();
+                toast(`${getStatusLabel(status)} — "${book.title}"`, 'success');
+            }
+        }
+
+        // ===================== MODALS =====================
+        function openModal(id) {
+            document.getElementById(id).classList.add('open');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal(id) {
-            document.getElementById(id).classList.remove('active');
+            document.getElementById(id).classList.remove('open');
+            document.body.style.overflow = '';
         }
 
-        // Close modals on overlay click
-        document.querySelectorAll('.modal-overlay').forEach(overlay => {
-            overlay.addEventListener('click', function(e) {
+        function closeAllModals() {
+            document.querySelectorAll('.modal-backdrop').forEach(m => m.classList.remove('open'));
+            document.body.style.overflow = '';
+        }
+
+        // Close on backdrop click
+        document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+            backdrop.addEventListener('click', function(e) {
                 if (e.target === this) {
-                    this.classList.remove('active');
+                    this.classList.remove('open');
+                    document.body.style.overflow = '';
                 }
             });
         });
 
-        // ==================== READER ====================
-        function openReader(id) {
-            const book = booksDatabase.find(b => b.id === id);
-            if (!book || !book.content || book.content.length === 0) {
-                showToast('📚 Contenido próximamente', 'info');
-                return;
-            }
-
-            currentBook = book;
-            currentChapter = 0;
-
-            // Add to reading list if not already
-            if (!readingList.includes(id)) {
-                readingList.push(id);
-                if (!readProgress[id]) readProgress[id] = 0;
-                localStorage.setItem('myLibReading', JSON.stringify(readingList));
-                localStorage.setItem('myLibProgress', JSON.stringify(readProgress));
-                updateCounts();
-            }
-
-            renderChapter();
-            document.getElementById('readerOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function renderChapter() {
-            if (!currentBook) return;
-
-            const chapter = currentBook.content[currentChapter];
-            document.getElementById('readerTitle').textContent = currentBook.title;
-            document.getElementById('readerChapter').textContent = `${chapter.title} (${currentChapter + 1}/${currentBook.content.length})`;
-
-            const paragraphs = chapter.text.split('\n').filter(p => p.trim());
-            document.getElementById('readerBody').innerHTML = `
-                <h3>${chapter.title}</h3>
-                ${paragraphs.map(p => `<p>${p}</p>`).join('')}
-            `;
-
-            document.getElementById('readerBody').scrollTop = 0;
-
-            // Update nav buttons
-            document.getElementById('prevChapter').disabled = currentChapter === 0;
-            document.getElementById('nextChapter').disabled = currentChapter === currentBook.content.length - 1;
-
-            // Update progress
-            const progress = Math.round(((currentChapter + 1) / currentBook.content.length) * 100);
-            readProgress[currentBook.id] = progress;
-            localStorage.setItem('myLibProgress', JSON.stringify(readProgress));
-        }
-
-        function changeChapter(direction) {
-            const newChapter = currentChapter + direction;
-            if (newChapter >= 0 && newChapter < currentBook.content.length) {
-                currentChapter = newChapter;
-                renderChapter();
-            }
-        }
-
-        function changeFontSize(direction) {
-            currentFontSize = Math.max(12, Math.min(24, currentFontSize + (direction * 2)));
-            document.getElementById('readerBody').style.fontSize = currentFontSize + 'px';
-            document.getElementById('fontSizeDisplay').textContent = currentFontSize + 'px';
-        }
-
-        function closeReader() {
-            document.getElementById('readerOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-            renderBooks(getCurrentFilteredBooks());
-        }
-
-        // ==================== TOAST ====================
-        function showToast(message, type = 'success') {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.className = `toast toast-${type} show`;
-
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        // ==================== KEYBOARD ====================
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
-                closeReader();
-            }
-            if (document.getElementById('readerOverlay').classList.contains('active')) {
-                if (e.key === 'ArrowRight') changeChapter(1);
-                if (e.key === 'ArrowLeft') changeChapter(-1);
-            }
+        // ESC key
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeAllModals();
         });
 
-        // ==================== START ====================
+        // ===================== TOAST =====================
+        function toast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            const el = document.createElement('div');
+            el.className = `toast toast-${type}`;
+            el.textContent = message;
+            el.onclick = () => el.remove();
+            container.appendChild(el);
+            setTimeout(() => el.remove(), 3000);
+        }
+
+        // ===================== EXPORT / IMPORT =====================
+        // For safety, let's add these as URL-based functions
+
+        // ===================== INIT =====================
         init();
     </script>
 
