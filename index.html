@@ -3,72 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 Mi Biblioteca Wattpad</title>
+    <title>📚 Dark Romance Library</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #9b59b6;
-            --primary-light: #be7dd8;
-            --primary-dark: #7d3c98;
-            --primary-deeper: #6c3483;
-            --secondary: #e056a0;
-            --accent: #f39c12;
-            --bg-dark: #0d0b14;
-            --bg-card: #161225;
-            --bg-card2: #1e1833;
-            --bg-card3: #2a2145;
-            --bg-input: #231d38;
-            --text: #e8e0f0;
-            --text-muted: #9585ad;
+            --bg: #0a0710;
+            --bg2: #12101d;
+            --bg3: #1a1528;
+            --bg4: #231d35;
+            --bg5: #2d2545;
+            --purple: #9b59b6;
+            --purple-light: #c39bd3;
+            --purple-dark: #6c3483;
+            --pink: #e056a0;
+            --pink-dark: #c0397e;
+            --red: #c0392b;
+            --red-soft: #e74c3c;
             --gold: #f1c40f;
-            --success: #2ecc71;
-            --danger: #e74c3c;
-            --info: #3498db;
-            --wattpad: #ff6122;
-            --gradient1: linear-gradient(135deg, #9b59b6, #e056a0);
-            --gradient2: linear-gradient(135deg, #6c3483, #9b59b6);
-            --gradient3: linear-gradient(135deg, #e056a0, #f39c12);
-            --shadow-purple: 0 4px 20px rgba(155, 89, 182, 0.3);
-            --shadow-pink: 0 4px 20px rgba(224, 86, 160, 0.3);
+            --text: #e8e0f0;
+            --text-dim: #8878a0;
+            --text-reader: #d5cce5;
+            --gradient: linear-gradient(135deg, #6c3483, #e056a0);
+            --gradient2: linear-gradient(135deg, #9b59b6, #c0397e);
+            --gradient3: linear-gradient(135deg, #1a1528, #2d2545);
+            --shadow: 0 5px 25px rgba(155, 89, 182, 0.25);
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: var(--bg-dark);
+            background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--purple-dark); border-radius: 10px; }
 
-        /* ============ HEADER ============ */
+        /* ========== HEADER ========== */
         header {
-            background: linear-gradient(180deg, rgba(13,11,20,0.95), rgba(13,11,20,0.8));
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(155,89,182,0.2);
+            background: linear-gradient(180deg, var(--bg2), transparent);
+            padding: 18px 30px;
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(155,89,182,0.1);
         }
 
-        .header-main {
+        .header-inner {
+            max-width: 1300px;
+            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 30px;
-            max-width: 1400px;
-            margin: 0 auto;
+            gap: 20px;
         }
 
         .logo {
@@ -79,88 +71,62 @@
         }
 
         .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--gradient1);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            box-shadow: var(--shadow-purple);
-            transition: transform 0.3s;
+            font-size: 30px;
+            filter: drop-shadow(0 0 10px rgba(224,86,160,0.5));
         }
 
-        .logo:hover .logo-icon {
-            transform: rotate(-10deg) scale(1.05);
-        }
-
-        .logo-text h1 {
+        .logo h1 {
             font-family: 'Playfair Display', serif;
             font-size: 22px;
-            background: var(--gradient1);
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            line-height: 1.2;
         }
 
-        .logo-text span {
-            font-size: 10px;
-            color: var(--text-muted);
-            letter-spacing: 2px;
+        .logo span {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: var(--text-dim);
             text-transform: uppercase;
         }
 
-        .header-center {
+        .search-bar {
             flex: 1;
-            max-width: 480px;
-            margin: 0 25px;
-        }
-
-        .search-box {
+            max-width: 400px;
             position: relative;
         }
 
-        .search-box input {
+        .search-bar input {
             width: 100%;
-            padding: 11px 18px 11px 44px;
-            background: var(--bg-input);
-            border: 2px solid rgba(155,89,182,0.2);
-            border-radius: 50px;
+            padding: 10px 16px 10px 40px;
+            background: var(--bg3);
+            border: 1px solid rgba(155,89,182,0.15);
+            border-radius: 30px;
             color: var(--text);
             font-family: 'Poppins', sans-serif;
             font-size: 13px;
-            transition: all 0.3s;
         }
 
-        .search-box input:focus {
+        .search-bar input:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(155,89,182,0.2);
-            background: var(--bg-card2);
+            border-color: var(--purple);
+            box-shadow: 0 0 15px rgba(155,89,182,0.15);
         }
 
-        .search-box input::placeholder { color: var(--text-muted); }
+        .search-bar input::placeholder { color: var(--text-dim); }
+        .search-bar .s-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 14px; }
 
-        .search-box .icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px;
-            color: var(--text-muted);
-        }
-
-        .header-actions {
+        .h-actions {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .h-btn {
             padding: 9px 18px;
             border: none;
-            border-radius: 25px;
+            border-radius: 20px;
             font-family: 'Poppins', sans-serif;
             font-size: 12px;
             font-weight: 600;
@@ -168,471 +134,556 @@
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-        }
-
-        .h-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-add {
-            background: var(--gradient1);
-            color: white;
-            box-shadow: var(--shadow-purple);
-        }
-
-        .btn-add:hover { box-shadow: 0 6px 25px rgba(155,89,182,0.5); }
-
-        .btn-fav {
-            background: var(--gradient3);
-            color: white;
-            box-shadow: var(--shadow-pink);
-        }
-
-        .btn-reading {
-            background: linear-gradient(135deg, var(--success), #27ae60);
+            gap: 5px;
             color: white;
         }
 
-        .badge {
-            background: rgba(255,255,255,0.25);
+        .h-btn:hover { transform: translateY(-2px); }
+        .h-btn-fav { background: var(--gradient); }
+        .h-btn-list { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+
+        .badge-count {
+            background: rgba(255,255,255,0.2);
             padding: 1px 7px;
             border-radius: 10px;
             font-size: 10px;
         }
 
-        /* ============ NAV GENRES ============ */
-        .nav-genres {
-            display: flex;
-            gap: 6px;
-            padding: 10px 30px 14px;
-            max-width: 1400px;
-            margin: 0 auto;
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-
-        .nav-genres::-webkit-scrollbar { display: none; }
-
-        .genre-btn {
-            padding: 7px 16px;
-            border: 1px solid rgba(155,89,182,0.2);
-            border-radius: 20px;
-            background: transparent;
-            color: var(--text-muted);
-            font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-
-        .genre-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary-light);
-            background: rgba(155,89,182,0.1);
-        }
-
-        .genre-btn.active {
-            background: var(--gradient1);
-            color: white;
-            border-color: transparent;
-            box-shadow: var(--shadow-purple);
-        }
-
-        /* ============ HERO ============ */
+        /* ========== HERO ========== */
         .hero {
-            background: linear-gradient(135deg, rgba(108,52,131,0.3), rgba(224,86,160,0.1), rgba(13,11,20,0.9));
-            padding: 50px 30px;
             text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(ellipse at center, rgba(108,52,131,0.15) 0%, transparent 70%);
             position: relative;
-            overflow: hidden;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -100px;
+            top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(155,89,182,0.15), transparent 70%);
-            pointer-events: none;
+            width: 1px;
+            height: 40px;
+            background: var(--gradient);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 6px 20px;
+            background: rgba(155,89,182,0.1);
+            border: 1px solid rgba(155,89,182,0.2);
+            border-radius: 20px;
+            font-size: 11px;
+            color: var(--purple-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
         .hero h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 38px;
+            font-size: 42px;
             font-weight: 900;
-            margin-bottom: 12px;
-            position: relative;
+            line-height: 1.2;
+            margin-bottom: 15px;
         }
 
-        .hero h2 span {
-            background: var(--gradient1);
+        .hero h2 em {
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-style: italic;
         }
 
         .hero p {
-            color: var(--text-muted);
+            color: var(--text-dim);
             font-size: 15px;
-            max-width: 600px;
-            margin: 0 auto 25px;
-            line-height: 1.6;
+            max-width: 550px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
         }
 
-        .stats-bar {
+        .hero-stats {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 35px;
         }
 
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-num {
-            font-size: 30px;
-            font-weight: 800;
-            background: var(--gradient1);
+        .hs-item strong {
+            display: block;
+            font-size: 26px;
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .stat-label {
+        .hs-item span {
             font-size: 11px;
-            color: var(--text-muted);
+            color: var(--text-dim);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* ============ MAIN CONTENT ============ */
-        .main-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 30px;
-        }
-
-        .section-head {
+        /* ========== FILTER TAGS ========== */
+        .filter-bar {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 22px;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 20px 30px;
+            flex-wrap: wrap;
         }
 
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .book-count {
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-
-        .sort-select {
-            padding: 8px 16px;
-            background: var(--bg-card2);
-            border: 1px solid rgba(155,89,182,0.2);
-            border-radius: 10px;
-            color: var(--text);
+        .f-tag {
+            padding: 7px 16px;
+            border: 1px solid rgba(155,89,182,0.15);
+            border-radius: 18px;
+            background: transparent;
+            color: var(--text-dim);
             font-family: 'Poppins', sans-serif;
             font-size: 12px;
             cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .sort-select option {
-            background: var(--bg-card);
+        .f-tag:hover { border-color: var(--purple); color: var(--purple-light); }
+
+        .f-tag.active {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--shadow);
         }
 
-        /* ============ BOOKS GRID ============ */
+        /* ========== BOOK GRID ========== */
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 25px 50px; }
+
+        .grid-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .grid-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+        }
+
+        .grid-count { color: var(--text-dim); font-size: 13px; }
+
         .books-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
         }
 
         .book-card {
-            background: var(--bg-card);
+            background: var(--bg2);
             border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(155,89,182,0.1);
+            border: 1px solid rgba(155,89,182,0.08);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             position: relative;
-            animation: fadeUp 0.5s ease forwards;
+            animation: fadeIn 0.5s ease;
         }
 
-        @keyframes fadeUp {
+        @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .book-card:hover {
             transform: translateY(-8px);
-            border-color: var(--primary);
-            box-shadow: 0 15px 40px rgba(155,89,182,0.2);
+            border-color: var(--purple);
+            box-shadow: 0 20px 50px rgba(155,89,182,0.2);
         }
 
         .book-cover {
-            height: 280px;
+            height: 320px;
             position: relative;
             overflow: hidden;
-            background: var(--bg-card2);
         }
 
-        .book-cover img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .book-card:hover .book-cover img {
-            transform: scale(1.05);
-        }
-
-        .cover-placeholder {
+        .book-cover-bg {
             width: 100%;
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: var(--gradient2);
-            color: white;
-            padding: 20px;
             text-align: center;
+            padding: 25px;
+            position: relative;
         }
 
-        .cover-placeholder .book-emoji {
-            font-size: 50px;
-            margin-bottom: 10px;
-        }
+        .cover-style-1 { background: linear-gradient(135deg, #2d1b4e, #1a0a2e, #4a1942); }
+        .cover-style-2 { background: linear-gradient(135deg, #1a0a2e, #3d1f5c, #2a0e3a); }
+        .cover-style-3 { background: linear-gradient(135deg, #4a1942, #1a0a2e, #6b2fa0); }
+        .cover-style-4 { background: linear-gradient(135deg, #0f0c1a, #2d1b4e, #1a0a2e); }
+        .cover-style-5 { background: linear-gradient(135deg, #3d1f5c, #0f0c1a, #4a1942); }
+        .cover-style-6 { background: linear-gradient(135deg, #1a0a2e, #4a1942, #2d1b4e); }
+        .cover-style-7 { background: linear-gradient(135deg, #2a0e3a, #6b2fa0, #1a0a2e); }
+        .cover-style-8 { background: linear-gradient(135deg, #4a1942, #3d1f5c, #0f0c1a); }
+        .cover-style-9 { background: linear-gradient(135deg, #0f0c1a, #4a1942, #6b2fa0); }
+        .cover-style-10 { background: linear-gradient(135deg, #6b2fa0, #1a0a2e, #3d1f5c); }
 
-        .cover-placeholder .cover-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 16px;
-            font-weight: 800;
-            line-height: 1.3;
-        }
-
-        .cover-placeholder .cover-author {
-            font-size: 11px;
-            opacity: 0.8;
-            margin-top: 6px;
-        }
-
-        .book-genre-tag {
+        .cover-deco {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.08;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L55 30 L30 55 L5 30 Z' fill='none' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E");
+        }
+
+        .cover-emoji {
+            font-size: 45px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 20px rgba(224,86,160,0.4));
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: white;
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .cover-author {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-line {
+            width: 40px;
+            height: 2px;
+            background: var(--gradient);
+            margin: 10px auto 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .book-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
             padding: 4px 10px;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.5);
             backdrop-filter: blur(5px);
             border-radius: 10px;
             font-size: 10px;
-            color: white;
+            color: var(--pink);
             font-weight: 600;
+            z-index: 2;
         }
 
-        .book-fav-btn {
+        .book-fav {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 12px;
+            right: 12px;
             width: 34px;
             height: 34px;
             border-radius: 50%;
             border: none;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.4);
             backdrop-filter: blur(5px);
-            color: white;
             font-size: 16px;
             cursor: pointer;
+            z-index: 2;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .book-fav-btn:hover {
-            background: var(--secondary);
-            transform: scale(1.15);
-        }
+        .book-fav:hover, .book-fav.on { background: var(--pink-dark); transform: scale(1.1); }
 
-        .book-fav-btn.active {
-            background: var(--secondary);
-            box-shadow: 0 0 15px rgba(224,86,160,0.5);
-        }
-
-        .book-overlay {
+        .book-hover-overlay {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 50px 14px 14px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            opacity: 0;
-            transition: opacity 0.3s;
+            bottom: 0; left: 0; right: 0;
+            padding: 50px 15px 15px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
             display: flex;
             gap: 8px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 2;
         }
 
-        .book-card:hover .book-overlay { opacity: 1; }
+        .book-card:hover .book-hover-overlay { opacity: 1; }
 
-        .overlay-action {
+        .hover-btn {
             flex: 1;
-            padding: 9px;
+            padding: 10px;
             border: none;
             border-radius: 10px;
             font-family: 'Poppins', sans-serif;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
             color: white;
+            transition: all 0.3s;
         }
 
-        .btn-wattpad {
-            background: var(--wattpad);
-        }
-
-        .btn-wattpad:hover {
-            background: #e5571e;
-            box-shadow: 0 4px 15px rgba(255,97,34,0.4);
-        }
-
-        .btn-list {
-            background: rgba(155,89,182,0.7);
-            backdrop-filter: blur(5px);
-        }
-
-        .btn-list:hover { background: var(--primary); }
-
-        .btn-list.in-list {
-            background: var(--success);
-        }
+        .hover-btn-read { background: var(--gradient); }
+        .hover-btn-read:hover { box-shadow: var(--shadow); }
+        .hover-btn-info { background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); }
+        .hover-btn-info:hover { background: rgba(255,255,255,0.2); }
 
         .book-info {
-            padding: 14px;
+            padding: 16px;
         }
 
-        .book-title {
-            font-size: 14px;
-            font-weight: 700;
+        .book-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 800;
             margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .book-info .author {
+            font-size: 12px;
+            color: var(--pink);
+            margin-bottom: 8px;
+        }
+
+        .book-info .desc {
+            font-size: 12px;
+            color: var(--text-dim);
+            line-height: 1.5;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            line-height: 1.3;
-        }
-
-        .book-author {
-            font-size: 12px;
-            color: var(--primary-light);
-            margin-bottom: 8px;
         }
 
         .book-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: 10px;
             font-size: 11px;
-            color: var(--text-muted);
+            color: var(--text-dim);
         }
 
-        .book-rating {
-            display: flex;
-            align-items: center;
-            gap: 3px;
+        .book-meta .stars { color: var(--gold); }
+
+        .chapters-badge {
+            background: var(--bg4);
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 10px;
         }
 
-        .stars { color: var(--gold); font-size: 11px; }
-
-        /* ============ EMPTY STATE ============ */
-        .empty-state {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .empty-icon {
-            font-size: 70px;
-            margin-bottom: 15px;
-        }
-
-        .empty-state h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        .empty-state p {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .empty-btn {
-            padding: 12px 30px;
-            background: var(--gradient1);
-            border: none;
-            border-radius: 25px;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: var(--shadow-purple);
-        }
-
-        /* ============ MODALS ============ */
-        .modal-backdrop {
+        /* ========== READER ========== */
+        .reader {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.75);
-            backdrop-filter: blur(8px);
+            background: var(--bg);
             z-index: 1000;
+            display: none;
+            flex-direction: column;
+        }
+
+        .reader.open { display: flex; }
+
+        .reader-head {
+            padding: 14px 25px;
+            background: var(--bg2);
+            border-bottom: 1px solid rgba(155,89,182,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .reader-head-left h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+        }
+
+        .reader-head-left .ch-name {
+            font-size: 12px;
+            color: var(--pink);
+        }
+
+        .reader-close {
+            padding: 8px 18px;
+            background: var(--bg4);
+            border: 1px solid rgba(155,89,182,0.15);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .reader-close:hover { background: var(--red); border-color: var(--red); }
+
+        .reader-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+
+        .reader-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .reader-content .ch-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--pink);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .reader-content .ch-sub {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(155,89,182,0.1);
+        }
+
+        .reader-content p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 19px;
+            line-height: 1.9;
+            color: var(--text-reader);
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+
+        .reader-content p em {
+            color: var(--purple-light);
+            font-style: italic;
+        }
+
+        .reader-content .scene-break {
+            text-align: center;
+            color: var(--purple);
+            font-size: 20px;
+            margin: 30px 0;
+            letter-spacing: 10px;
+        }
+
+        .reader-content .dialogue {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .reader-foot {
+            padding: 14px 25px;
+            background: var(--bg2);
+            border-top: 1px solid rgba(155,89,182,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .reader-nav {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 10px;
+            background: var(--gradient);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .reader-nav:hover { box-shadow: var(--shadow); }
+        .reader-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        .font-ctrls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .font-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            border: 1px solid rgba(155,89,182,0.15);
+            background: var(--bg4);
+            color: var(--text);
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .font-size-label {
+            font-size: 12px;
+            color: var(--text-dim);
+            min-width: 35px;
+            text-align: center;
+        }
+
+        .chapter-select {
+            padding: 8px 12px;
+            background: var(--bg4);
+            border: 1px solid rgba(155,89,182,0.15);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            max-width: 200px;
+        }
+
+        .chapter-select option { background: var(--bg2); }
+
+        /* ========== DETAIL MODAL ========== */
+        .modal-bg {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 500;
             display: none;
             align-items: center;
             justify-content: center;
             padding: 20px;
         }
 
-        .modal-backdrop.open { display: flex; }
+        .modal-bg.open { display: flex; }
 
-        .modal {
-            background: var(--bg-card);
-            border: 1px solid rgba(155,89,182,0.2);
+        .modal-box {
+            background: var(--bg2);
+            border: 1px solid rgba(155,89,182,0.15);
             border-radius: 20px;
             width: 100%;
-            max-width: 550px;
+            max-width: 650px;
             max-height: 85vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            overflow-y: auto;
             box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-            animation: modalIn 0.3s ease;
+            animation: modalPop 0.3s ease;
         }
 
-        @keyframes modalIn {
-            from { opacity: 0; transform: scale(0.9) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
-
-        .modal-wide { max-width: 700px; }
 
         .modal-head {
-            padding: 22px 25px;
+            padding: 20px 25px;
             border-bottom: 1px solid rgba(155,89,182,0.1);
             display: flex;
             justify-content: space-between;
@@ -641,399 +692,251 @@
 
         .modal-head h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 18px;
         }
 
-        .modal-close {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            border: none;
-            background: var(--bg-card3);
-            color: var(--text);
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-close:hover { background: var(--danger); }
-
-        .modal-body {
-            padding: 25px;
-            overflow-y: auto;
-            flex: 1;
-        }
-
-        /* ============ ADD BOOK FORM ============ */
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--primary-light);
-            margin-bottom: 6px;
-        }
-
-        .form-group label .required {
-            color: var(--danger);
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px 16px;
-            background: var(--bg-input);
-            border: 2px solid rgba(155,89,182,0.15);
-            border-radius: 12px;
-            color: var(--text);
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            transition: all 0.3s;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 15px rgba(155,89,182,0.15);
-        }
-
-        .form-input::placeholder { color: var(--text-muted); }
-
-        textarea.form-input {
-            resize: vertical;
-            min-height: 70px;
-        }
-
-        select.form-input {
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239585ad'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 20px;
-        }
-
-        select.form-input option {
-            background: var(--bg-card);
-            color: var(--text);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .form-hint {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 14px;
-            background: var(--gradient1);
-            border: none;
-            border-radius: 14px;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: var(--shadow-purple);
-            margin-top: 10px;
-        }
-
-        .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(155,89,182,0.5);
-        }
-
-        /* ============ LIST MODAL ITEMS ============ */
-        .list-item {
-            display: flex;
-            gap: 14px;
-            padding: 14px;
-            background: var(--bg-card2);
-            border-radius: 14px;
-            margin-bottom: 10px;
-            border: 1px solid rgba(155,89,182,0.08);
-            transition: all 0.3s;
-            align-items: center;
-        }
-
-        .list-item:hover {
-            background: var(--bg-card3);
-            border-color: rgba(155,89,182,0.2);
-        }
-
-        .list-thumb {
-            width: 55px;
-            height: 75px;
-            border-radius: 10px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .list-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .list-thumb-placeholder {
-            width: 100%;
-            height: 100%;
-            background: var(--gradient2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-        }
-
-        .list-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .list-info h4 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 2px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .list-info p {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        .list-info .genre-pill {
-            display: inline-block;
-            padding: 2px 8px;
-            background: rgba(155,89,182,0.2);
-            border-radius: 8px;
-            font-size: 10px;
-            color: var(--primary-light);
-            margin-top: 4px;
-        }
-
-        .list-actions {
-            display: flex;
-            gap: 6px;
-            flex-shrink: 0;
-        }
-
-        .list-btn {
+        .modal-x {
             width: 32px;
             height: 32px;
-            border-radius: 8px;
+            border-radius: 50%;
             border: none;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .list-btn-open {
-            background: var(--wattpad);
-            color: white;
-        }
-
-        .list-btn-open:hover { background: #e5571e; }
-
-        .list-btn-edit {
-            background: var(--primary-dark);
-            color: white;
-        }
-
-        .list-btn-edit:hover { background: var(--primary); }
-
-        .list-btn-del {
-            background: rgba(231,76,60,0.2);
-            color: var(--danger);
-        }
-
-        .list-btn-del:hover { background: var(--danger); color: white; }
-
-        .modal-empty {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
-        }
-
-        .modal-empty .e-icon { font-size: 50px; margin-bottom: 12px; }
-
-        /* ============ TOAST ============ */
-        .toast-container {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 5000;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .toast {
-            padding: 14px 22px;
-            border-radius: 14px;
-            font-size: 13px;
-            font-weight: 500;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            animation: toastIn 0.4s ease, toastOut 0.4s ease 2.6s forwards;
-            cursor: pointer;
-        }
-
-        @keyframes toastIn {
-            from { opacity: 0; transform: translateX(100px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes toastOut {
-            from { opacity: 1; transform: translateX(0); }
-            to { opacity: 0; transform: translateX(100px); }
-        }
-
-        .toast-success { background: linear-gradient(135deg, #2ecc71, #27ae60); }
-        .toast-fav { background: var(--gradient3); }
-        .toast-info { background: var(--gradient2); }
-        .toast-danger { background: linear-gradient(135deg, #e74c3c, #c0392b); }
-
-        /* ============ CONTEXT MENU ============ */
-        .ctx-menu {
-            position: fixed;
-            background: var(--bg-card2);
-            border: 1px solid rgba(155,89,182,0.2);
-            border-radius: 12px;
-            padding: 6px;
-            min-width: 180px;
-            z-index: 2000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            display: none;
-        }
-
-        .ctx-menu.open { display: block; }
-
-        .ctx-item {
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 13px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: background 0.2s;
+            background: var(--bg4);
             color: var(--text);
-            border: none;
-            background: none;
-            width: 100%;
-            text-align: left;
-            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            cursor: pointer;
         }
 
-        .ctx-item:hover { background: rgba(155,89,182,0.15); }
-        .ctx-item.danger { color: var(--danger); }
-        .ctx-item.danger:hover { background: rgba(231,76,60,0.15); }
-        .ctx-sep { height: 1px; background: rgba(155,89,182,0.1); margin: 4px 0; }
+        .modal-x:hover { background: var(--red); }
 
-        /* ============ FOOTER ============ */
-        footer {
-            background: var(--bg-card);
-            border-top: 1px solid rgba(155,89,182,0.1);
-            padding: 35px 30px;
-            text-align: center;
-            margin-top: 50px;
-        }
+        .modal-content { padding: 25px; }
 
-        .footer-links {
+        .detail-grid {
             display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-bottom: 12px;
+            gap: 22px;
             flex-wrap: wrap;
         }
 
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 13px;
-            transition: color 0.3s;
+        .detail-cover {
+            width: 180px;
+            height: 260px;
+            border-radius: 14px;
+            overflow: hidden;
+            flex-shrink: 0;
         }
 
-        .footer-links a:hover { color: var(--primary-light); }
+        .detail-right { flex: 1; min-width: 200px; }
 
-        footer .copy {
-            color: var(--text-muted);
+        .detail-right h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .detail-right .d-author { color: var(--pink); font-size: 14px; margin-bottom: 12px; }
+
+        .detail-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .d-tag {
+            padding: 4px 10px;
+            background: var(--bg4);
+            border-radius: 10px;
+            font-size: 11px;
+            color: var(--text-dim);
+        }
+
+        .detail-desc {
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .detail-stats {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .d-stat {
+            padding: 10px 16px;
+            background: var(--bg3);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .d-stat strong {
+            display: block;
+            font-size: 16px;
+            color: var(--pink);
+        }
+
+        .d-stat span {
+            font-size: 10px;
+            color: var(--text-dim);
+        }
+
+        .detail-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .d-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .d-btn:hover { transform: translateY(-2px); }
+        .d-btn-read { background: var(--gradient); }
+        .d-btn-fav { background: var(--bg4); }
+        .d-btn-fav.on { background: var(--pink-dark); }
+
+        /* Chapter list in modal */
+        .chapter-list {
+            margin-top: 20px;
+            border-top: 1px solid rgba(155,89,182,0.1);
+            padding-top: 18px;
+        }
+
+        .chapter-list h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: var(--text-dim);
+        }
+
+        .ch-item {
+            padding: 10px 14px;
+            background: var(--bg3);
+            border-radius: 10px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .ch-item:hover { background: var(--bg5); border-left: 3px solid var(--pink); }
+        .ch-item span { color: var(--text-dim); font-size: 11px; }
+
+        /* ========== FAVORITES MODAL ========== */
+        .fav-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px;
+            background: var(--bg3);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .fav-item:hover { background: var(--bg5); }
+
+        .fav-thumb {
+            width: 45px;
+            height: 60px;
+            border-radius: 8px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .fav-info { flex: 1; }
+        .fav-info h4 { font-size: 13px; }
+        .fav-info p { font-size: 11px; color: var(--text-dim); }
+
+        .fav-rm {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(231,76,60,0.15);
+            color: var(--red-soft);
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .fav-rm:hover { background: var(--red); color: white; }
+
+        .empty-msg {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-dim);
+        }
+
+        .empty-msg .em-icon { font-size: 45px; margin-bottom: 10px; }
+
+        /* ========== TOAST ========== */
+        .toast-wrap {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .toast-msg {
+            padding: 12px 20px;
+            background: var(--gradient);
+            border-radius: 12px;
+            color: white;
+            font-size: 13px;
+            margin-top: 6px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            animation: tIn 0.3s ease, tOut 0.3s ease 2.5s forwards;
+        }
+
+        @keyframes tIn { from { opacity:0; transform:translateX(80px); } to { opacity:1; transform:translateX(0); } }
+        @keyframes tOut { from { opacity:1; } to { opacity:0; transform:translateX(80px); } }
+
+        /* ========== FOOTER ========== */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(155,89,182,0.08);
+            color: var(--text-dim);
             font-size: 12px;
         }
 
-        /* ============ RESPONSIVE ============ */
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
-            .header-main {
-                flex-wrap: wrap;
-                padding: 12px 15px;
-                gap: 10px;
-            }
-
-            .header-center {
-                order: 3;
-                flex-basis: 100%;
-                margin: 0;
-                max-width: 100%;
-            }
-
-            .header-actions { gap: 6px; }
-
-            .h-btn .btn-label { display: none; }
-
-            .nav-genres { padding: 8px 15px 12px; }
-
-            .hero { padding: 35px 15px; }
-            .hero h2 { font-size: 26px; }
-            .stats-bar { gap: 20px; }
-            .stat-num { font-size: 24px; }
-
-            .main-container { padding: 20px 15px; }
-
-            .books-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 14px;
-            }
-
-            .book-cover { height: 230px; }
-
-            .form-row { grid-template-columns: 1fr; }
-
-            .modal { max-width: 95%; }
+            .header-inner { flex-wrap: wrap; padding: 12px 15px; }
+            .search-bar { order: 3; flex-basis: 100%; max-width: 100%; margin-top: 8px; }
+            .h-actions { gap: 5px; }
+            .h-btn span.lbl { display: none; }
+            .hero { padding: 40px 15px; }
+            .hero h2 { font-size: 28px; }
+            .container { padding: 0 15px 40px; }
+            .books-grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
+            .book-cover { height: 250px; }
+            .detail-grid { flex-direction: column; align-items: center; }
+            .reader-body { padding: 25px 15px; }
+            .reader-content p { font-size: 17px; }
         }
 
         @media (max-width: 480px) {
-            .books-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-            .book-cover { height: 200px; }
+            .books-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .book-cover { height: 220px; }
+            .cover-title { font-size: 15px; }
             .book-info { padding: 10px; }
-            .book-title { font-size: 12px; }
+            .book-info h3 { font-size: 13px; }
         }
     </style>
 </head>
@@ -1041,800 +944,896 @@
 
     <!-- HEADER -->
     <header>
-        <div class="header-main">
+        <div class="header-inner">
             <div class="logo" onclick="showAll()">
-                <div class="logo-icon">📚</div>
-                <div class="logo-text">
-                    <h1>Mi Biblioteca</h1>
-                    <span>Wattpad Collection</span>
+                <span class="logo-icon">🥀</span>
+                <div>
+                    <h1>Dark Romance</h1>
+                    <span>Library · Para Ti 💜</span>
                 </div>
             </div>
 
-            <div class="header-center">
-                <div class="search-box">
-                    <span class="icon">🔍</span>
-                    <input type="text" id="searchInput" placeholder="Buscar por título, autor o género..." oninput="handleSearch()">
-                </div>
+            <div class="search-bar">
+                <span class="s-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Buscar historias..." oninput="filterBooks()">
             </div>
 
-            <div class="header-actions">
-                <button class="h-btn btn-add" onclick="openAddModal()">
-                    ➕ <span class="btn-label">Agregar Libro</span>
-                </button>
-                <button class="h-btn btn-fav" onclick="openFavModal()">
-                    ❤️ <span class="btn-label">Favoritos</span> <span class="badge" id="favBadge">0</span>
-                </button>
-                <button class="h-btn btn-reading" onclick="openReadingModal()">
-                    📖 <span class="btn-label">Leyendo</span> <span class="badge" id="readBadge">0</span>
-                </button>
+            <div class="h-actions">
+                <button class="h-btn h-btn-fav" onclick="openFavs()">❤️ <span class="lbl">Favoritos</span> <span class="badge-count" id="favBadge">0</span></button>
+                <button class="h-btn h-btn-list" onclick="openReading()">📖 <span class="lbl">Leyendo</span> <span class="badge-count" id="readBadge">0</span></button>
             </div>
         </div>
-
-        <div class="nav-genres" id="genreNav"></div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
-        <h2>Tu colección <span>personal</span> de Wattpad</h2>
-        <p>Guarda tus libros favoritos de Wattpad, organízalos por género y accede a ellos con un solo clic. Tu biblioteca, tus reglas.</p>
-        <div class="stats-bar">
-            <div class="stat-item">
-                <div class="stat-num" id="statTotal">0</div>
-                <div class="stat-label">Libros</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-num" id="statGenres">0</div>
-                <div class="stat-label">Géneros</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-num" id="statFavs">0</div>
-                <div class="stat-label">Favoritos</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-num" id="statReading">0</div>
-                <div class="stat-label">Leyendo</div>
-            </div>
+        <div class="hero-tag">🖤 Dark Romance Collection</div>
+        <h2>Historias que te roban <em>el aliento</em></h2>
+        <p>Amor prohibido, obsesión, poder y pasión. Cada historia está escrita para hacerte sentir. Sumérgete en la oscuridad.</p>
+        <div class="hero-stats">
+            <div class="hs-item"><strong id="stTotal">10</strong><span>Historias</span></div>
+            <div class="hs-item"><strong id="stChapters">0</strong><span>Capítulos</span></div>
+            <div class="hs-item"><strong id="stFavs">0</strong><span>Favoritos</span></div>
         </div>
     </section>
 
-    <!-- MAIN -->
-    <main class="main-container">
-        <div class="section-head">
-            <div>
-                <h2 class="section-title" id="sectionTitle">📖 Todos los Libros</h2>
-                <span class="book-count" id="bookCount"></span>
-            </div>
-            <select class="sort-select" id="sortSelect" onchange="handleSort()">
-                <option value="recent">Más recientes</option>
-                <option value="title">Título A-Z</option>
-                <option value="author">Autor A-Z</option>
-                <option value="rating">Mejor valorados</option>
-            </select>
-        </div>
+    <!-- FILTERS -->
+    <div class="filter-bar" id="filterBar">
+        <button class="f-tag active" onclick="setFilter('all', this)">🖤 Todas</button>
+        <button class="f-tag" onclick="setFilter('mafia', this)">🔫 Mafia</button>
+        <button class="f-tag" onclick="setFilter('obsesion', this)">⛓️ Obsesión</button>
+        <button class="f-tag" onclick="setFilter('prohibido', this)">🚫 Prohibido</button>
+        <button class="f-tag" onclick="setFilter('poder', this)">👑 Poder</button>
+        <button class="f-tag" onclick="setFilter('venganza', this)">🗡️ Venganza</button>
+        <button class="f-tag" onclick="setFilter('secretos', this)">🔒 Secretos</button>
+        <button class="f-tag" onclick="setFilter('posesivo', this)">🖤 Posesivo</button>
+    </div>
 
+    <!-- GRID -->
+    <div class="container">
+        <div class="grid-head">
+            <h2 class="grid-title" id="gridTitle">🖤 Todas las Historias</h2>
+            <span class="grid-count" id="gridCount"></span>
+        </div>
         <div class="books-grid" id="booksGrid"></div>
-    </main>
+    </div>
+
+    <!-- READER -->
+    <div class="reader" id="reader">
+        <div class="reader-head">
+            <div class="reader-head-left">
+                <h3 id="readerTitle"></h3>
+                <div class="ch-name" id="readerChapter"></div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;">
+                <select class="chapter-select" id="chapterSelect" onchange="jumpToChapter()"></select>
+                <button class="reader-close" onclick="closeReader()">✕ Cerrar</button>
+            </div>
+        </div>
+        <div class="reader-body">
+            <div class="reader-content" id="readerContent"></div>
+        </div>
+        <div class="reader-foot">
+            <button class="reader-nav" id="prevBtn" onclick="navChapter(-1)">← Anterior</button>
+            <div class="font-ctrls">
+                <button class="font-btn" onclick="changeFont(-1)">A-</button>
+                <span class="font-size-label" id="fontLabel">19px</span>
+                <button class="font-btn" onclick="changeFont(1)">A+</button>
+            </div>
+            <button class="reader-nav" id="nextBtn" onclick="navChapter(1)">Siguiente →</button>
+        </div>
+    </div>
+
+    <!-- DETAIL MODAL -->
+    <div class="modal-bg" id="detailModal">
+        <div class="modal-box">
+            <div class="modal-head">
+                <h2 id="dmTitle">Detalle</h2>
+                <button class="modal-x" onclick="closeModal('detailModal')">✕</button>
+            </div>
+            <div class="modal-content" id="dmContent"></div>
+        </div>
+    </div>
+
+    <!-- FAVS MODAL -->
+    <div class="modal-bg" id="favsModal">
+        <div class="modal-box">
+            <div class="modal-head">
+                <h2>❤️ Mis Favoritos</h2>
+                <button class="modal-x" onclick="closeModal('favsModal')">✕</button>
+            </div>
+            <div class="modal-content" id="favsContent"></div>
+        </div>
+    </div>
+
+    <!-- READING MODAL -->
+    <div class="modal-bg" id="readModal">
+        <div class="modal-box">
+            <div class="modal-head">
+                <h2>📖 Leyendo Ahora</h2>
+                <button class="modal-x" onclick="closeModal('readModal')">✕</button>
+            </div>
+            <div class="modal-content" id="readContent"></div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast-wrap" id="toastWrap"></div>
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-links">
-            <a href="#" onclick="showAll()">Inicio</a>
-            <a href="#" onclick="openFavModal()">Favoritos</a>
-            <a href="#" onclick="openReadingModal()">Mi Lista</a>
-            <a href="https://www.wattpad.com" target="_blank">Ir a Wattpad ↗</a>
-        </div>
-        <p class="copy">📚 Mi Biblioteca Wattpad Personal © 2024 — Hecho con 💜</p>
+        <p>🥀 Dark Romance Library — Hecho con todo el amor para ti 💜</p>
     </footer>
 
-    <!-- ============ MODAL: ADD BOOK ============ -->
-    <div class="modal-backdrop" id="addModal">
-        <div class="modal">
-            <div class="modal-head">
-                <h2>➕ Agregar Libro</h2>
-                <button class="modal-close" onclick="closeModal('addModal')">✕</button>
-            </div>
-            <div class="modal-body">
-                <form id="addBookForm" onsubmit="handleAddBook(event)">
-                    <div class="form-group">
-                        <label>Enlace de Wattpad <span class="required">*</span></label>
-                        <input type="url" class="form-input" id="bookUrl" placeholder="https://www.wattpad.com/story/..." required>
-                        <div class="form-hint">Copia el enlace del libro desde Wattpad</div>
-                    </div>
+<script>
+// ========================= BOOKS DATABASE =========================
+const BOOKS = [
+{
+    id: 1,
+    title: "Pecados de Sangre",
+    author: "Valentina Noir",
+    tags: ["mafia", "prohibido", "posesivo"],
+    emoji: "🩸",
+    coverStyle: 1,
+    rating: 4.9,
+    description: "Él es el heredero del imperio criminal más peligroso de Italia. Ella es la fiscal que juró destruirlo. Cuando sus mundos chocan, la línea entre el odio y la obsesión se vuelve invisible. Él no pide permiso. Ella no pide piedad. Y entre las sábanas de seda manchadas de secretos, ninguno de los dos podrá escapar del fuego que encendieron.",
+    chapters: [
+        {
+            title: "El Diablo Viste de Armani",
+            content: `La primera vez que Victoria Cruz vio a Dante Ferretti, supo que estaba ante el hombre más peligroso que conocería en su vida.
 
-                    <div class="form-group">
-                        <label>Título del libro <span class="required">*</span></label>
-                        <input type="text" class="form-input" id="bookTitle" placeholder="Ej: After" required>
-                    </div>
+No fue por su reputación —aunque media ciudad temblaba al escuchar su apellido—. No fue por la cicatriz fina que le cruzaba la ceja izquierda como un recuerdo de violencia elegante. No fue siquiera por el séquito de hombres de negro que lo flanqueaban como sombras con forma humana.
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Autor <span class="required">*</span></label>
-                            <input type="text" class="form-input" id="bookAuthor" placeholder="Ej: Anna Todd" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Género <span class="required">*</span></label>
-                            <select class="form-input" id="bookGenre" required>
-                                <option value="">Seleccionar...</option>
-                                <option value="romance">💕 Romance</option>
-                                <option value="fantasia">🧙 Fantasía</option>
-                                <option value="terror">👻 Terror</option>
-                                <option value="misterio">🔍 Misterio</option>
-                                <option value="ciencia-ficcion">🚀 Ciencia Ficción</option>
-                                <option value="drama">🎭 Drama</option>
-                                <option value="aventura">⚔️ Aventura</option>
-                                <option value="poesia">🌹 Poesía</option>
-                                <option value="suspenso">😰 Suspenso</option>
-                                <option value="humor">😂 Humor</option>
-                                <option value="historico">🏛️ Histórico</option>
-                                <option value="fanfiction">✨ Fanfiction</option>
-                                <option value="paranormal">🌙 Paranormal</option>
-                                <option value="werewolf">🐺 Hombres Lobo</option>
-                                <option value="vampiros">🧛 Vampiros</option>
-                                <option value="lgbtq">🏳️‍🌈 LGBTQ+</option>
-                                <option value="accion">💥 Acción</option>
-                                <option value="chicklit">👠 Chick Lit</option>
-                                <option value="otro">📚 Otro</option>
-                            </select>
-                        </div>
-                    </div>
+Fue por sus ojos.
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Valoración</label>
-                            <select class="form-input" id="bookRating">
-                                <option value="0">Sin valorar</option>
-                                <option value="5">⭐⭐⭐⭐⭐ (5)</option>
-                                <option value="4">⭐⭐⭐⭐ (4)</option>
-                                <option value="3">⭐⭐⭐ (3)</option>
-                                <option value="2">⭐⭐ (2)</option>
-                                <option value="1">⭐ (1)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Estado</label>
-                            <select class="form-input" id="bookStatus">
-                                <option value="pending">📋 Pendiente</option>
-                                <option value="reading">📖 Leyendo</option>
-                                <option value="completed">✅ Completado</option>
-                                <option value="dropped">❌ Abandonado</option>
-                            </select>
-                        </div>
-                    </div>
+Oscuros como el café sin azúcar, calculadores como los de un depredador que ha encontrado a su presa y no tiene prisa porque sabe —con absoluta certeza— que no hay escape.
 
-                    <div class="form-group">
-                        <label>URL de la portada (opcional)</label>
-                        <input type="url" class="form-input" id="bookCover" placeholder="https://img.wattpad.com/cover/...">
-                        <div class="form-hint">Pega la URL de la imagen de portada (clic derecho → copiar dirección de imagen)</div>
-                    </div>
+<em>"Así que usted es la fiscal que quiere destruirme"</em>, dijo él, y su voz fue como terciopelo envolviendo una navaja.
 
-                    <div class="form-group">
-                        <label>Notas personales</label>
-                        <textarea class="form-input" id="bookNotes" placeholder="Tus notas, opinión, capítulo donde te quedaste..."></textarea>
-                    </div>
+Victoria levantó la barbilla. No iba a mostrar debilidad. No ante él. No ante nadie.
 
-                    <button type="submit" class="form-submit" id="formSubmitBtn">
-                        📚 Guardar Libro
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
+<em>"No quiero destruirlo, señor Ferretti. Quiero encerrarlo. Hay una diferencia"</em>.
 
-    <!-- ============ MODAL: FAVORITES ============ -->
-    <div class="modal-backdrop" id="favModal">
-        <div class="modal modal-wide">
-            <div class="modal-head">
-                <h2>❤️ Mis Favoritos</h2>
-                <button class="modal-close" onclick="closeModal('favModal')">✕</button>
-            </div>
-            <div class="modal-body" id="favModalBody"></div>
-        </div>
-    </div>
+Dante sonrió. Una sonrisa lenta, deliberada, devastadora. El tipo de sonrisa que hacía que las mujeres inteligentes cometieran estupideces.
 
-    <!-- ============ MODAL: READING LIST ============ -->
-    <div class="modal-backdrop" id="readingModal">
-        <div class="modal modal-wide">
-            <div class="modal-head">
-                <h2>📖 Mi Lista de Lectura</h2>
-                <button class="modal-close" onclick="closeModal('readingModal')">✕</button>
-            </div>
-            <div class="modal-body" id="readingModalBody"></div>
-        </div>
-    </div>
+<em>"La diferencia"</em>, dijo, acercándose un paso —solo uno, pero suficiente para que ella pudiera oler su colonia: madera, cuero y algo oscuro que no supo identificar—, <em>"es que para destruirme tendría que conocerme. Y para conocerme..."</em> bajó la voz hasta convertirla en un susurro, <em>"tendría que dejarme acercarme"</em>.
 
-    <!-- ============ MODAL: BOOK DETAIL ============ -->
-    <div class="modal-backdrop" id="detailModal">
-        <div class="modal modal-wide">
-            <div class="modal-head">
-                <h2 id="detailModalTitle">📖 Detalle</h2>
-                <button class="modal-close" onclick="closeModal('detailModal')">✕</button>
-            </div>
-            <div class="modal-body" id="detailModalBody"></div>
-        </div>
-    </div>
+Victoria sintió que el suelo se inclinaba bajo sus pies. Fue un microsegundo. Una fracción de segundo donde su cuerpo traicionó a su mente y reaccionó a la proximidad de ese hombre como si fuera un imán y ella estuviera hecha de metal.
 
-    <!-- CONTEXT MENU -->
-    <div class="ctx-menu" id="ctxMenu"></div>
+Se recuperó. Siempre se recuperaba.
 
-    <!-- TOAST -->
-    <div class="toast-container" id="toastContainer"></div>
+<em>"Me acercaré lo suficiente en el juicio, señor Ferretti. Prepare a su abogado"</em>.
 
-    <script>
-        // ===================== DATA =====================
-        const GENRES = {
-            'romance': '💕 Romance',
-            'fantasia': '🧙 Fantasía',
-            'terror': '👻 Terror',
-            'misterio': '🔍 Misterio',
-            'ciencia-ficcion': '🚀 Sci-Fi',
-            'drama': '🎭 Drama',
-            'aventura': '⚔️ Aventura',
-            'poesia': '🌹 Poesía',
-            'suspenso': '😰 Suspenso',
-            'humor': '😂 Humor',
-            'historico': '🏛️ Histórico',
-            'fanfiction': '✨ Fanfiction',
-            'paranormal': '🌙 Paranormal',
-            'werewolf': '🐺 Hombres Lobo',
-            'vampiros': '🧛 Vampiros',
-            'lgbtq': '🏳️‍🌈 LGBTQ+',
-            'accion': '💥 Acción',
-            'chicklit': '👠 Chick Lit',
-            'otro': '📚 Otro'
-        };
+Se dio la vuelta y caminó hacia la puerta con pasos firmes, controlados, profesionales. Cada uno medido para no revelar que por dentro estaba temblando.
 
-        // State
-        let books = JSON.parse(localStorage.getItem('wattLibBooks') || '[]');
-        let currentFilter = 'all';
-        let currentSort = 'recent';
-        let editingBookId = null;
+Ya en el pasillo, lejos de esos ojos, se permitió exhalar.
 
-        // ===================== INIT =====================
-        function init() {
-            if (books.length === 0) {
-                // Add sample books for first time
-                const samples = [
-                    { title: "After", author: "Anna Todd", genre: "romance", url: "https://www.wattpad.com/story/15056177-after", cover: "https://img.wattpad.com/cover/15056177-256-k477052.jpg", rating: 5, status: "completed", notes: "Increíble historia de amor 💕" },
-                    { title: "The Kissing Booth", author: "Beth Reekles", genre: "romance", url: "https://www.wattpad.com/story/4769292-the-kissing-booth", cover: "https://img.wattpad.com/cover/4769292-256-k290029.jpg", rating: 4, status: "completed", notes: "Muy divertida" },
-                    { title: "Chasing Red", author: "Isabelle Ronin", genre: "romance", url: "https://www.wattpad.com/story/50499867-chasing-red", cover: "https://img.wattpad.com/cover/50499867-256-k544981.jpg", rating: 5, status: "reading", notes: "" },
-                    { title: "She's With Me", author: "Jessica Cunsolo", genre: "romance", url: "https://www.wattpad.com/story/42592371-shes-with-me", cover: "https://img.wattpad.com/cover/42592371-256-k134697.jpg", rating: 4, status: "reading", notes: "Capítulo 15" },
-                    { title: "The Bad Boy's Girl", author: "Blair Holden", genre: "romance", url: "https://www.wattpad.com/story/14454594-the-bad-boys-girl", cover: "https://img.wattpad.com/cover/14454594-256-k649386.jpg", rating: 4, status: "pending", notes: "" },
-                    { title: "Dark and Dangerous Love", author: "Molly Night", genre: "romance", url: "https://www.wattpad.com/story/56809134-dark-and-dangerous-love", cover: "", rating: 3, status: "pending", notes: "" },
-                ];
+<em>"Mierda"</em>, murmuró.
 
-                samples.forEach(s => {
-                    books.push({
-                        id: generateId(),
-                        ...s,
-                        favorite: false,
-                        createdAt: Date.now()
-                    });
-                });
-                saveBooks();
-            }
+Porque Victoria Cruz llevaba quince años en el sistema judicial, había enfrentado asesinos, narcotraficantes y psicópatas, y ninguno —ninguno— le había hecho sentir lo que Dante Ferretti logró con una sola mirada.
 
-            renderGenreNav();
-            renderBooks();
-            updateStats();
+···
+
+Esa noche, en su departamento, Victoria extendió los archivos del caso Ferretti sobre la mesa de su comedor. Fotos de vigilancia, registros financieros, testimonios, todo.
+
+Dante Ferretti, 34 años. Heredero de la familia Ferretti, la organización criminal más antigua y poderosa de la costa este. Fachada: empresario inmobiliario. Realidad: controlaba el tráfico de armas, lavaba dinero a través de restaurantes y clubes nocturnos, y según los rumores, había matado a su primer hombre a los dieciséis años.
+
+Pero era inteligente. Diabólicamente inteligente. Cada fiscal que había intentado procesarlo terminaba con el caso desestimado por falta de pruebas. Algunos renunciaban. Otros desaparecían.
+
+Victoria no iba a renunciar. Y no iba a desaparecer.
+
+Su teléfono vibró. Un número desconocido. Un mensaje:
+
+<em>"Bonito vestido el de hoy, fiscal. El azul le sienta bien. Pero le quedaría mejor el negro. Dulces sueños."</em>
+
+Victoria se quedó helada.
+
+Él tenía su número personal. Sabía qué había vestido. Sabía dónde vivía.
+
+Cualquier persona cuerda habría sentido miedo.
+
+Victoria sintió algo mucho más peligroso que el miedo.
+
+Sintió la descarga eléctrica de la adrenalina mezclada con algo que se negó a nombrar.
+
+Escribió su respuesta con dedos que no temblaron:
+
+<em>"El negro es para los funerales, señor Ferretti. ¿Debería ir preparando el suyo?"</em>
+
+La respuesta llegó en tres segundos:
+
+<em>"Me encantan las mujeres que muerden. Buenas noches, Victoria."</em>
+
+Era la primera vez que la llamaba por su nombre.
+
+Y era la primera vez en años que Victoria no pudo dormir.`
+        },
+        {
+            title: "Territorio Enemigo",
+            content: `La reunión fue en territorio neutral: el restaurante más exclusivo de la ciudad, donde cada mesa costaba lo que Victoria ganaba en una semana y donde los secretos se susurraban entre platos de trufa y champagne que costaba más que su auto.
+
+Victoria llegó primero. A propósito. Control del terreno. Lo había aprendido en su primer año como fiscal: quien llega primero, controla la narrativa.
+
+Se sentó en la mesa del fondo, de espaldas a la pared, con visión completa del salón. Pidió agua. Solo agua. Necesitaba la cabeza fría.
+
+Dante llegó exactamente siete minutos tarde. También a propósito. Porque los hombres como él no esperan a nadie, y quería que ella lo supiera.
+
+Cruzó el restaurante como si le perteneciera. Y probablemente le pertenecía.
+
+Vestía un traje negro —por supuesto negro, como si el color hubiera sido inventado para él— con una camisa gris oscuro sin corbata. Los dos primeros botones abiertos. Suficiente para revelar la sombra de un tatuaje que subía por su clavícula.
+
+<em>"Fiscal Cruz"</em>, dijo, sentándose frente a ella sin esperar invitación. <em>"¿Solo agua? Qué austera. ¿Sabe lo que pienso de las personas austeras?"</em>
+
+<em>"No me interesa lo que piense"</em>.
+
+<em>"Pienso que esconden sus placeres. Que disfrutan en secreto lo que condenan en público"</em>. Hizo una pausa. <em>"¿Usted disfruta en secreto, Victoria?"</em>
+
+La forma en que pronunció su nombre fue casi obscena. Cada sílaba acariciada por esa voz grave que parecía diseñada para ser escuchada en la oscuridad.
+
+<em>"Estoy aquí para hablar del caso"</em>, dijo ella, abriendo su carpeta. <em>"Tengo testigos. Tengo documentos. Tengo suficiente para llevarlo a juicio"</em>.
+
+Dante ni siquiera miró la carpeta. Sus ojos no se movieron de los de ella.
+
+<em>"¿Sabe qué les pasó a los últimos tres fiscales que intentaron llevarme a juicio?"</em>
+
+<em>"¿Es una amenaza?"</em>
+
+<em>"Es una pregunta"</em>.
+
+<em>"El primero renunció. El segundo fue trasladado. El tercero..."</em> Victoria dudó.
+
+<em>"El tercero"</em>, completó Dante, <em>"descubrió que yo no era el monstruo que buscaba. Descubrió que los verdaderos monstruos estaban en su propia oficina. ¿Quiere saber lo que encontró?"</em>
+
+Victoria lo miró fijamente. Algo en su tono había cambiado. Ya no era seducción ni intimidación. Era algo más cercano a la verdad.
+
+<em>"¿Qué encontró?"</em>
+
+Dante se inclinó hacia adelante. El aire entre ellos se cargó de electricidad.
+
+<em>"Que su jefe, el fiscal general Eduardo Vargas, lleva seis años en mi nómina. Que los jueces que desestimaron mis casos no lo hicieron por falta de pruebas, sino porque Vargas se aseguró de que así fuera. Que usted, Victoria, no fue asignada a mi caso para destruirme..."</em>
+
+Hizo una pausa.
+
+<em>"Fue asignada para fracasar. Para ser la siguiente en la lista de fiscales que intentaron y no pudieron. Para que cuando fracase, Vargas pueda decir: 'Lo ven, es imposible, dejemos en paz a los Ferretti'"</em>.
+
+Victoria sintió que la sangre se le helaba en las venas.
+
+<em>"Miente"</em>, dijo, pero su voz sonó hueca incluso para ella.
+
+Dante sacó un sobre del interior de su saco y lo deslizó sobre la mesa.
+
+<em>"Nunca miento, Victoria. Es mi única virtud"</em>.
+
+Ella abrió el sobre con manos que luchaban por mantenerse firmes. Dentro había fotos. Fotos de Vargas reuniéndose con hombres que ella reconoció como asociados de los Ferretti. Fotos de Vargas recibiendo sobres. Fotos de Vargas en un yate que no podía pagar con su salario.
+
+<em>"¿Por qué me muestra esto?"</em> preguntó Victoria, y su voz sonó rota. <em>"¿Qué gana?"</em>
+
+Dante la miró con una intensidad que la dejó sin aire.
+
+<em>"Gano algo que el dinero no puede comprar. Gano que usted me deba un favor. Y los favores que yo cobro, fiscal..."</em>, sus ojos bajaron a sus labios por una fracción de segundo, <em>"son mucho más interesantes que el dinero"</em>.
+
+Victoria debería haber devuelto el sobre. Debería haberse levantado y marchado. Debería haber llamado a asuntos internos.
+
+En cambio, se guardó el sobre en el bolso.
+
+Y cuando sus dedos rozaron los de Dante al tomar su copa de agua —un roce accidental, o quizás no tanto—, ninguno de los dos apartó la mano.
+
+Fue solo un segundo. Pero fue suficiente para que ambos supieran que las reglas del juego acababan de cambiar.
+
+<em>"Esto no cambia nada"</em>, dijo Victoria. <em>"Sigo siendo su enemiga"</em>.
+
+Dante sonrió. Esa sonrisa de lobo que hacía que el estómago de Victoria se contrajera de una forma que no quería analizar.
+
+<em>"Los mejores amantes siempre empiezan como enemigos, fiscal. ¿No ha leído la historia?"</em>
+
+Victoria se levantó.
+
+<em>"Buenas noches, señor Ferretti"</em>.
+
+<em>"Dante"</em>, corrigió él. <em>"Después de esta noche, creo que nos hemos ganado el derecho a los nombres de pila"</em>.
+
+Ella no respondió. Caminó hacia la salida con la espalda recta y el corazón desbocado.
+
+En el auto, con las manos en el volante y la respiración irregular, Victoria se permitió cerrar los ojos.
+
+Podía sentir todavía el fantasma de su roce en sus dedos. Podía oler su colonia impregnada en el aire. Podía escuchar su voz diciendo su nombre como si fuera una oración.
+
+<em>"Estoy jodida"</em>, susurró.
+
+Y lo peor no era que Dante Ferretti le hubiera dado pruebas contra su jefe.
+
+Lo peor era que una parte de ella —una parte oscura, hambrienta, prohibida— quería saber qué tipo de favor iba a cobrar.`
+        },
+        {
+            title: "El Precio del Silencio",
+            content: `Tres días. Tres días sin noticias de Dante, y Victoria se odiaba por estar contándolos.
+
+Se sumergió en el trabajo. Revisó las fotos del sobre una y otra vez. Investigó en silencio, sin decirle a nadie, porque si lo que Dante decía era verdad —y las pruebas sugerían que sí—, entonces estaba sola.
+
+Completamente sola.
+
+El tercer día, a las once de la noche, alguien tocó su puerta.
+
+Victoria sacó la pistola que guardaba en el cajón de la mesita. Caminó descalza por el pasillo, pegada a la pared. Miró por la mirilla.
+
+Dante Ferretti. En la puerta de su casa. Con la corbata aflojada, el cabello revuelto, y sangre en los nudillos.
+
+Abrió la puerta antes de que su cerebro pudiera impedírselo.
+
+<em>"¿Qué demonios le pasó?"</em>
+
+<em>"Noche difícil en la oficina"</em>, dijo él, y sonrió, pero la sonrisa se torció en una mueca de dolor.
+
+Victoria debería haberle cerrado la puerta. Debería haber llamado a la policía. En cambio, lo agarró del brazo y lo metió en su departamento.
+
+<em>"Siéntese"</em>, ordenó, señalando el sofá.
+
+<em>"Me gusta cuando me das órdenes"</em>, murmuró él, dejándose caer.
+
+Victoria fue por el botiquín. Cuando volvió, se arrodilló frente a él y tomó su mano herida. Los nudillos estaban abiertos, hinchados. Había peleado con alguien. O con varios alguien.
+
+<em>"¿Quién?"</em> preguntó mientras limpiaba la sangre con antiséptico.
+
+Dante la observaba desde arriba. Con el cabello cayéndole sobre la frente y esos ojos oscuros brillando bajo la luz tenue del departamento, parecía un ángel caído. Hermoso y roto.
+
+<em>"Unos socios de Vargas. Vinieron a entregarme un mensaje: que deje de compartir información con la fiscal bonita"</em>.
+
+Victoria levantó la mirada de golpe.
+
+<em>"¿Saben que nos reunimos?"</em>
+
+<em>"Victoria"</em>, dijo Dante con una calma que contradecía la tormenta en sus ojos, <em>"Vargas sabe todo. Tiene ojos en todas partes. Lo que no sabe es lo que te di en ese sobre. Todavía"</em>.
+
+<em>"¿Por eso vinieron a por ti?"</em>
+
+<em>"Vinieron a recordarme cuál es mi lugar. Que los Ferretti somos socios, no competencia"</em>. Dante hizo una pausa. <em>"Lo que no entienden es que yo no tengo socios. Yo tengo gente que me obedece y gente que desaparece"</em>.
+
+Victoria envolvió sus nudillos con gasa. Sus manos eran grandes, fuertes, con dedos largos que podrían ser los de un pianista o los de un asesino. Probablemente ambos.
+
+<em>"¿Por qué viniste aquí?"</em> preguntó ella en voz baja. <em>"De todos los lugares del mundo, ¿por qué a mi puerta?"</em>
+
+Dante no respondió inmediatamente. La miró de esa forma que tenía, esa forma que la hacía sentir completamente expuesta, como si pudiera ver a través de cada capa de profesionalismo, de fortaleza, de indiferencia, hasta llegar a la mujer que había debajo.
+
+<em>"Porque eres el único lugar donde nadie me buscaría"</em>, dijo. <em>"La fiscal y el mafioso. Nadie lo esperaría"</em>.
+
+<em>"¿Solo por eso?"</em>
+
+Sus ojos se oscurecieron.
+
+<em>"No"</em>, admitió. <em>"También porque no he podido dejar de pensar en ti desde esa primera reunión en mi oficina. Porque cuando cierro los ojos te veo a ti, con ese vestido azul y esa mirada de guerrera. Porque me estás volviendo loco, Victoria, y no estoy acostumbrado a que nadie me vuelva loco"</em>.
+
+El aire en la habitación se volvió denso. Pesado. Cargado de todo lo que no deberían sentir y todo lo que no podían evitar.
+
+Victoria todavía sostenía su mano. Sus dedos sobre los de él. Su rodilla rozando la de él. Tan cerca que podía contar las pestañas que enmarcaban esos ojos imposibles.
+
+<em>"Esto está mal"</em>, susurró ella.
+
+<em>"Lo sé"</em>.
+
+<em>"Soy tu fiscal. Tú eres mi caso"</em>.
+
+<em>"Lo sé"</em>.
+
+<em>"Si alguien se entera..."</em>
+
+<em>"Lo sé, Victoria"</em>. Su mano libre se levantó y apartó un mechón de cabello de su rostro. El roce de sus dedos contra su mejilla fue como una descarga eléctrica. <em>"¿Quieres que me vaya?"</em>
+
+Una sílaba. Solo necesitaba una sílaba. "Sí". Solo tenía que decir "sí" y él se iría y ella podría respirar y todo volvería a tener sentido.
+
+Pero Victoria había pasado toda su vida haciendo lo correcto. Siendo la perfecta. La profesional. La que nunca se doblegaba.
+
+Y estaba tan cansada de ser perfecta.
+
+<em>"No"</em>, dijo. <em>"No quiero que te vayas"</em>.
+
+Dante la miró como si acabara de darle algo que llevaba toda la vida buscando.
+
+Su mano se deslizó desde su mejilla hasta su nuca. Dedos enredándose en su cabello. Acercándola. Despacio, porque Dante Ferretti hacía todo con la precisión de un hombre que sabe que lo mejor de la vida merece ser saboreado.
+
+El beso no fue suave. No fue tierno. No fue el beso de un hombre que pide permiso.
+
+Fue el beso de un hombre que toma lo que quiere y hace que ella lo desee más que el aire.
+
+Victoria se aferró a las solapas de su chaqueta como si fuera lo único que la mantenía en este mundo. Sintió el sabor del whisky en sus labios, la fuerza de sus manos en su cintura, la solidez de su cuerpo contra el suyo.
+
+Cuando se separaron, ambos jadeaban.
+
+<em>"Esto nos va a destruir"</em>, dijo ella contra sus labios.
+
+Dante sonrió. Esa sonrisa del diablo que ella ya empezaba a reconocer como adicción.
+
+<em>"Cariño"</em>, murmuró, <em>"la destrucción nunca se sintió tan bien"</em>.
+
+Y la besó otra vez.
+
+Y Victoria dejó de pensar.`
         }
+    ]
+},
+{
+    id: 2,
+    title: "Cadenas de Oro",
+    author: "Lux Sombría",
+    tags: ["poder", "obsesion", "posesivo"],
+    emoji: "⛓️",
+    coverStyle: 2,
+    rating: 4.8,
+    description: "Alexander Blackwell es un multimillonario que controla todo: imperios, personas, destinos. Pero cuando conoce a Camila, una artista que se niega a ser comprada, descubre que hay algo peor que no tener control: volverse adicto a alguien que no puedes poseer.",
+    chapters: [
+        {
+            title: "El Coleccionista",
+            content: `Alexander Blackwell coleccionaba cosas hermosas.
 
-        // ===================== HELPERS =====================
-        function generateId() {
-            return 'b_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+Pinturas que valían más que países pequeños. Esculturas que habían sido robadas de museos y recuperadas —por él— en subastas privadas donde la legalidad era un concepto flexible. Autos, relojes, propiedades, personas.
+
+Especialmente personas.
+
+No de la forma vulgar que la palabra sugería. Alexander no compraba cuerpos. Compraba lealtades. Voluntades. Compraba la capacidad de decir "salta" y que el mundo preguntara "¿qué tan alto?"
+
+Tenía treinta y dos años, una fortuna heredada que había triplicado, un rostro que pertenecía a la portada de una revista y una reputación que hacía que los hombres poderosos bajaran la mirada cuando él entraba en una habitación.
+
+Todo lo que quería, lo obtenía.
+
+Hasta Camila.
+
+La vio por primera vez en una galería de arte del East Village, uno de esos espacios diminutos donde los artistas hambrientos exhibían sus entrañas en forma de pintura a cambio de vino barato y la esperanza de ser descubiertos.
+
+Alexander no tenía motivo para estar ahí. Su asistente le había cancelado la cena en Le Bernardin porque el chef estaba enfermo, y él, con una noche libre que no sabía cómo llenar —porque los hombres como Alexander Blackwell no tenían noches libres, tenían agendas—, había caminado por las calles de Nueva York hasta que algo lo detuvo.
+
+No algo. Alguien.
+
+Ella estaba de pie frente a un lienzo enorme, pintando en vivo. Tenía pintura en los dedos, en la mejilla izquierda, en el borde de su camiseta negra que era tres tallas más grande y que dejaba al descubierto un hombro donde brillaba un tatuaje de luna creciente.
+
+Su cabello era un desastre de rizos oscuros recogidos con lo que parecía un pincel. Estaba descalza. Y pintaba como si el mundo estuviera en llamas y su pincel fuera la única forma de apagar el fuego.
+
+Alexander se quedó inmóvil en la puerta durante exactamente cuatro minutos. Él lo sabía porque contó cada segundo.
+
+Cuando ella finalmente se giró —como si hubiera sentido su mirada, como si la intensidad de su observación fuera tangible—, sus ojos se encontraron.
+
+Los de ella eran del color de la miel caliente. Dorados, luminosos, indómitos.
+
+<em>"¿Vas a entrar o solo vas a quedarte ahí acosándome?"</em>, dijo ella, y su voz fue como tequila: áspera, directa, y capaz de incendiar desde adentro.
+
+Alexander no estaba acostumbrado a que le hablaran así. Nadie le hablaba así. A las personas que le hablaban así les pasaban cosas desagradables.
+
+Pero cuando ella lo dijo, con esa sonrisa desafiante y esos ojos que no mostraban ni un gramo de intimidación, Alexander Blackwell sintió algo que no había sentido en años.
+
+Interés genuino.
+
+<em>"¿Cuánto cuesta?"</em>, preguntó, señalando el lienzo.
+
+Ella lo miró de arriba abajo. El traje de tres mil dólares, los zapatos hechos a medida, el reloj que costaba más que el alquiler anual de esa galería.
+
+<em>"No está en venta"</em>.
+
+<em>"Todo tiene un precio"</em>.
+
+<em>"No. Todo tiene un valor. El precio es lo que la gente como tú pone para sentir que puede comprarlo. El valor es algo completamente diferente"</em>.
+
+Alexander dio un paso dentro de la galería. Luego otro.
+
+<em>"¿Gente como yo?"</em>
+
+<em>"Hombres ricos que confunden poseer con apreciar"</em>.
+
+<em>"¿Y tú puedes notar la diferencia?"</em>
+
+<em>"Puedo notar que llevas cuatro minutos mirándome como si fuera otro objeto para tu colección. Así que sí, noto la diferencia"</em>.
+
+Silencio. El tipo de silencio que precede a los terremotos.
+
+Alexander sonrió. No la sonrisa calculada que usaba en juntas directivas o cenas de gala. Una sonrisa real, que le sorprendió incluso a él.
+
+<em>"Me llamo Alexander"</em>.
+
+<em>"No pregunté"</em>.
+
+<em>"No. Pero quiero que lo sepas. Porque voy a volver mañana. Y pasado mañana. Y el día después de ese"</em>.
+
+Camila volvió a su lienzo, dándole la espalda con una indiferencia que habría humillado a cualquier otro hombre.
+
+<em>"Puedes volver las veces que quieras. El arte es libre. Aunque dudo que tú entiendas lo que significa esa palabra"</em>.
+
+Alexander se quedó mirándola un momento más. La forma en que su mano se movía sobre el lienzo. La curva de su cuello. La mancha de pintura azul en su clavícula.
+
+Salió de la galería y llamó a su asistente.
+
+<em>"Necesito todo lo que puedas encontrar sobre la artista Camila... necesito su apellido. Galería del East Village, calle 7. Búscala. Quiero saberlo todo para mañana a primera hora"</em>.
+
+<em>"¿Todo, señor?"</em>
+
+<em>"Todo. Desde el color que prefiere en su café hasta el nombre de su primer amor. Todo"</em>.
+
+Colgó el teléfono y miró hacia la galería por última vez.
+
+Camila estaba pintando. No lo miraba. No le importaba.
+
+Y eso —esa absoluta, refrescante, enloquecedora indiferencia— fue lo que selló el destino de Alexander Blackwell.
+
+Porque no podía poseerla.
+
+Y eso significaba que no iba a descansar hasta hacerlo.`
+        },
+        {
+            title: "Flores Negras",
+            content: `Las flores llegaron al día siguiente. Rosas negras. Cien de ellas, en un jarrón de cristal que probablemente costaba más que todo lo que Camila poseía.
+
+La tarjeta decía: <em>"No todo lo valioso tiene precio. Pero todo lo hermoso merece ser admirado. — A"</em>
+
+Camila las miró durante exactamente tres segundos. Luego las sacó a la calle y se las regaló a la señora del puesto de frutas de la esquina.
+
+<em>"¿Estás loca?"</em>, dijo Lucía, su compañera de departamento, cuando se enteró. <em>"¡Esas rosas valen una fortuna!"</em>
+
+<em>"No quiero sus flores"</em>.
+
+<em>"¿De quién?"</em>
+
+<em>"De un hombre rico que cree que puede comprar mi atención"</em>.
+
+Lucía la miró con los ojos muy abiertos.
+
+<em>"¿Qué tan rico?"</em>
+
+<em>"Del tipo que usa reloj de cien mil dólares para ir a una galería de barrio"</em>.
+
+<em>"Dios mío. ¿Y está bueno?"</em>
+
+Camila no respondió. Porque la respuesta era sí. Un sí tan rotundo que le daba rabia. Alexander Blackwell era el tipo de hombre que hacía que las neuronas dejaran de funcionar y las hormonas tomaran el control. Alto, con hombros anchos que llenaban ese traje impecable, mandíbula que parecía esculpida, cabello oscuro con mechones grises prematuros en las sienes que en lugar de envejecerlo le daban un aire de autoridad que resultaba irritantemente atractivo.
+
+Pero Camila había aprendido, a los doce años, en un hogar de acogida donde nadie la eligió, que las cosas bonitas siempre venían con trampa.
+
+Al día siguiente, Alexander cumplió su promesa. Estaba en la galería cuando ella llegó a las nueve de la mañana.
+
+<em>"¿Devolviste mis flores?"</em>, dijo, apoyado contra la pared con la elegancia de alguien que nació sabiendo cómo ocupar espacio.
+
+<em>"Se las di a alguien que las apreciaría"</em>.
+
+<em>"¿Y tú no las aprecias?"</em>
+
+<em>"Aprecio las cosas que se dan sin intención de recibir algo a cambio. Tus flores no eran un regalo, eran una inversión"</em>.
+
+Alexander la estudió con esos ojos grises que parecían radiografías emocionales.
+
+<em>"Eres la persona más difícil que he conocido"</em>, dijo, y sonó genuinamente fascinado.
+
+<em>"Eso es porque nunca has conocido a alguien que no quiera algo de ti"</em>.
+
+La frase aterrizó entre ellos como una bomba silenciosa.
+
+Alexander parpadeó. Una vez. Dos veces. Y Camila vio algo en su expresión que no esperaba: vulnerabilidad. Un destello brevísimo, como la luz de un faro en la tormenta, que desapareció tan rápido como apareció.
+
+<em>"Tienes razón"</em>, dijo en voz baja. <em>"Nunca he conocido a nadie que no quiera algo de mí"</em>.
+
+Y por primera vez, Camila sintió algo que no era irritación.
+
+Sintió lástima.
+
+No. No lástima. Algo más complejo. Reconocimiento. La sensación de mirarse en un espejo inesperado. Porque ella también conocía la soledad de no saber si la gente te quiere a ti o a lo que puedes darles.
+
+<em>"¿Quieres un café?"</em>, preguntó, y se sorprendió a sí misma.
+
+Alexander la miró como si le hubiera ofrecido la luna.
+
+<em>"Sí"</em>, dijo. <em>"Quiero un café"</em>.
+
+Fueron a la cafetería de la esquina. No a un restaurante de estrella Michelin. A la cafetería de la esquina, donde el café costaba dos dólares y las sillas no combinaban y había un gato dormido en el mostrador.
+
+Alexander se sentó como si estuviera en una sala de juntas: espalda recta, piernas cruzadas, control total. Pero cuando el gato saltó a su regazo, algo extraordinario sucedió.
+
+Sonrió.
+
+No la sonrisa calculada. No la sonrisa de depredador. Una sonrisa real, suave, casi infantil, mientras acariciaba al gato con dedos que probablemente habían firmado contratos de millones esa misma mañana.
+
+Y Camila, que se había jurado no dejarse impresionar por este hombre, sintió que algo se aflojaba en su pecho.
+
+<em>"¿Cómo te hiciste eso?"</em>, preguntó, señalando una cicatriz fina en su muñeca que asomaba bajo el puño de la camisa.
+
+Alexander dejó de acariciar al gato.
+
+<em>"No es una historia para el primer café"</em>.
+
+<em>"¿Habrá un segundo?"</em>
+
+<em>"Eso depende de ti, Camila"</em>.
+
+Era la primera vez que decía su nombre. Y la forma en que lo dijo —como si cada letra fuera una nota musical que hubiera estado practicando— hizo que ella sintiera algo que se parecía peligrosamente a las mariposas.
+
+Malditas mariposas.
+
+<em>"Tal vez"</em>, dijo ella. <em>"Si dejas de enviarme cosas caras"</em>.
+
+<em>"¿Y qué puedo enviarte?"</em>
+
+<em>"Nada. No necesito que me envíes nada"</em>.
+
+<em>"Entonces vendré yo"</em>.
+
+<em>"Alexander..."</em>
+
+<em>"Dime que no venga"</em>. Se inclinó hacia adelante, y su voz bajó hasta convertirse en algo íntimo, privado, solo para ella. <em>"Dime que no venga y no volveré. Te doy mi palabra. Y mi palabra es lo único que nunca he roto"</em>.
+
+Camila lo miró. Miró esos ojos grises que escondían tormentas. Miró esas manos poderosas que acariciaban a un gato callejero con una ternura que contradecía todo lo que era.
+
+Debería decirle que no viniera. Debería protegerse. Debería mantener las paredes que había construido durante veintiséis años de supervivencia.
+
+<em>"Ven"</em>, dijo. <em>"Pero sin flores"</em>.
+
+Alexander sonrió. Y esta vez, la sonrisa le llegó a los ojos.
+
+<em>"Sin flores"</em>, prometió. <em>"Solo yo"</em>.
+
+Camila supo, en ese momento, que estaba cometiendo el error más hermoso de su vida.`
+        },
+        {
+            title: "La Primera Grieta",
+            content: `Alexander vino cada día durante dos semanas.
+
+Sin flores. Sin regalos. Sin intentar impresionarla. Solo él, con un café de dos dólares y una disposición a sentarse en esas sillas desiguales y escucharla hablar de arte como si fuera la primera vez que alguien le hablaba de algo que no fueran números.
+
+Y quizás lo era.
+
+Camila descubrió cosas de él que las revistas de negocios jamás publicarían. Que de niño quería ser veterinario. Que leía poesía en español aunque no entendía todas las palabras, solo por la musicalidad. Que le aterrorizaban las alturas pero tenía un ático en el piso 60 porque su padre le enseñó que los Blackwell no le temen a nada.
+
+<em>"¿Y tú le creíste?"</em>, preguntó Camila.
+
+<em>"Le creí hasta los diecisiete, cuando descubrí que mi padre le temía a algo: que yo fuera mejor que él"</em>.
+
+La historia salió en fragmentos, como cristales rotos que Camila fue recogiendo y ensamblando. Un padre tiránico que confundía amor con control. Una madre que se fue cuando Alexander tenía diez años porque no soportó más. Un adolescente que heredó un imperio y una soledad del tamaño de ese imperio.
+
+<em>"¿La buscaste?"</em>, preguntó Camila. <em>"A tu madre"</em>.
+
+<em>"Sí"</em>.
+
+<em>"¿La encontraste?"</em>
+
+<em>"Sí. Vive en un pueblo en el sur de Francia. Tiene un jardín. Se volvió a casar. Es feliz"</em>.
+
+<em>"¿Hablaste con ella?"</em>
+
+<em>"Me quedé en el auto, al otro lado de la calle, durante una hora. La vi regar sus plantas. Sonreía"</em>. Pausa. <em>"No bajé del auto. Si me veía... si sabía que existía... su sonrisa se habría apagado. Porque yo le recordaría todo lo que dejó atrás. Y no quería ser la razón por la que dejara de sonreír"</em>.
+
+Camila sintió que algo se rompía dentro de ella. Algo que llevaba años construyendo. Una pared. Una armadura. Una promesa de que nunca dejaría que nadie entrara lo suficiente como para poder herirla.
+
+Se inclinó sobre la pequeña mesa del café y tomó su mano.
+
+Alexander la miró como si nadie lo hubiera tocado así en años. Como si el simple acto de que alguien le tomara la mano voluntariamente, sin querer nada a cambio, fuera la cosa más extraordinaria que le hubiera ocurrido.
+
+<em>"No eres un monstruo, Alexander"</em>, dijo Camila. <em>"Eres un hombre que creció en una jaula de oro y nunca aprendió que la puerta estaba abierta"</em>.
+
+<em>"¿Y tú vas a enseñarme a salir?"</em>
+
+<em>"No. Tú vas a salir solo. Yo solo voy a estar ahí cuando lo hagas"</em>.
+
+Alexander giró su mano y entrelazó sus dedos con los de ella. La mano de Camila tenía pintura seca en las uñas. La de él tenía la cicatriz que ella todavía no conocía. Juntas, parecían un cuadro: belleza y oscuridad, arte y poder, todo lo que no debería funcionar funcionando de la forma más perfecta.
+
+<em>"Camila"</em>.
+
+<em>"¿Sí?"</em>
+
+<em>"Voy a besarte"</em>. No era una pregunta. Era una advertencia. <em>"No ahora. No hoy. Pero voy a besarte. Y cuando lo haga, no voy a parar. Necesito que lo sepas"</em>.
+
+El corazón de Camila latió tan fuerte que estaba segura de que él podía escucharlo.
+
+<em>"¿Y si no quiero que pares?"</em>
+
+Los ojos de Alexander se oscurecieron hasta convertirse en tormenta.
+
+<em>"Entonces, cariño, prepárate. Porque yo no hago nada a medias"</em>.
+
+Camila debería haber tenido miedo. De él. De la intensidad. De lo que significaba dejarse querer por un hombre que no sabía la diferencia entre amar y poseer.
+
+Pero Camila había pasado toda su vida teniendo miedo.
+
+Y estaba cansada.
+
+Tan, tan cansada de tener miedo.`
         }
+    ]
+},
+{
+    id: 3,
+    title: "Veneno y Violetas",
+    author: "Nyx Oscura",
+    tags: ["venganza", "secretos", "prohibido"],
+    emoji: "💀",
+    coverStyle: 3,
+    rating: 4.7,
+    description: "Isabella regresa a la ciudad que la destruyó con un solo objetivo: venganza. Pero cuando descubre que el hombre que debe destruir es el mismo que le salvó la vida años atrás, la venganza se convierte en una trampa de la que ninguno podrá escapar.",
+    chapters: [
+        {
+            title: "La que Volvió de la Muerte",
+            content: `Dijeron que Isabella Vargas murió en un incendio a los dieciséis años.
 
-        function saveBooks() {
-            localStorage.setItem('wattLibBooks', JSON.stringify(books));
-            updateStats();
+Dijeron que fue un accidente. Un cortocircuito. Mala suerte. Que su cuerpo fue tan consumido por las llamas que no quedó nada que enterrar. Un ataúd vacío. Flores marchitas. Vecinos que susurraban "qué tragedia" y seguían con sus vidas.
+
+Mentiras. Todo mentiras.
+
+Isabella no murió. Isabella fue asesinada. O al menos, la persona que era murió. Lo que quedó fue algo diferente. Algo forjado en el fuego, pulido por el dolor y afilado por diez años de rabia contenida.
+
+Ahora tenía veintiséis años, un nombre falso, una cuenta bancaria respaldada por favores cobrados a las personas correctas, y una lista.
+
+Cuatro nombres.
+
+Cuatro personas responsables de destruir su vida.
+
+El primero ya estaba tachado. Un ejecutivo que ahora pudría en la cárcel por un fraude que ella misma se encargó de exponer.
+
+El segundo había perdido su empresa, su esposa y su reputación en un escándalo cuidadosamente orquestado que los periódicos atribuyeron a "fuentes anónimas".
+
+El tercero estaba por caer. Solo necesitaba tiempo.
+
+El cuarto...
+
+El cuarto nombre en su lista era el más difícil. El más doloroso. El que la mantenía despierta a las tres de la mañana con el corazón retorciéndose entre la venganza y algo que se negaba a llamar amor.
+
+Marcos Reyes.
+
+El hijo del hombre que ordenó el incendio. El heredero del imperio que se construyó sobre las cenizas de su familia. El chico que, a los dieciocho años, la había sacado de las llamas cuando nadie más la buscaba.
+
+El chico que le salvó la vida y nunca supo que ella sobrevivió.
+
+Isabella se miró al espejo de la habitación del hotel. El cabello que antes era largo y negro ahora era corto y platinado. Las cicatrices del fuego en su hombro izquierdo estaban cubiertas por un tatuaje de enredaderas de violetas. Sus ojos eran los mismos —oscuros, intensos, imposibles de olvidar— pero los ocultaba tras lentes de contacto verdes.
+
+Era otra persona. Una persona construida pieza a pieza para infiltrarse, destruir y desaparecer.
+
+<em>"Isabella Vargas está muerta"</em>, dijo su reflejo.
+
+<em>"Sí"</em>, se respondió. <em>"Y los muertos no sienten"</em>.
+
+Tomó su bolso, se puso el vestido rojo que había elegido para esta noche, y salió hacia la gala de la Fundación Reyes.
+
+Hacia Marcos.
+
+Hacia el hombre que la salvó.
+
+Hacia el hombre que iba a destruir.
+
+···
+
+La gala era exactamente como la esperaba: exceso disfrazado de filantropía. Champagne francés, diamantes del tamaño de uvas, sonrisas que ocultaban cuchillos.
+
+Isabella —ahora Valentina Dumont, consultora de inversiones europeas— cruzó el salón con la confianza de alguien que pertenece a este mundo. Años de preparación. Años de aprender a caminar, hablar y respirar como los ricos.
+
+Y entonces lo vio.
+
+Marcos Reyes estaba de pie junto a la barra, solo, con un vaso de whisky que no estaba bebiendo y una expresión que contrastaba con todo lo que lo rodeaba.
+
+Los años lo habían cambiado. Ya no era el adolescente desgarbado que ella recordaba. Era un hombre de espalda ancha, mandíbula definida, cabello negro que le caía sobre la frente de una forma que parecía descuidada pero que probablemente requería más esfuerzo del que admitiría. Sus ojos —esos ojos marrones que ella veía cada vez que cerraba los suyos— miraban la fiesta con algo que reconoció: desprecio.
+
+Marcos Reyes odiaba este mundo tanto como ella.
+
+<em>"Interesante"</em>, murmuró Isabella, y caminó hacia él.
+
+<em>"¿Se divierte?"</em>, preguntó, posicionándose junto a él en la barra.
+
+Marcos la miró. Y por un segundo —un segundo que duró una eternidad— sus ojos se detuvieron en los de ella con una expresión de confusión. Como si algo en lo más profundo de su memoria intentara conectar lo que veía con algo que había perdido.
+
+<em>"¿Nos conocemos?"</em>, preguntó.
+
+El corazón de Isabella se detuvo. Literalmente se detuvo por un latido.
+
+<em>"No creo"</em>, respondió con una sonrisa perfectamente ensayada. <em>"Valentina Dumont. Soy nueva en la ciudad"</em>.
+
+La confusión desapareció del rostro de Marcos, reemplazada por cortesía. Pero algo permaneció en sus ojos. Una chispa. Un eco.
+
+<em>"Marcos Reyes"</em>, dijo, y le ofreció la mano.
+
+Isabella la tomó.
+
+Y cuando su piel tocó la de él, diez años de venganza cuidadosamente construida se tambalearon sobre cimientos que de repente no parecían tan sólidos.
+
+Porque la mano que estaba estrechando era la misma que la había sacado de las llamas.
+
+La misma que la había sostenido mientras tosía humo y sangre.
+
+La misma que la había acariciado y le había susurrado <em>"vas a estar bien, vas a estar bien, te tengo"</em> mientras el mundo ardía a su alrededor.
+
+<em>"Encantada"</em>, dijo Isabella, y su voz no tembló.
+
+Pero por dentro, la niña de dieciséis años que debería haber muerto en ese incendio estaba llorando.`
         }
+    ]
+},
+{
+    id: 4,
+    title: "Su Obsesión Más Oscura",
+    author: "Sombra Roja",
+    tags: ["obsesion", "posesivo", "mafia"],
+    emoji: "🖤",
+    coverStyle: 4,
+    rating: 4.9,
+    description: "Él la observó durante meses antes de acercarse. Aprendió sus rutinas, sus miedos, sus sueños. Para el mundo es un empresario respetable. Para ella será el hombre que le enseñe que hay una línea muy fina entre la protección y la posesión.",
+    chapters: [
+        {
+            title: "El Observador",
+            content: `Nikolai Volkov la encontró un martes.
 
-        function getGenreLabel(key) {
-            return GENRES[key] || '📚 ' + key;
+No por casualidad. Nikolai no creía en las casualidades. Creía en los patrones, en la vigilancia, en la paciencia del depredador que sabe que la presa más valiosa es la que no sabe que está siendo cazada.
+
+Ella salía de una librería en el centro de la ciudad. Llevaba un abrigo gris demasiado grande para su cuerpo delgado, una bufanda morada enrollada hasta la barbilla, y tres libros apretados contra el pecho como si fueran tesoros.
+
+Se llamaba Sofía. Sofía Campos. Veinticuatro años. Maestra de literatura en una escuela pública. Vivía sola en un apartamento pequeño del tercer piso en un edificio sin ascensor. Tenía un gato llamado Byron —por Lord Byron, el poeta—. Compraba café cada mañana en la misma cafetería, siempre a las 7:15, siempre un latte con canela.
+
+Nikolai sabía todo esto porque llevaba tres meses observándola.
+
+No era un acosador. Los acosadores eran patéticos, desordenados, impulsados por impulsos que no podían controlar.
+
+Nikolai controlaba todo. Siempre.
+
+Lo que no podía controlar era por qué ella lo hipnotizaba.
+
+Había empezado por accidente —o lo más cercano al accidente que su vida permitía—. Un coche la había salpicado en un charco. Ella se había quedado de pie, empapada de agua sucia, mirando hacia abajo con una expresión que no era de enojo ni de frustración. Era de resignación. Como si estuviera tan acostumbrada a que el mundo la golpeara que ya ni siquiera le sorprendía.
+
+Y luego —esto fue lo que lo detuvo, lo que hizo que el hombre más peligroso de la costa este se quedara inmóvil en medio de la acera—, ella se rió.
+
+Se rió de sí misma, empapada y ridícula, con una risa que sonaba como campanas en una tormenta. Se sacudió el agua como un perro después de la lluvia y siguió caminando con una sonrisa que desafiaba toda lógica.
+
+Nikolai, que no había sonreído genuinamente desde los catorce años, sintió que la comisura de sus labios se elevaba.
+
+Y supo que estaba jodido.
+
+···
+
+Tres meses de observación le enseñaron cosas que los informes de sus investigadores no podían capturar.
+
+Que Sofía hablaba sola mientras cocinaba. Que hacía voces diferentes para cada personaje cuando leía en voz alta. Que lloraba con las películas pero no con la vida real, como si hubiera aprendido a reservar sus lágrimas para la ficción porque la realidad ya se las había agotado.
+
+Que era más fuerte de lo que parecía. Que era más sola de lo que merecía.
+
+Que a veces, por las noches, se sentaba junto a la ventana y miraba la calle con una expresión que Nikolai reconocía porque la veía en su propio espejo: la expresión de alguien que se pregunta si alguna vez dejará de sentirse invisible.
+
+<em>"No eres invisible"</em>, le dijo al cristal polarizado de su coche, sabiendo que ella no podía escucharlo. <em>"Yo te veo, Sofía. Veo cada parte de ti"</em>.
+
+Y la parte racional de su cerebro —la parte que dirigía un imperio que operaba en las sombras, que negociaba con gobiernos y carteles, que había sobrevivido a tres intentos de asesinato antes de cumplir treinta— le decía que esto era insostenible.
+
+Que un hombre como él no podía querer a una mujer como ella sin destruirla.
+
+Que debía alejarse.
+
+Pero Nikolai Volkov nunca había sido bueno alejándose de las cosas que quería.
+
+El martes número catorce, entró en la librería.`
         }
+    ]
+},
+{
+    id: 5,
+    title: "Rosas en el Abismo",
+    author: "Eclipse Carmesí",
+    tags: ["poder", "secretos", "prohibido"],
+    emoji: "🥀",
+    coverStyle: 5,
+    rating: 4.8,
+    description: "Un matrimonio arreglado con el hombre más temido del país. Ella acepta para salvar a su familia. Él acepta porque la quiere desde que tenía memoria. Lo que ninguno sabe es que el amor puede crecer incluso en los lugares más oscuros.",
+    chapters: [
+        {
+            title: "La Propuesta que no fue Pregunta",
+            content: `El contrato llegó en un maletín de cuero negro, entregado por un hombre que no sonrió ni una sola vez.
 
-        function getGenreEmoji(key) {
-            const label = GENRES[key];
-            return label ? label.split(' ')[0] : '📚';
-        }
+Aurora lo abrió con manos que temblaban aunque se había prometido que no lo harían. Treinta páginas de lenguaje legal que se resumían en una oración simple:
 
-        function getStatusLabel(status) {
-            const map = { pending: '📋 Pendiente', reading: '📖 Leyendo', completed: '✅ Completado', dropped: '❌ Abandonado' };
-            return map[status] || status;
-        }
+Cásate con Sebastián Montero o tu familia lo pierde todo.
 
-        function getStars(rating) {
-            if (!rating) return '';
-            return '⭐'.repeat(rating);
-        }
+Su padre estaba hundido en deudas. El negocio familiar —una bodega que llevaba cuatro generaciones produciendo vino— estaba al borde de la bancarrota. Y Sebastián Montero, el empresario más poderoso y temido del sur de España, había ofrecido pagar cada centavo.
 
-        // ===================== RENDER =====================
-        function renderGenreNav() {
-            const nav = document.getElementById('genreNav');
-            const usedGenres = [...new Set(books.map(b => b.genre))].sort();
+A cambio de ella.
 
-            let html = `<button class="genre-btn ${currentFilter === 'all' ? 'active' : ''}" onclick="filterGenre('all', this)">📚 Todos</button>`;
+<em>"Es un monstruo"</em>, le había dicho su madre, llorando. <em>"Mi niña, no puedes"</em>.
 
-            usedGenres.forEach(g => {
-                if (GENRES[g]) {
-                    html += `<button class="genre-btn ${currentFilter === g ? 'active' : ''}" onclick="filterGenre('${g}', this)">${getGenreLabel(g)}</button>`;
-                }
-            });
+<em>"Es nuestra única opción"</em>, había respondido su padre, sin mirarla a los ojos.
 
-            // Add genres that have no books yet but are common
-            const allGenreKeys = Object.keys(GENRES);
-            allGenreKeys.forEach(g => {
-                if (!usedGenres.includes(g)) {
-                    html += `<button class="genre-btn ${currentFilter === g ? 'active' : ''}" onclick="filterGenre('${g}', this)">${getGenreLabel(g)}</button>`;
-                }
-            });
+Aurora leyó el contrato tres veces. Había cláusulas sobre dónde viviría (su mansión), cuánto tiempo duraría el matrimonio (tres años), qué se esperaba de ella (acompañarlo a eventos, mantener la imagen, dormir en la misma habitación).
 
-            nav.innerHTML = html;
-        }
+La última cláusula estaba escrita a mano. Con una letra elegante, firme, que presionaba el papel como si las palabras tuvieran peso:
 
-        function getFilteredBooks() {
-            let filtered = [...books];
-            const search = document.getElementById('searchInput').value.toLowerCase().trim();
+<em>"Cláusula 47: Nunca te obligaré a nada. Pero te advierto: voy a hacer todo lo posible para que quieras quedarte."</em>
 
-            // Filter
-            if (currentFilter !== 'all') {
-                filtered = filtered.filter(b => b.genre === currentFilter);
-            }
+Aurora se estremeció. No de miedo. De algo más complejo.
 
-            // Search
-            if (search) {
-                filtered = filtered.filter(b =>
-                    b.title.toLowerCase().includes(search) ||
-                    b.author.toLowerCase().includes(search) ||
-                    (GENRES[b.genre] || '').toLowerCase().includes(search) ||
-                    (b.notes || '').toLowerCase().includes(search)
-                );
-            }
+Firmó.
 
-            // Sort
-            switch (currentSort) {
-                case 'title': filtered.sort((a, b) => a.title.localeCompare(b.title)); break;
-                case 'author': filtered.sort((a, b) => a.author.localeCompare(b.author)); break;
-                case 'rating': filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0)); break;
-                default: filtered.sort((a, b) => b.createdAt - a.createdAt);
-            }
+···
 
-            return filtered;
-        }
+La boda fue en la capilla de la mansión Montero. Pequeña, íntima, con flores blancas que olían a promesas y un novio que la esperaba al final del pasillo con una expresión que Aurora no supo interpretar.
 
-        function renderBooks() {
-            const grid = document.getElementById('booksGrid');
-            const filtered = getFilteredBooks();
-
-            document.getElementById('bookCount').textContent = `${filtered.length} libro${filtered.length !== 1 ? 's' : ''}`;
-
-            if (filtered.length === 0) {
-                const isSearch = document.getElementById('searchInput').value.trim() !== '';
-                grid.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">${isSearch ? '🔍' : '📚'}</div>
-                        <h3>${isSearch ? 'Sin resultados' : 'Tu biblioteca está vacía'}</h3>
-                        <p>${isSearch ? 'Intenta con otra búsqueda' : 'Agrega tu primer libro de Wattpad y comienza tu colección'}</p>
-                        ${!isSearch ? '<button class="empty-btn" onclick="openAddModal()">➕ Agregar mi primer libro</button>' : ''}
-                    </div>
-                `;
-                return;
-            }
-
-            grid.innerHTML = filtered.map((book, i) => {
-                const coverHtml = book.cover
-                    ? `<img src="${book.cover}" alt="${book.title}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'cover-placeholder\\'><span class=\\'book-emoji\\'>${getGenreEmoji(book.genre)}</span><div class=\\'cover-title\\'>${escapeHtml(book.title)}</div><div class=\\'cover-author\\'>por ${escapeHtml(book.author)}</div></div>'">`
-                    : `<div class="cover-placeholder">
-                        <span class="book-emoji">${getGenreEmoji(book.genre)}</span>
-                        <div class="cover-title">${escapeHtml(book.title)}</div>
-                        <div class="cover-author">por ${escapeHtml(book.author)}</div>
-                       </div>`;
-
-                const isReading = book.status === 'reading';
-
-                return `
-                    <div class="book-card" style="animation-delay: ${i * 0.04}s" 
-                         oncontextmenu="showContext(event, '${book.id}')"
-                         ondblclick="openInWattpad('${book.id}')">
-                        <div class="book-cover">
-                            ${coverHtml}
-                            <span class="book-genre-tag">${getGenreLabel(book.genre)}</span>
-                            <button class="book-fav-btn ${book.favorite ? 'active' : ''}" 
-                                    onclick="event.stopPropagation(); toggleFav('${book.id}')">
-                                ${book.favorite ? '❤️' : '🤍'}
-                            </button>
-                            <div class="book-overlay">
-                                <button class="overlay-action btn-wattpad" onclick="event.stopPropagation(); openInWattpad('${book.id}')">
-                                    📖 Leer en Wattpad
-                                </button>
-                                <button class="overlay-action btn-list ${isReading ? 'in-list' : ''}" 
-                                        onclick="event.stopPropagation(); toggleReading('${book.id}')">
-                                    ${isReading ? '✅' : '📋'}
-                                </button>
-                            </div>
-                        </div>
-                        <div class="book-info" onclick="openDetail('${book.id}')">
-                            <div class="book-title">${escapeHtml(book.title)}</div>
-                            <div class="book-author">por ${escapeHtml(book.author)}</div>
-                            <div class="book-meta">
-                                <span class="book-rating">
-                                    ${book.rating ? `<span class="stars">${getStars(book.rating)}</span>` : '<span style="color:var(--text-muted)">Sin valorar</span>'}
-                                </span>
-                                <span>${getStatusLabel(book.status).split(' ')[0]}</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        // ===================== STATS =====================
-        function updateStats() {
-            document.getElementById('statTotal').textContent = books.length;
-            const genres = [...new Set(books.map(b => b.genre))];
-            document.getElementById('statGenres').textContent = genres.length;
-            document.getElementById('statFavs').textContent = books.filter(b => b.favorite).length;
-            document.getElementById('statReading').textContent = books.filter(b => b.status === 'reading').length;
-            document.getElementById('favBadge').textContent = books.filter(b => b.favorite).length;
-            document.getElementById('readBadge').textContent = books.filter(b => b.status === 'reading').length;
-        }
-
-        // ===================== ACTIONS =====================
-        function openInWattpad(id) {
-            const book = books.find(b => b.id === id);
-            if (book && book.url) {
-                window.open(book.url, '_blank');
-                toast(`📖 Abriendo "${book.title}" en Wattpad...`, 'info');
-            }
-        }
-
-        function toggleFav(id) {
-            const book = books.find(b => b.id === id);
-            if (book) {
-                book.favorite = !book.favorite;
-                saveBooks();
-                renderBooks();
-                renderGenreNav();
-                toast(
-                    book.favorite ? `❤️ "${book.title}" en favoritos` : `💔 "${book.title}" quitado de favoritos`,
-                    book.favorite ? 'fav' : 'info'
-                );
-            }
-        }
-
-        function toggleReading(id) {
-            const book = books.find(b => b.id === id);
-            if (book) {
-                book.status = book.status === 'reading' ? 'pending' : 'reading';
-                saveBooks();
-                renderBooks();
-                toast(
-                    book.status === 'reading' ? `📖 Leyendo "${book.title}"` : `📋 "${book.title}" en pendientes`,
-                    'success'
-                );
-            }
-        }
-
-        function deleteBook(id) {
-            const book = books.find(b => b.id === id);
-            if (book && confirm(`¿Eliminar "${book.title}" de tu biblioteca?`)) {
-                books = books.filter(b => b.id !== id);
-                saveBooks();
-                renderBooks();
-                renderGenreNav();
-                toast(`🗑️ "${book.title}" eliminado`, 'danger');
-            }
-        }
-
-        // ===================== FILTER & SEARCH =====================
-        function filterGenre(genre, btn) {
-            currentFilter = genre;
-            document.querySelectorAll('.genre-btn').forEach(b => b.classList.remove('active'));
-            if (btn) btn.classList.add('active');
-
-            const title = genre === 'all' ? '📖 Todos los Libros' : `${getGenreLabel(genre)}`;
-            document.getElementById('sectionTitle').textContent = title;
-
-            renderBooks();
-        }
-
-        function showAll() {
-            currentFilter = 'all';
-            document.getElementById('searchInput').value = '';
-            document.getElementById('sectionTitle').textContent = '📖 Todos los Libros';
-            renderGenreNav();
-            renderBooks();
-        }
-
-        function handleSearch() {
-            renderBooks();
-        }
-
-        function handleSort() {
-            currentSort = document.getElementById('sortSelect').value;
-            renderBooks();
-        }
-
-        // ===================== ADD / EDIT BOOK =====================
-        function openAddModal(bookId = null) {
-            editingBookId = bookId;
-            const form = document.getElementById('addBookForm');
-            form.reset();
-
-            if (bookId) {
-                const book = books.find(b => b.id === bookId);
-                if (book) {
-                    document.getElementById('bookUrl').value = book.url || '';
-                    document.getElementById('bookTitle').value = book.title || '';
-                    document.getElementById('bookAuthor').value = book.author || '';
-                    document.getElementById('bookGenre').value = book.genre || '';
-                    document.getElementById('bookRating').value = book.rating || 0;
-                    document.getElementById('bookStatus').value = book.status || 'pending';
-                    document.getElementById('bookCover').value = book.cover || '';
-                    document.getElementById('bookNotes').value = book.notes || '';
-                    document.getElementById('formSubmitBtn').textContent = '✏️ Actualizar Libro';
-                    document.querySelector('#addModal .modal-head h2').textContent = '✏️ Editar Libro';
-                }
-            } else {
-                document.getElementById('formSubmitBtn').textContent = '📚 Guardar Libro';
-                document.querySelector('#addModal .modal-head h2').textContent = '➕ Agregar Libro';
-            }
-
-            openModal('addModal');
-        }
-
-        function handleAddBook(e) {
-            e.preventDefault();
-
-            const data = {
-                url: document.getElementById('bookUrl').value.trim(),
-                title: document.getElementById('bookTitle').value.trim(),
-                author: document.getElementById('bookAuthor').value.trim(),
-                genre: document.getElementById('bookGenre').value,
-                rating: parseInt(document.getElementById('bookRating').value),
-                status: document.getElementById('bookStatus').value,
-                cover: document.getElementById('bookCover').value.trim(),
-                notes: document.getElementById('bookNotes').value.trim()
-            };
-
-            if (editingBookId) {
-                const idx = books.findIndex(b => b.id === editingBookId);
-                if (idx !== -1) {
-                    books[idx] = { ...books[idx], ...data };
-                    toast(`✏️ "${data.title}" actualizado`, 'success');
-                }
-                editingBookId = null;
-            } else {
-                books.push({
-                    id: generateId(),
-                    ...data,
-                    favorite: false,
-                    createdAt: Date.now()
-                });
-                toast(`📚 "${data.title}" agregado a tu biblioteca`, 'success');
-            }
-
-            saveBooks();
-            renderBooks();
-            renderGenreNav();
-            closeModal('addModal');
-        }
-
-        // ===================== DETAIL MODAL =====================
-        function openDetail(id) {
-            const book = books.find(b => b.id === id);
-            if (!book) return;
-
-            document.getElementById('detailModalTitle').textContent = book.title;
-
-            const body = document.getElementById('detailModalBody');
-
-            const coverHtml = book.cover
-                ? `<img src="${book.cover}" alt="${book.title}" style="width:180px;height:260px;object-fit:cover;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.4);" onerror="this.style.display='none'">`
-                : `<div style="width:180px;height:260px;border-radius:14px;background:var(--gradient2);display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;text-align:center;padding:20px;">
-                    <span style="font-size:50px;margin-bottom:10px;">${getGenreEmoji(book.genre)}</span>
-                    <span style="font-family:'Playfair Display',serif;font-size:16px;font-weight:800;">${escapeHtml(book.title)}</span>
-                   </div>`;
-
-            body.innerHTML = `
-                <div style="display:flex;gap:25px;flex-wrap:wrap;">
-                    <div style="flex-shrink:0;">
-                        ${coverHtml}
-                    </div>
-                    <div style="flex:1;min-width:200px;">
-                        <h2 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px;">${escapeHtml(book.title)}</h2>
-                        <p style="color:var(--primary-light);font-size:14px;margin-bottom:14px;">por ${escapeHtml(book.author)}</p>
-                        
-                        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
-                            <span style="padding:5px 12px;background:rgba(155,89,182,0.2);border-radius:10px;font-size:12px;">${getGenreLabel(book.genre)}</span>
-                            <span style="padding:5px 12px;background:rgba(155,89,182,0.1);border-radius:10px;font-size:12px;">${getStatusLabel(book.status)}</span>
-                            ${book.rating ? `<span style="padding:5px 12px;background:rgba(241,196,15,0.15);border-radius:10px;font-size:12px;">${getStars(book.rating)}</span>` : ''}
-                        </div>
-
-                        ${book.notes ? `
-                            <div style="margin-bottom:16px;">
-                                <h4 style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">📝 Mis notas:</h4>
-                                <p style="font-size:13px;color:var(--text);line-height:1.6;padding:12px;background:var(--bg-card2);border-radius:10px;">${escapeHtml(book.notes)}</p>
-                            </div>
-                        ` : ''}
-
-                        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;">
-                            <button onclick="openInWattpad('${book.id}')" style="flex:1;min-width:140px;padding:12px;border:none;border-radius:12px;background:var(--wattpad);color:white;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">
-                                📖 Leer en Wattpad
-                            </button>
-                            <button onclick="toggleFav('${book.id}'); openDetail('${book.id}');" style="padding:12px 18px;border:none;border-radius:12px;background:${book.favorite ? 'var(--secondary)' : 'var(--bg-card3)'};color:white;font-size:14px;cursor:pointer;">
-                                ${book.favorite ? '❤️' : '🤍'}
-                            </button>
-                            <button onclick="closeModal('detailModal'); openAddModal('${book.id}')" style="padding:12px 18px;border:none;border-radius:12px;background:var(--bg-card3);color:var(--text);font-size:14px;cursor:pointer;">
-                                ✏️
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            openModal('detailModal');
-        }
-
-        // ===================== FAV & READING MODALS =====================
-        function openFavModal() {
-            const body = document.getElementById('favModalBody');
-            const favs = books.filter(b => b.favorite);
-
-            if (favs.length === 0) {
-                body.innerHTML = `
-                    <div class="modal-empty">
-                        <div class="e-icon">💜</div>
-                        <h3>No tienes favoritos aún</h3>
-                        <p>Toca el corazón 🤍 en cualquier libro para agregarlo</p>
-                    </div>
-                `;
-            } else {
-                body.innerHTML = favs.map(b => renderListItem(b)).join('');
-            }
-
-            openModal('favModal');
-        }
-
-        function openReadingModal() {
-            const body = document.getElementById('readingModalBody');
-            const reading = books.filter(b => b.status === 'reading');
-
-            if (reading.length === 0) {
-                body.innerHTML = `
-                    <div class="modal-empty">
-                        <div class="e-icon">📚</div>
-                        <h3>No estás leyendo nada</h3>
-                        <p>Cambia el estado de un libro a "Leyendo" para verlo aquí</p>
-                    </div>
-                `;
-            } else {
-                body.innerHTML = reading.map(b => renderListItem(b)).join('');
-            }
-
-            openModal('readingModal');
-        }
-
-        function renderListItem(book) {
-            const thumb = book.cover
-                ? `<img src="${book.cover}" alt="${book.title}" onerror="this.parentElement.innerHTML='<div class=\\'list-thumb-placeholder\\'>${getGenreEmoji(book.genre)}</div>'">`
-                : `<div class="list-thumb-placeholder">${getGenreEmoji(book.genre)}</div>`;
-
-            return `
-                <div class="list-item">
-                    <div class="list-thumb">${thumb}</div>
-                    <div class="list-info">
-                        <h4>${escapeHtml(book.title)}</h4>
-                        <p>por ${escapeHtml(book.author)}</p>
-                        <span class="genre-pill">${getGenreLabel(book.genre)}</span>
-                        ${book.rating ? `<span style="margin-left:6px;font-size:11px;">${getStars(book.rating)}</span>` : ''}
-                    </div>
-                    <div class="list-actions">
-                        <button class="list-btn list-btn-open" title="Leer en Wattpad" onclick="openInWattpad('${book.id}')">📖</button>
-                        <button class="list-btn list-btn-edit" title="Editar" onclick="closeAllModals(); openAddModal('${book.id}')">✏️</button>
-                        <button class="list-btn list-btn-del" title="Eliminar" onclick="deleteBook('${book.id}'); ${book.favorite ? 'openFavModal()' : 'openReadingModal()'}">🗑️</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        // ===================== CONTEXT MENU =====================
-        function showContext(e, bookId) {
-            e.preventDefault();
-            const book = books.find(b => b.id === bookId);
-            if (!book) return;
-
-            const menu = document.getElementById('ctxMenu');
-
-            menu.innerHTML = `
-                <button class="ctx-item" onclick="openInWattpad('${bookId}'); hideContext()">📖 Leer en Wattpad</button>
-                <button class="ctx-item" onclick="openDetail('${bookId}'); hideContext()">📋 Ver detalle</button>
-                <div class="ctx-sep"></div>
-                <button class="ctx-item" onclick="toggleFav('${bookId}'); hideContext()">${book.favorite ? '💔 Quitar de favoritos' : '❤️ Agregar a favoritos'}</button>
-                <button class="ctx-item" onclick="toggleReading('${bookId}'); hideContext()">${book.status === 'reading' ? '📋 Marcar pendiente' : '📖 Marcar como leyendo'}</button>
-                <button class="ctx-item" onclick="changeStatus('${bookId}', 'completed'); hideContext()">✅ Marcar completado</button>
-                <div class="ctx-sep"></div>
-                <button class="ctx-item" onclick="hideContext(); openAddModal('${bookId}')">✏️ Editar</button>
-                <button class="ctx-item danger" onclick="deleteBook('${bookId}'); hideContext()">🗑️ Eliminar</button>
-            `;
-
-            // Position
-            const x = Math.min(e.clientX, window.innerWidth - 200);
-            const y = Math.min(e.clientY, window.innerHeight - 350);
-            menu.style.left = x + 'px';
-            menu.style.top = y + 'px';
-            menu.classList.add('open');
-        }
-
-        function hideContext() {
-            document.getElementById('ctxMenu').classList.remove('open');
-        }
-
-        document.addEventListener('click', hideContext);
-
-        function changeStatus(id, status) {
-            const book = books.find(b => b.id === id);
-            if (book) {
-                book.status = status;
-                saveBooks();
-                renderBooks();
-                toast(`${getStatusLabel(status)} — "${book.title}"`, 'success');
-            }
-        }
-
-        // ===================== MODALS =====================
-        function openModal(id) {
-            document.getElementById(id).classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        function closeAllModals() {
-            document.querySelectorAll('.modal-backdrop').forEach(m => m.classList.remove('open'));
-            document.body.style.overflow = '';
-        }
-
-        // Close on backdrop click
-        document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-            backdrop.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.remove('open');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
-        // ESC key
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') closeAllModals();
-        });
-
-        // ===================== TOAST =====================
-        function toast(message, type = 'success') {
-            const container = document.getElementById('toastContainer');
-            const el = document.createElement('div');
-            el.className = `toast toast-${type}`;
-            el.textContent = message;
-            el.onclick = () => el.remove();
-            container.appendChild(el);
-            setTimeout(() => el.remove(), 3000);
-        }
-
-        // ===================== EXPORT / IMPORT =====================
-        // For safety, let's add these as URL-based functions
-
-        // ===================== INIT =====================
-        init();
-    </script>
-
-</body>
-</html>
+Sebastián Montero era exactamente lo que las revistas describían: alto, imponente, con una presencia que llenaba cualquier habitación hasta hacer que el aire se sintiera más 
